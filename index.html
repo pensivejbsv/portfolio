@@ -899,12 +899,104 @@ function getTags() {
 }
 
 /* ══════════════════════════════
+   GOOGLE SHEETS DB
+   Apps Script 배포 후 아래 URL을 교체하세요
+══════════════════════════════ */
+const APPS_SCRIPT_URL = ''; // ← Apps Script 배포 URL 붙여넣기
+
+function dbReady() { return !!APPS_SCRIPT_URL; }
+
+// DB 상태 표시
+function showDbStatus(msg, type='info') {
+  let bar = document.getElementById('db-status-bar');
+  if (!bar) {
+    bar = document.createElement('div');
+    bar.id = 'db-status-bar';
+    bar.style.cssText = 'position:fixed;bottom:20px;right:20px;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:500;z-index:400;transition:opacity .3s;box-shadow:0 4px 16px rgba(0,0,0,.12)';
+    document.body.appendChild(bar);
+  }
+  const colors = {
+    info:   {bg:'#EEF1FF', color:'#1A3FCE'},
+    ok:     {bg:'#E4F5EC', color:'#145C3A'},
+    error:  {bg:'#FDEAEA', color:'#8B2020'},
+    saving: {bg:'#FEF2DC', color:'#7A4500'}
+  };
+  const c = colors[type] || colors.info;
+  bar.style.background = c.bg;
+  bar.style.color = c.color;
+  bar.textContent = msg;
+  bar.style.opacity = '1';
+  if (type === 'ok') setTimeout(() => bar.style.opacity = '0', 2500);
+}
+
+// 노트 전체 불러오기
+async function loadNotesFromDB() {
+  if (!dbReady()) {
+    // URL 미설정 시 localStorage 폴백
+    const saved = localStorage.getItem('fn_notes');
+    if (saved) notes = JSON.parse(saved);
+    renderNotes();
+    updateFilterButtons();
+    showDbStatus('💾 로컬 저장 모드 (Apps Script URL 미설정)', 'info');
+    return;
+  }
+  showDbStatus('📡 노트 불러오는 중…', 'info');
+  try {
+    const res = await fetch(APPS_SCRIPT_URL);
+    const data = await res.json();
+    if (data.ok) {
+      notes = data.notes.reverse(); // 최신순
+      renderNotes();
+      updateFilterButtons();
+      showDbStatus('✅ Google Sheets 연결됨', 'ok');
+    } else throw new Error(data.error);
+  } catch(e) {
+    showDbStatus('⚠️ DB 연결 실패 — 로컬 모드', 'error');
+    const saved = localStorage.getItem('fn_notes');
+    if (saved) notes = JSON.parse(saved);
+    renderNotes();
+    updateFilterButtons();
+  }
+}
+
+// 노트 저장
+async function saveNoteToDB(note) {
+  // 항상 localStorage에도 백업
+  localStorage.setItem('fn_notes', JSON.stringify(notes));
+
+  if (!dbReady()) return;
+  showDbStatus('💾 저장 중…', 'saving');
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'save', note })
+    });
+    const data = await res.json();
+    if (data.ok) showDbStatus('✅ Google Sheets에 저장됨', 'ok');
+    else throw new Error(data.error);
+  } catch(e) {
+    showDbStatus('⚠️ Sheets 저장 실패 — 로컬에는 저장됨', 'error');
+  }
+}
+
+// 노트 삭제
+async function deleteNoteFromDB(id) {
+  if (!dbReady()) return;
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'delete', id })
+    });
+  } catch(e) { /* silent */ }
+}
+
+/* ══════════════════════════════
    PUBLISH NOTE
 ══════════════════════════════ */
 let notes = [];
 let fnFilter = 'ALL';
 
-function publishNote() {
+async function publishNote() {
   const title = document.getElementById('draft-title').value.trim();
   if (!title) { alert('제목을 입력해주세요'); return; }
 
@@ -922,8 +1014,9 @@ function publishNote() {
 
   notes.unshift(note);
   renderNotes();
-  resetDraft();
   updateFilterButtons();
+  resetDraft();
+  await saveNoteToDB(note);
 }
 
 function resetDraft() {
@@ -991,12 +1084,14 @@ function renderNotes() {
   });
 }
 
-function deleteNote(id, e) {
+async function deleteNote(id, e) {
   e.stopPropagation();
   if (!confirm('이 노트를 삭제하시겠습니까?')) return;
   notes = notes.filter(n => n.id !== id);
   renderNotes();
   updateFilterButtons();
+  localStorage.setItem('fn_notes', JSON.stringify(notes));
+  await deleteNoteFromDB(id);
 }
 
 /* ══════════════════════════════
@@ -1019,20 +1114,9 @@ function updateFilterButtons() {
   });
 }
 
-// Load sample note for demo
-notes = [{
-  id: 1,
-  date: '2026-05-28',
-  title: '시계열 대신 지식그래프로 보는 스킬 수요 예측',
-  cat: 'AI/데이터',
-  summary: '스킬 수요 예측을 시계열 문제가 아닌, 직무·스킬·교육·기업이 얽힌 지식그래프 위 "빠진 연결 채우기" 문제로 재정의한 연구.',
-  body: '기존 시계열 방식은 과거 수요 데이터가 없는 신규 스킬에 적용이 어려움. 연구는 모로코 채용사이트 17년치 공고 99,676건과 Coursera 강의 10,180개를 결합한 JobEdKG를 구축(노드 55,718개, 관계 130만 개). 핵심 발견은 스킬 자체의 의미보다 "어떤 직무가 어떤 스킬을 언제 요구하는지"가 변한다는 것. 관계에 시간을 입히는 모델이 스킬 자체에 시간을 입히는 모델보다 우월.\n\n[한계] 그래프에 없는 완전히 새로운 스킬(예: 프롬프트 엔지니어링)은 예측 불가. 한 번도 등장하지 않은 항목에 대한 zero-shot 추론은 미해결 과제.',
-  insight: '"이 스킬이 뜰까?"가 아니라 "이 스킬이 어떤 직무에서 뜰까?"라는 질문으로 바꿔야 함. 재정행정 관점에서도 R&D 예산 기술 분류를 직무-비용 관계 그래프로 모델링하면 AI 비용의 제도적 공백을 시각화하는 데 응용 가능.',
-  ref: 'Fettach, Y., et al. (2025). Skill demand forecasting using temporal knowledge graph embeddings. arXiv:2504.07233.',
-  tags: ['지식그래프', '스킬예측', '직무분석', 'AI/HR', '시계열']
-}];
-renderNotes();
-updateFilterButtons();
+// 페이지 로드 시 DB에서 노트 불러오기
+loadNotesFromDB();
+
 </script>
 </body>
 </html>
