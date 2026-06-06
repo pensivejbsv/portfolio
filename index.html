@@ -22,6 +22,50 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
 
+/* ── ADMIN LOCK ── */
+.admin-lock-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(23,22,15,.55);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+}
+.admin-lock-box{
+  background:var(--surface);border-radius:20px;
+  padding:32px 36px;width:340px;
+  box-shadow:0 20px 60px rgba(23,22,15,.2);
+  text-align:center;
+}
+.admin-lock-icon{font-size:32px;margin-bottom:12px}
+.admin-lock-box h3{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:6px}
+.admin-lock-box p{font-size:13px;color:var(--ink2);margin-bottom:20px}
+.admin-pw-input{
+  width:100%;padding:11px 14px;border-radius:var(--r);
+  border:1.5px solid var(--border2);font-family:inherit;font-size:14px;
+  color:var(--ink);outline:none;transition:border-color .12s;
+  text-align:center;letter-spacing:.1em;margin-bottom:10px;
+}
+.admin-pw-input:focus{border-color:var(--accent)}
+.admin-pw-submit{
+  width:100%;padding:11px;border-radius:var(--r);
+  background:var(--ink);color:#fff;border:none;
+  font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;
+  transition:background .12s;
+}
+.admin-pw-submit:hover{background:#333}
+.admin-pw-error{font-size:12px;color:var(--coral);margin-top:8px;display:none}
+.admin-pw-cancel{font-size:12px;color:var(--ink3);margin-top:12px;cursor:pointer;display:block;background:none;border:none;font-family:inherit;width:100%}
+.admin-pw-cancel:hover{color:var(--ink)}
+
+/* admin indicator */
+.admin-badge{
+  display:none;font-size:11px;padding:3px 10px;border-radius:20px;
+  background:var(--accent-bg);color:var(--accent);font-weight:500;cursor:pointer;
+}
+body.admin-mode .admin-badge{display:inline-flex;align-items:center;gap:5px}
+body.admin-mode .edit-toggle{display:inline-flex}
+body:not(.admin-mode) .edit-toggle{display:none}
+body:not(.admin-mode) .fn-toolbar{display:none}
+body:not(.admin-mode) #fn-api-notice{display:none !important}
+
 /* ── EDIT BANNER ── */
 .edit-banner{
   position:fixed;top:0;left:0;right:0;z-index:300;
@@ -275,6 +319,19 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   <button class="ebtn" onclick="toggleEdit()">완료</button>
 </div>
 
+<!-- Admin lock overlay (hidden by default) -->
+<div class="admin-lock-overlay" id="adminOverlay" style="display:none">
+  <div class="admin-lock-box">
+    <div class="admin-lock-icon">🔐</div>
+    <h3>관리자 로그인</h3>
+    <p>편집 및 PDF 업로드 기능은<br>관리자만 사용할 수 있습니다.</p>
+    <input class="admin-pw-input" type="password" id="adminPwInput" placeholder="비밀번호" onkeydown="if(event.key==='Enter')checkAdminPw()">
+    <button class="admin-pw-submit" onclick="checkAdminPw()">확인</button>
+    <div class="admin-pw-error" id="adminPwError">비밀번호가 올바르지 않습니다</div>
+    <button class="admin-pw-cancel" onclick="closeAdminOverlay()">취소</button>
+  </div>
+</div>
+
 <div class="wrap">
 
 <!-- NAV -->
@@ -284,7 +341,9 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
     <a href="#" onclick="switchTab('portfolio');return false">포트폴리오</a>
     <a href="#" onclick="switchTab('fieldnotes');return false">Field Notes</a>
     <a href="https://www.linkedin.com/in/jeongbs/" target="_blank">LinkedIn ↗</a>
+    <button class="admin-badge" id="adminBadge" onclick="logoutAdmin()" title="클릭하면 관리자 로그아웃">🔓 관리자</button>
     <button class="edit-toggle" id="editToggle" onclick="toggleEdit()">✏️ 편집</button>
+    <button class="edit-toggle" id="adminLoginBtn" onclick="openAdminOverlay()" style="display:inline-flex">🔐 관리자</button>
   </div>
 </nav>
 
@@ -524,6 +583,47 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
 <script>
 /* ══════════════════════════════
+   ADMIN AUTH
+   비밀번호를 바꾸려면 아래 ADMIN_PW 값을 수정하세요
+══════════════════════════════ */
+const ADMIN_PW = 'harry2026'; // ← 여기서 비밀번호 변경
+
+let isAdmin = false;
+
+function openAdminOverlay() {
+  document.getElementById('adminOverlay').style.display = 'flex';
+  setTimeout(() => document.getElementById('adminPwInput').focus(), 100);
+}
+
+function closeAdminOverlay() {
+  document.getElementById('adminOverlay').style.display = 'none';
+  document.getElementById('adminPwInput').value = '';
+  document.getElementById('adminPwError').style.display = 'none';
+}
+
+function checkAdminPw() {
+  const val = document.getElementById('adminPwInput').value;
+  if (val === ADMIN_PW) {
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    document.getElementById('adminLoginBtn').style.display = 'none';
+    closeAdminOverlay();
+  } else {
+    document.getElementById('adminPwError').style.display = 'block';
+    document.getElementById('adminPwInput').value = '';
+    document.getElementById('adminPwInput').focus();
+  }
+}
+
+function logoutAdmin() {
+  if (!confirm('관리자 모드를 종료하시겠습니까?')) return;
+  isAdmin = false;
+  if (isEditing) toggleEdit();
+  document.body.classList.remove('admin-mode');
+  document.getElementById('adminLoginBtn').style.display = 'inline-flex';
+}
+
+/* ══════════════════════════════
    TAB SWITCHING
 ══════════════════════════════ */
 function switchTab(id) {
@@ -563,6 +663,7 @@ let isEditing = false;
 const editableSelectors = ['#hero-eyebrow','#hero-about','#hero-role','.tl-org','.tl-role','.tl-when','.pc-title','.pc-desc','.pc-date','.pc-code','.sk-list','.sk-cat'];
 
 function toggleEdit() {
+  if (!isAdmin) { openAdminOverlay(); return; }
   isEditing = !isEditing;
   document.body.classList.toggle('editing', isEditing);
   document.getElementById('editBanner').classList.toggle('on', isEditing);
