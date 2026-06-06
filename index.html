@@ -63,8 +63,10 @@ button{font-family:inherit;cursor:pointer}
 body.admin-mode .admin-badge{display:inline-flex;align-items:center;gap:5px}
 body.admin-mode .edit-toggle{display:inline-flex}
 body:not(.admin-mode) .edit-toggle{display:none}
-body:not(.admin-mode) .fn-toolbar{display:none}
+body:not(.admin-mode) .fn-toolbar{display:none !important}
 body:not(.admin-mode) #fn-api-notice{display:none !important}
+body:not(.admin-mode) #fn-processing{display:none !important}
+body:not(.admin-mode) #fn-draft{display:none !important}
 
 /* ── EDIT BANNER ── */
 .edit-banner{
@@ -424,42 +426,41 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 <!-- ═══════════ FIELD NOTES TAB ═══════════ -->
 <div class="page-section" id="tab-fieldnotes">
 
-  <!-- Toolbar: PDF Upload -->
+  <!-- Admin Toolbar: JSON paste workflow -->
   <div class="fn-toolbar">
     <div class="fn-toolbar-inner">
       <h3>논문 → Field Note 자동 생성</h3>
-      <p>논문 PDF를 업로드하면 Claude AI가 핵심 내용을 정리해드립니다. 초안을 검토·수정 후 노트에 추가하세요.</p>
+      <p>Claude.ai 또는 ChatGPT에서 논문을 분석한 뒤, 결과 JSON을 아래에 붙여넣으세요.</p>
     </div>
-    <input type="file" id="fn-file-input" accept=".pdf" onchange="handlePdfUpload(event)">
-    <button class="fn-upload-btn" onclick="document.getElementById('fn-file-input').click()">
-      📄 PDF 업로드
-    </button>
-  </div>
-
-  <!-- API Key notice -->
-  <div id="fn-api-notice" style="background:var(--amber-bg);border:1px solid rgba(122,69,0,.2);border-radius:var(--r);padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--amber);display:none">
-    ⚠️ Claude API 키가 필요합니다. 아래 입력창에 키를 입력하면 저장되지 않고 이 세션에서만 사용됩니다.
-    <div style="margin-top:8px;display:flex;gap:8px">
-      <input type="password" id="fn-api-key-input" placeholder="sk-ant-..." style="flex:1;padding:7px 12px;border-radius:8px;border:1px solid rgba(122,69,0,.3);font-family:inherit;font-size:13px;outline:none;background:#fff">
-      <button onclick="setApiKey()" style="padding:7px 14px;border-radius:8px;background:var(--amber);color:#fff;border:none;font-family:inherit;font-size:13px;cursor:pointer">확인</button>
+    <div style="display:flex;gap:8px;flex-shrink:0">
+      <button class="fn-upload-btn" style="background:var(--surface);color:var(--accent);border:1.5px solid var(--accent)" onclick="copyPrompt()">
+        📋 프롬프트 복사
+      </button>
+      <button class="fn-upload-btn" onclick="openJsonPaste()">
+        ✍️ JSON 붙여넣기
+      </button>
     </div>
   </div>
 
-  <!-- Processing state -->
-  <div class="fn-processing" id="fn-processing">
-    <div class="fn-proc-head">
-      <div class="fn-proc-icon">⚙️</div>
+  <!-- Prompt copy toast -->
+  <div id="fn-copy-toast" style="display:none;background:var(--green-bg);border:1px solid rgba(20,92,58,.2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--green)">
+    ✅ 프롬프트가 복사됐습니다! Claude.ai 또는 ChatGPT를 열고, 논문 PDF를 첨부한 뒤 붙여넣기 하세요.
+  </div>
+
+  <!-- JSON paste panel -->
+  <div id="fn-json-panel" style="display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--rL);padding:22px 24px;margin-bottom:20px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
       <div>
-        <div class="fn-proc-title">AI 분석 중…</div>
-        <div class="fn-proc-sub" id="fn-proc-filename"></div>
+        <div style="font-size:14px;font-weight:500;margin-bottom:3px">AI 출력 JSON 붙여넣기</div>
+        <div style="font-size:12px;color:var(--ink3)">Claude/ChatGPT가 출력한 JSON 전체를 아래에 붙여넣으세요</div>
       </div>
+      <button onclick="closeJsonPaste()" style="background:none;border:none;font-size:18px;color:var(--ink3);cursor:pointer">×</button>
     </div>
-    <div class="fn-steps" id="fn-steps">
-      <div class="fn-step" id="step1"><div class="fn-step-dot"></div>PDF 읽기</div>
-      <div class="fn-step" id="step2"><div class="fn-step-dot"></div>핵심 주장 추출</div>
-      <div class="fn-step" id="step3"><div class="fn-step-dot"></div>방법론·결과 정리</div>
-      <div class="fn-step" id="step4"><div class="fn-step-dot"></div>한계·시사점 분석</div>
-      <div class="fn-step" id="step5"><div class="fn-step-dot"></div>초안 완성</div>
+    <textarea id="fn-json-input" placeholder='{"title":"...","cat":"...","summary":"...","body":"...","insight":"...","ref":"...","tags":["..."]}' style="width:100%;height:160px;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--border2);font-family:monospace;font-size:12.5px;color:var(--ink);background:var(--bg);outline:none;resize:vertical;line-height:1.6" oninput="validateJson(this)"></textarea>
+    <div id="fn-json-error" style="font-size:12px;color:var(--coral);margin-top:6px;display:none">⚠️ JSON 형식이 올바르지 않습니다. 다시 확인해주세요.</div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+      <button class="fn-action-btn" onclick="closeJsonPaste()">취소</button>
+      <button class="fn-action-btn primary" onclick="parseJsonInput()">초안으로 불러오기 →</button>
     </div>
   </div>
 
@@ -727,145 +728,79 @@ function addEduRow() {
 }
 
 /* ══════════════════════════════
-   FIELD NOTES — API KEY
+   FIELD NOTES — 프롬프트 & JSON
 ══════════════════════════════ */
-let apiKey = '';
 
-function setApiKey() {
-  const v = document.getElementById('fn-api-key-input').value.trim();
-  if (v.startsWith('sk-ant-')) {
-    apiKey = v;
-    document.getElementById('fn-api-notice').style.display = 'none';
-  } else {
-    alert('올바른 Anthropic API 키를 입력해주세요 (sk-ant-로 시작)');
-  }
-}
-
-/* ══════════════════════════════
-   FIELD NOTES — PDF UPLOAD
-══════════════════════════════ */
-async function handlePdfUpload(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  event.target.value = '';
-
-  if (!apiKey) {
-    document.getElementById('fn-api-notice').style.display = 'block';
-    document.getElementById('fn-api-notice').scrollIntoView({behavior:'smooth'});
-    // Store file for later
-    window._pendingFile = file;
-    return;
-  }
-  await processPdf(file);
-}
-
-async function processPdf(file) {
-  // Show processing
-  const proc = document.getElementById('fn-processing');
-  document.getElementById('fn-proc-filename').textContent = file.name;
-  proc.classList.add('on');
-  document.getElementById('fn-draft').classList.remove('on');
-
-  const steps = ['step1','step2','step3','step4','step5'];
-  function setStep(i) {
-    steps.forEach((s, j) => {
-      const el = document.getElementById(s);
-      el.className = 'fn-step' + (j < i ? ' done' : j === i ? ' active' : '');
-    });
-  }
-
-  try {
-    setStep(0);
-    // Read PDF as base64
-    const base64 = await new Promise((res, rej) => {
-      const r = new FileReader();
-      r.onload = () => res(r.result.split(',')[1]);
-      r.onerror = rej;
-      r.readAsDataURL(file);
-    });
-
-    setStep(1);
-    await delay(400);
-    setStep(2);
-
-    // Call Claude API
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1500,
-        messages: [{
-          role: 'user',
-          content: [
-            {
-              type: 'document',
-              source: { type: 'base64', media_type: 'application/pdf', data: base64 }
-            },
-            {
-              type: 'text',
-              text: `이 논문을 읽고 아래 JSON 형식으로만 응답해주세요. 다른 텍스트 없이 JSON만.
+// Claude/ChatGPT에 붙여넣을 프롬프트
+const ANALYSIS_PROMPT = `이 논문을 읽고 아래 JSON 형식으로만 응답해줘. 마크다운 코드블록 없이 순수 JSON만.
 
 {
   "title": "논문 제목 (한국어로 번역)",
+  "cat": "재정행정|재생에너지|환경교육|AI/데이터|공공정책|기타 중 하나만",
+  "summary": "핵심 주장 2-3문장 (한국어)",
+  "body": "연구 배경, 방법론, 주요 결과를 5-8문장으로 (한국어, 구체적 수치 포함). 마지막에 '\\n\\n[한계] 한계점 2-3가지' 추가.",
+  "insight": "재정행정·예산정책·재생에너지·환경교육 관점 시사점 2-3문장 (한국어)",
   "ref": "저자. (연도). 제목. 저널명, 권(호), 페이지. DOI",
-  "category": "재정행정|재생에너지|환경교육|AI/데이터|공공정책|기타 중 하나",
-  "summary": "핵심 주장을 2-3문장으로 (한국어)",
-  "body": "연구 배경, 방법론, 주요 결과를 5-8문장으로 (한국어). 구체적인 수치나 데이터 포함.",
-  "limit": "연구 한계점 2-3가지 (한국어)",
-  "insight": "재정행정·예산정책·재생에너지 관점에서의 시사점을 2-3문장으로 (한국어)",
   "tags": ["태그1", "태그2", "태그3", "태그4", "태그5"]
-}`
-            }
-          ]
-        }]
-      })
-    });
+}`;
 
-    setStep(3);
-    await delay(300);
+function copyPrompt() {
+  navigator.clipboard.writeText(ANALYSIS_PROMPT).then(() => {
+    const toast = document.getElementById('fn-copy-toast');
+    toast.style.display = 'block';
+    setTimeout(() => toast.style.display = 'none', 5000);
+  });
+}
 
-    if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error?.message || 'API 오류');
+function openJsonPaste() {
+  document.getElementById('fn-json-panel').style.display = 'block';
+  document.getElementById('fn-json-input').focus();
+  document.getElementById('fn-json-panel').scrollIntoView({behavior:'smooth'});
+}
+
+function closeJsonPaste() {
+  document.getElementById('fn-json-panel').style.display = 'none';
+  document.getElementById('fn-json-input').value = '';
+  document.getElementById('fn-json-error').style.display = 'none';
+}
+
+function validateJson(el) {
+  try {
+    JSON.parse(el.value);
+    document.getElementById('fn-json-error').style.display = 'none';
+    el.style.borderColor = 'var(--green)';
+  } catch {
+    if (el.value.trim()) {
+      document.getElementById('fn-json-error').style.display = 'block';
+      el.style.borderColor = 'var(--coral)';
+    } else {
+      el.style.borderColor = 'var(--border2)';
+      document.getElementById('fn-json-error').style.display = 'none';
     }
-
-    const data = await response.json();
-    const text = data.content.map(b => b.text || '').join('');
-    const clean = text.replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(clean);
-
-    setStep(4);
-    await delay(300);
-    setStep(5);
-    await delay(400);
-
-    // Fill draft
-    proc.classList.remove('on');
-    fillDraft(parsed);
-
-  } catch (e) {
-    proc.classList.remove('on');
-    alert('오류: ' + e.message + '\n\nAPI 키를 확인하거나 수동으로 입력해주세요.');
-    fillDraft({ title:'', ref:'', category:'기타', summary:'', body:'', limit:'', insight:'', tags:[] });
   }
 }
 
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+function parseJsonInput() {
+  const raw = document.getElementById('fn-json-input').value.trim();
+  if (!raw) { alert('JSON을 붙여넣어주세요'); return; }
+  try {
+    const d = JSON.parse(raw);
+    closeJsonPaste();
+    fillDraft(d);
+  } catch {
+    document.getElementById('fn-json-error').style.display = 'block';
+  }
+}
 
 function fillDraft(d) {
   document.getElementById('draft-title').value = d.title || '';
   document.getElementById('draft-summary').value = d.summary || '';
-  document.getElementById('draft-body').value = d.body ? d.body + (d.limit ? '\n\n[한계] ' + d.limit : '') : '';
+  document.getElementById('draft-body').value = d.body || '';
   document.getElementById('draft-insight').value = d.insight || '';
   document.getElementById('draft-ref').value = d.ref || '';
-  document.getElementById('draft-cat').value = d.category || '기타';
+  const cat = d.cat || d.category || '기타';
+  document.getElementById('draft-cat').value = cat;
 
-  // Tags
   const container = document.getElementById('fn-tags-container');
   container.querySelectorAll('.fn-tag-chip').forEach(t => t.remove());
   (d.tags || []).forEach(tag => appendTagChip(tag));
@@ -897,6 +832,7 @@ function appendTagChip(tag) {
 function getTags() {
   return [...document.querySelectorAll('#fn-tags-container .fn-tag-chip')].map(c => c.textContent.trim().replace('×','').trim());
 }
+
 
 /* ══════════════════════════════
    GOOGLE SHEETS DB
