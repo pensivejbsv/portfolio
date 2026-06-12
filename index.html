@@ -191,6 +191,11 @@ body.editing .pc-del{display:flex}
 .cat-DT .pc-cat-tag{background:var(--amber-bg);color:var(--amber)}
 .cat-PL .pc-cat-tag{background:var(--purple-bg);color:var(--purple)}
 .cat-ED .pc-cat-tag{background:#FFF0F3;color:#8B1A3A}
+.cat-ADSP .pc-cat-tag{background:var(--accent-bg);color:var(--accent)}
+.cat-STAT .pc-cat-tag{background:var(--amber-bg);color:var(--amber)}
+.cat-MODEL .pc-cat-tag{background:var(--green-bg);color:var(--green)}
+.cat-GOV .pc-cat-tag{background:var(--purple-bg);color:var(--purple)}
+.cat-POLICY .pc-cat-tag{background:#FFF0F3;color:#8B1A3A}
 .add-proj-btn{width:100%;padding:20px;border-radius:var(--rL);border:1.5px dashed var(--border2);background:transparent;color:var(--ink2);font-size:13px;cursor:pointer;transition:all .12s;display:none;align-items:center;justify-content:center;gap:8px;margin-top:4px}
 .add-proj-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 body.editing .add-proj-btn{display:flex}
@@ -340,8 +345,8 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 <nav>
   <div class="nav-logo">Beomseok Jeong</div>
   <div class="nav-links">
-    <a href="#" onclick="switchTab('portfolio');return false">포트폴리오</a>
-    <a href="#" onclick="switchTab('fieldnotes');return false">Field Notes</a>
+    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;portfolio&#39;);return false">포트폴리오</a>
+    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">Field Notes</a>
     <a href="https://www.linkedin.com/in/jeongbs/" target="_blank">LinkedIn ↗</a>
     <button class="admin-badge" id="adminBadge" onclick="logoutAdmin()" title="클릭하면 관리자 로그아웃">🔓 관리자</button>
     <button class="edit-toggle" id="editToggle" onclick="toggleEdit()">✏️ 편집</button>
@@ -351,9 +356,9 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
 <!-- TABS -->
 <div class="page-tabs">
-  <button class="ptab active" data-tab="portfolio" onclick="switchTab('portfolio')">포트폴리오</button>
-  <button class="ptab" data-tab="fieldnotes" onclick="switchTab('fieldnotes')">Field Notes</button>
-  <button class="ptab" data-tab="career" onclick="switchTab('career')">경력</button>
+  <button class="ptab active" data-tab="portfolio" onclick="switchTab(&#39;portfolio&#39;)">포트폴리오</button>
+  <button class="ptab" data-tab="fieldnotes" onclick="switchTab(&#39;fieldnotes&#39;)">Field Notes</button>
+  <button class="ptab" data-tab="career" onclick="switchTab(&#39;career&#39;)">경력</button>
 </div>
 
 <!-- ═══════════ PORTFOLIO TAB ═══════════ -->
@@ -361,50 +366,50 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
   <div class="hero">
     <div>
-      <div class="eyebrow" id="hero-eyebrow">Finance Strategy · Governance · R&D Budget · Policy Research</div>
+      <div class="eyebrow" id="hero-eyebrow">Finance Strategy · Governance · R&amp;D Budget · Policy Research</div>
       <h1>Beomseok<br><em>Jeong</em></h1>
       <div class="hero-role" id="hero-role">LG AI Research · Finance &nbsp;·&nbsp; Seoul, South Korea</div>
       <p class="hero-about" id="hero-about">Finance Strategy &amp; ICFR experience across AI research, global manufacturing, and multinational operations. Specializing in governance frameworks, internal controls (K-SOX/ICFR), and SAP/AI-driven process improvement that transforms manual workflows into scalable, executive-ready systems.</p>
       <div class="pill-row">
-        <span class="pill">K-SOX / ICFR</span><span class="pill">R&D Budget Governance</span><span class="pill">SAP ERP</span><span class="pill">Finance Planning</span><span class="pill">Policy Research</span>
+        <span class="pill">K-SOX / ICFR</span><span class="pill">R&amp;D Budget Governance</span><span class="pill">SAP ERP</span><span class="pill">Finance Planning</span><span class="pill">Policy Research</span>
       </div>
       <div class="btns">
         <a class="btn btn-dark" href="https://www.linkedin.com/in/jeongbs/" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
           LinkedIn
         </a>
-        <a class="btn btn-ghost" href="#" onclick="switchTab('fieldnotes');return false">Field Notes →</a>
+        <a class="btn btn-ghost" href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">Field Notes →</a>
       </div>
     </div>
     <div class="avatar-col">
       <div class="avatar">BS</div>
       <div class="stat"><div class="stat-n">500+</div><div class="stat-l">connections</div></div>
-      <div class="stat"><div class="stat-n">10+</div><div class="stat-l">years exp.</div></div>
+      <div class="stat"><div class="stat-n">8.5</div><div class="stat-l">years exp.</div></div>
     </div>
   </div>
 
-  <!-- CATALOGUE -->
+  <!-- KEYWORD CATALOGUE -->
   <div class="sec">
-    <div class="sec-head"><h2>프로젝트 카탈로그</h2><small>Projects</small></div>
-    <input class="cat-search" type="text" placeholder="프로젝트 검색…" oninput="filterProj()" id="projSearch">
+    <div class="sec-head"><h2>키워드 카탈로그</h2><small>From Field Notes</small></div>
+    <input class="cat-search" type="text" placeholder="Field Notes 키워드 검색…" oninput="filterProj()" id="projSearch">
     <div class="cat-filters" id="catFilters">
-      <button class="cat-btn active" onclick="setProjFilter(this,'ALL')">전체</button>
-      <button class="cat-btn" onclick="setProjFilter(this,'FN')">FN · 재무</button>
-      <button class="cat-btn" onclick="setProjFilter(this,'RS')">RS · 연구</button>
-      <button class="cat-btn" onclick="setProjFilter(this,'DT')">DT · 개발</button>
-      <button class="cat-btn" onclick="setProjFilter(this,'PL')">PL · 정책</button>
-      <button class="cat-btn" onclick="setProjFilter(this,'ED')">ED · 교육</button>
+      <button class="cat-btn active" onclick="setProjFilter(this,&#39;ALL&#39;)">전체</button>
+      <button class="cat-btn" onclick="setProjFilter(this,&#39;ADSP&#39;)">ADSP · 시험</button>
+      <button class="cat-btn" onclick="setProjFilter(this,&#39;STAT&#39;)">STAT · 계산</button>
+      <button class="cat-btn" onclick="setProjFilter(this,&#39;MODEL&#39;)">MODEL · 모델</button>
+      <button class="cat-btn" onclick="setProjFilter(this,&#39;GOV&#39;)">GOV · 거버넌스</button>
+      <button class="cat-btn" onclick="setProjFilter(this,&#39;POLICY&#39;)">POLICY · 정책</button>
     </div>
-    <div class="cat-count" id="catCount"></div>
+    <div class="cat-count" id="catCount">6개 키워드</div>
     <div class="proj-grid" id="projGrid">
-      <div class="pc cat-RS" data-cat="RS"><button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button><div class="pc-code">P001</div><div class="pc-cat-tag">RS · 연구/정책</div><div class="pc-title">디지털 R&D 예산 분류 연구</div><div class="pc-desc">국가R&D혁신법 내 AI 비용 분류 공백 분석. Mahoney &amp; Thelen layering/drift 이론 적용.</div><div class="pc-date">2025 – 진행 중 · SNU GSPA</div></div>
-      <div class="pc cat-PL" data-cat="PL"><button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button><div class="pc-code">P002</div><div class="pc-cat-tag">PL · 정책/환경</div><div class="pc-title">폐교 태양광 경제성 분석</div><div class="pc-desc">전남 폐교 11개소 대상 3관점 CBA. NPV/IRR 시나리오 분석. 재생에너지법 개정안 반영.</div><div class="pc-date">2025 · 재생에너지 정책</div></div>
-      <div class="pc cat-DT" data-cat="DT"><button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button><div class="pc-code">P003</div><div class="pc-cat-tag">DT · 데이터/개발</div><div class="pc-title">CFO 재무 대시보드</div><div class="pc-desc">SAP 총계정원장 연동 Flask 기반 실시간 예산 모니터링. PyInstaller EXE 패키징.</div><div class="pc-date">2024 · Python · Flask · SAP</div></div>
-      <div class="pc cat-FN" data-cat="FN"><button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button><div class="pc-code">P004</div><div class="pc-cat-tag">FN · 재무/거버넌스</div><div class="pc-title">출장비 감사 자동화</div><div class="pc-desc">해외 출장 경비 Excel 파싱, 환율 자동 적용, 정책 위반 자동 플래그. HTML 단일 파일.</div><div class="pc-date">2024 · HTML · JavaScript</div></div>
-      <div class="pc cat-PL" data-cat="PL"><button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button><div class="pc-code">P005</div><div class="pc-cat-tag">PL · 정책/환경</div><div class="pc-title">환경교육 정책 연구</div><div class="pc-desc">AI 에너지 소비의 교육적 비가시화. VBN 이론 기반 초등학생 지속가능 소비 행동 분석.</div><div class="pc-date">2025 · 환경교육 · 정책분석</div></div>
-      <div class="pc cat-DT" data-cat="DT"><button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button><div class="pc-code">P006</div><div class="pc-cat-tag">DT · 데이터/개발</div><div class="pc-title">통계·계량경제학 학습 에이전트</div><div class="pc-desc">Keller·Wooldridge 커버리지. 청킹·스페이스 반복 설계. 할루시네이션 방지 원칙.</div><div class="pc-date">2025 · HTML · Claude API</div></div>
+      <div class="pc cat-ADSP" data-cat="ADSP"><button class="pc-del" onclick="this.closest(&#39;.pc&#39;).remove();filterProj()">×</button><div class="pc-code">K001</div><div class="pc-cat-tag">ADSP · 예상문제</div><div class="pc-title">ADsP 출제 패턴 역추론</div><div class="pc-desc">모의고사와 암기 트리에서 반복되는 1·2·3과목 핵심어를 묶어 다음 출제 가능성이 높은 보기 함정을 추적.</div><div class="pc-date">DIKW · KDD/CRISP-DM · 분석성숙도 · 예상문제</div></div>
+      <div class="pc cat-STAT" data-cat="STAT"><button class="pc-del" onclick="this.closest(&#39;.pc&#39;).remove();filterProj()">×</button><div class="pc-code">K002</div><div class="pc-cat-tag">STAT · 계산</div><div class="pc-title">오분류표와 성능지표</div><div class="pc-desc">정확도, 재현율, 정밀도, F1, 민감도, 특이도, ROC-AUC를 실제값과 예측값 위치 기준으로 빠르게 검산.</div><div class="pc-date">TP/FP/FN/TN · Precision · Recall · F1</div></div>
+      <div class="pc cat-STAT" data-cat="STAT"><button class="pc-del" onclick="this.closest(&#39;.pc&#39;).remove();filterProj()">×</button><div class="pc-code">K003</div><div class="pc-cat-tag">STAT · 계산</div><div class="pc-title">연관분석과 확률 계산</div><div class="pc-desc">지지도, 신뢰도, 향상도와 기댓값, 분산, 신뢰구간, p-value 문제를 공식 적용 순서로 정리.</div><div class="pc-date">Support · Confidence · Lift · p-value</div></div>
+      <div class="pc cat-MODEL" data-cat="MODEL"><button class="pc-del" onclick="this.closest(&#39;.pc&#39;).remove();filterProj()">×</button><div class="pc-code">K004</div><div class="pc-cat-tag">MODEL · 모델</div><div class="pc-title">분류·군집·앙상블 비교</div><div class="pc-desc">CART/C4.5/CHAID, K-means/DBSCAN/계층적 군집, 배깅/부스팅/스태킹/랜덤포레스트의 차이를 보기 단서로 판별.</div><div class="pc-date">Decision Tree · K-means · DBSCAN · Ensemble</div></div>
+      <div class="pc cat-GOV" data-cat="GOV"><button class="pc-del" onclick="this.closest(&#39;.pc&#39;).remove();filterProj()">×</button><div class="pc-code">K005</div><div class="pc-cat-tag">GOV · 거버넌스</div><div class="pc-title">데이터 거버넌스와 분석 기획</div><div class="pc-desc">분석 조직 구조, 위험 대응, 하향식 접근법, ISP, 성숙도 진단을 재정 데이터 관리 프레임으로 연결.</div><div class="pc-date">집중·기능·분산 · 회피/전이/완화/수용 · ISP</div></div>
+      <div class="pc cat-POLICY" data-cat="POLICY"><button class="pc-del" onclick="this.closest(&#39;.pc&#39;).remove();filterProj()">×</button><div class="pc-code">K006</div><div class="pc-cat-tag">POLICY · 정책</div><div class="pc-title">공공조직·정책 분석 키워드</div><div class="pc-desc">조직문화, 업무전문성, 조직목표 명확성, 다중회귀분석을 공공정책 Field Note의 핵심 키워드로 압축.</div><div class="pc-date">공공조직 · 조직문화 · 업무전문성 · 회귀분석</div></div>
     </div>
-    <button class="add-proj-btn" onclick="addProject()"><span style="font-size:18px">+</span> 프로젝트 추가</button>
+    <button class="add-proj-btn" onclick="addProject()"><span style="font-size:18px">+</span> 키워드 추가</button>
   </div>
 
   <!-- SKILLS -->
@@ -412,12 +417,12 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   <div class="sec">
     <div class="sec-head"><h2>스킬 &amp; 도구</h2><small>Skills</small></div>
     <div class="sk-grid">
-      <div class="sk"><div class="sk-cat">재무 · 거버넌스</div><div class="sk-list">K-SOX / ICFR<br>Budget Councils<br>R&D 예산관리<br>외화·환율 관리</div></div>
-      <div class="sk"><div class="sk-cat">시스템 · 데이터</div><div class="sk-list">SAP ERP<br>Python (pandas, openpyxl)<br>Flask / HTML / JS<br>Excel 고급</div></div>
-      <div class="sk"><div class="sk-cat">분석 · 연구</div><div class="sk-list">NPV / IRR · CBA<br>계량경제학<br>공공재정행정<br>제도분석 이론</div></div>
-      <div class="sk"><div class="sk-cat">언어</div><div class="sk-list">한국어 (모국어)<br>영어 (업무 능통)</div></div>
-      <div class="sk"><div class="sk-cat">자격 · 학력</div><div class="sk-list">빅데이터분석기사 준비<br>SNU GSPA 재학<br>UNSW 회계학 학사</div></div>
-      <div class="sk"><div class="sk-cat">관심 분야</div><div class="sk-list">디지털 재정행정<br>재생에너지 정책<br>환경교육<br>KIPA 연구원 목표</div></div>
+      <div class="sk"><div class="sk-cat">재무분석 · 수익성</div><div class="sk-list">재무제표 분석<br>손익 구조 분석<br>As Sold / Forecast / Actual<br>장기 EPC 프로젝트 수익성</div></div>
+      <div class="sk"><div class="sk-cat">예산 · Projection</div><div class="sk-list">R&amp;D 예산관리<br>중장기 재무 Projection<br>매출·원가·현금흐름 시나리오<br>예산 이관·증액 의사결정</div></div>
+      <div class="sk"><div class="sk-cat">시스템 · 데이터</div><div class="sk-list">SAP ERP<br>계정별·비용센터별 데이터<br>AI Finance Dashboard<br>EXAONE 기반 재경 FAQ</div></div>
+      <div class="sk"><div class="sk-cat">내부통제 · 리스크</div><div class="sk-list">K-SOX / ICFR<br>설계평가·운영평가<br>RCM 기반 통제 운영<br>감사·세무 이슈 대응</div></div>
+      <div class="sk"><div class="sk-cat">프로세스 개선</div><div class="sk-list">이상 거래 모니터링<br>법인카드 점검 자동화<br>SAP 회계 점검 자동화<br>세금계산서 프로세스 개선</div></div>
+      <div class="sk"><div class="sk-cat">글로벌 Finance</div><div class="sk-list">한국·일본 프로젝트 관리<br>Unbilled AR / Deferred Revenue<br>Accrual / Warranty Provision<br>영어 업무 커뮤니케이션</div></div>
     </div>
   </div>
 
@@ -456,7 +461,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       </div>
       <button onclick="closeJsonPaste()" style="background:none;border:none;font-size:18px;color:var(--ink3);cursor:pointer">×</button>
     </div>
-    <textarea id="fn-json-input" placeholder='{"title":"...","cat":"...","summary":"...","body":"...","insight":"...","ref":"...","tags":["..."]}' style="width:100%;height:160px;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--border2);font-family:monospace;font-size:12.5px;color:var(--ink);background:var(--bg);outline:none;resize:vertical;line-height:1.6" oninput="validateJson(this)"></textarea>
+    <textarea id="fn-json-input" placeholder="{&quot;title&quot;:&quot;...&quot;,&quot;cat&quot;:&quot;...&quot;,&quot;summary&quot;:&quot;...&quot;,&quot;body&quot;:&quot;...&quot;,&quot;insight&quot;:&quot;...&quot;,&quot;ref&quot;:&quot;...&quot;,&quot;tags&quot;:[&quot;...&quot;]}" style="width:100%;height:160px;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--border2);font-family:monospace;font-size:12.5px;color:var(--ink);background:var(--bg);outline:none;resize:vertical;line-height:1.6" oninput="validateJson(this)"></textarea>
     <div id="fn-json-error" style="font-size:12px;color:var(--coral);margin-top:6px;display:none">⚠️ JSON 형식이 올바르지 않습니다. 다시 확인해주세요.</div>
     <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
       <button class="fn-action-btn" onclick="closeJsonPaste()">취소</button>
@@ -508,25 +513,126 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
     </div>
     <div class="fn-field">
       <label>태그</label>
-      <div class="fn-tags-input" id="fn-tags-container" onclick="document.getElementById('fn-tag-field').focus()">
+      <div class="fn-tags-input" id="fn-tags-container" onclick="document.getElementById(&#39;fn-tag-field&#39;).focus()">
         <input class="fn-tag-input-field" id="fn-tag-field" placeholder="태그 입력 후 Enter" onkeydown="addTag(event)">
       </div>
     </div>
   </div>
 
   <!-- Notes list -->
-  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">0개</small></div>
+  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">6개</small></div>
 
-  <div class="fn-filters" id="fn-filter-row">
-    <button class="fn-filter-btn active" onclick="setFnFilter(this,'ALL')">전체</button>
-  </div>
+  <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
 
   <div class="fn-list" id="fn-list">
-    <div class="fn-empty" id="fn-empty">
+    <div class="fn-empty" id="fn-empty" style="display: none;">
       <strong>아직 노트가 없습니다</strong>
       논문 PDF를 업로드해서 첫 번째 Field Note를 만들어보세요.
     </div>
-  </div>
+  <div class="fn-card" data-id="1781280806130">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-13</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 예상문제 역추론 Field Note: 기초에서 심화까지</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781280806130,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">첨부된 ADsP 핵심 암기 트리와 기존 모의고사 분석을 합치면 다음 시험은 3과목 계산형, 특히 오분류표·연관분석·회귀/R 출력·군집·앙상블 비교에서 변형 문제가 나올 가능성이 높다. 이 노트는 단순 암기어를 출발점으로 삼아 공식 적용, 보기 함정 판별, 예상문제 풀이 순서까지 단계적으로 학습하도록 구성했다.</div>
+      <div class="fn-card-ref">adsp_study_tree.png 및 ADsP 데이터분석 준전문가 모의고사 1·2·3회 패턴 분석 메모.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">예상문제</span><span class="fn-card-tag">단계학습</span><span class="fn-card-tag">오분류표</span><span class="fn-card-tag">연관분석</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>[출제 추론] 1과목은 DIKW, 빅데이터 3V, RDBMS와 NoSQL, 데이터 유형, 위기 요인처럼 짧은 정의를 바꾸는 문항이 예상된다. 2과목은 KDD·CRISP-DM·하향식 접근법의 단계 순서, 분석 성숙도 4사분면, 집중·기능·분산 조직 구조, 위험 대응의 회피·전이·완화·수용 구분이 반복될 가능성이 높다. 3과목은 전체 배점의 중심이므로 오분류표, 연관분석, p-value, 신뢰구간, 회귀계수와 결정계수, 의사결정나무, 군집분석, 앙상블 비교가 우선순위다.</p><p>[1단계 기초 암기] DIKW는 데이터=가공 전 사실, 정보=관계에서 나온 의미, 지식=패턴을 통한 의사결정, 지혜=창의적 아이디어와 통찰로 잡는다. KDD는 선택-전처리-변환-마이닝-평가, CRISP-DM은 업무이해-데이터이해-준비-모델링-평가-전개다. 분석 성숙도는 준비형, 정착형, 도입형, 확산형의 위치를 '도준정확'으로 외우고, 층화추출은 군집 안이 동질, 집락추출은 군집 안이 이질이라는 방향 차이를 먼저 고정한다.</p><p>[2단계 계산 기본] 오분류표는 실제값을 기준으로 재현율/민감도=TP/(TP+FN), 특이도=TN/(TN+FP), 정밀도=TP/(TP+FP), F1=2PR/(P+R)를 계산한다. 연관분석은 지지도=P(A∩B), 신뢰도=P(B|A), 향상도=신뢰도/P(B) 순서로 풀며, 향상도 1 초과는 양의 연관이다. 신뢰구간은 평균 ± 임계값 x 표준오차이고, 표준오차는 표준편차/루트n이라는 점을 표준편차와 분리해 외운다.</p><p>[3단계 모델 비교] 의사결정나무는 CART=지니지수와 분산감소량, C4.5=엔트로피, CHAID=카이제곱과 F통계량으로 묶어 구분한다. K-means는 K 사전 지정, 이상치 민감, Elbow Method를 키워드로 잡고, DBSCAN은 K 불필요, 밀도 기반, 이상치 강건, Eps와 MinPts 설정을 함께 기억한다. 앙상블은 배깅과 랜덤포레스트가 병렬·복원추출·분산 감소 쪽이고, 부스팅은 이전 오분류에 가중치를 주는 직렬 학습이라는 대조로 정리한다.</p><p>[4단계 심화 예상문제] 보기에서 Accuracy와 Precision을 같은 뜻처럼 쓰면 오답일 가능성이 높다. p-value가 0.05보다 작으면 귀무가설을 기각한다. ARIMA(p,d,q)는 PACF가 p, ACF가 q, d가 차분 횟수다. R 회귀 출력 문제는 별표와 p-value로 유의 변수를 먼저 찾고, R-squared와 Adjusted R-squared를 구분한 뒤, 자유도에서 전체 표본 수를 역산하는 흐름으로 풀면 된다.</p><p>[예상문제 연습] 1. 실제 양성 40명 중 32명을 맞히고, 예측 양성 50명 중 32명이 실제 양성이면 재현율은 0.8, 정밀도는 0.64다. 2. 전체 200건 중 A가 80건, B가 50건, A와 B가 함께 30건이면 지지도 0.15, 신뢰도 0.375, 향상도 1.5다. 3. '부스팅은 병렬 처리가 쉽다'는 보기와 '지혜는 타인에게 쉽게 공유된다'는 보기는 함정 보기로 의심해야 한다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>이 시험은 넓게 아는 사람보다 보기의 표현을 공식과 단계 순서로 빠르게 검산하는 사람에게 유리하다. 특히 재정 데이터 실무와 연결하면 오분류표는 이상 집행 탐지 모델 평가, 성숙도와 조직 구조는 데이터 거버넌스 설계, 연관분석은 비용 항목의 동시 발생 패턴 탐색으로 바로 옮겨 쓸 수 있다.</p>
+      </div></div>
+  <div class="fn-card" data-id="1781278996057">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-12</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 출제 빈도 상위 12개 주제 핵심 학습 노트</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781278996057,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">모의고사 3회 150문항 분석 결과 오분류표 계산, 연관분석 지표, 기댓값·분산, 의사결정나무 알고리즘 구분이 매회 반복 출제되는 최우선 학습 주제다. 각 주제는 개념 암기보다 계산 공식과 자주 틀리는 함정 패턴을 중심으로 학습해야 한다.</div>
+      <div class="fn-card-ref">아답터교육. (2026). ADsP 데이터분석 준전문가 모의고사 1·2·3회. 아답터교육 내부 교재, pp. 415-446.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">모의고사</span><span class="fn-card-tag">출제패턴</span><span class="fn-card-tag">핵심공식</span><span class="fn-card-tag">예상문제</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>[1위 오분류표] 예측TRUE/FALSE x 실제TRUE/FALSE 2x2표. 민감도=TP/(TP+FN) 실제TRUE행 합계가 분모. 특이도=TN/(TN+FP) 실제FALSE행 합계가 분모. 정밀도=TP/(TP+FP). F1=2xPxR/(P+R). 함정: FP와 FN 위치 반대 계산. [2위 연관분석] 장바구니 100명 중 사과50 주스40 동시20. 지지도=20/100=0.2, 신뢰도=20/50=0.4, 향상도=0.4/0.4=1.0. 향상도&gt;1 양의상관. 함정: 향상도 분모는 B단독 지지도. [3위 기댓값분산] E(X)=시그마 x곱P(x). Var(X)=E(X제곱)-[E(X)]제곱. 이항분포 평균=np 분산=np(1-p). 함정: [E(X)]제곱을 E(X제곱)으로 착각. [4위 의사결정나무] CART=지니지수(범주)/분산감소량(연속). C4.5=엔트로피. CHAID=카이제곱(범주)/F통계량(연속). 함정: CHAID가 카이제곱과 F통계량 둘 다 씀. [5위 K-means절차] K설정→임의중심점→할당→평균재설정→수렴반복. Elbow Method로 최적K. 함정: 할당 먼저 재설정 나중 순서 혼동. [6위 신뢰구간] 95%=1.96 99%=2.576. 표준오차=시그마/루트n. 함정: 표준편차와 표준오차 혼동. [7위 R lm출력] p-value&lt;0.05면 유의(별표***). 전체데이터수=회귀DF+잔차DF+1. R제곱=SSR/SST. 다중회귀는 Adjusted R제곱 사용. [8위 앙상블] 배깅/보팅/랜덤포레스트=병렬가능. 부스팅/스태킹=직렬만가능. 부스팅계보: AdaBoost→GBM→XGBoost→LightGBM. [9위 ARIMA] ARIMA(p,d,q). ACF→MA차수q 결정. PACF→AR차수p 결정. d=차분횟수. 함정: ACF와 PACF 역할 반대로 암기. [10위 분석성숙도] 도준정확(4사분면 1→3→2→4). 도입형=준비높고업무부족. 준비형=모두미갖춤. 정착형=제한적사용. 확산형=모두갖춤. [11위 DIKW] 데이터=가공전사실. 정보=관계에서얻은의미. 지식=패턴으로의사결정. 지혜=내재적창의전략 타인공유어려움. 함정: 지혜를 공유하기쉽다고 쓴보기가 오답. [12위 표본추출] 층화=군집내동질밖이질. 집락=군집내이질밖동질. 함정: 둘의 동질이질 방향이 정반대.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>재정 데이터 실무에서도 분석 성숙도 4단계 프레임과 분석 조직 구조(집중·기능·분산)는 데이터 거버넌스 설계 시 직접 활용 가능하다. 오분류표의 민감도·특이도 개념은 예산 집행 오류 탐지 모델 평가에도 동일하게 적용된다.</p>
+      </div></div><div class="fn-card" data-id="1781277382570">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-12</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 모의고사 1·2·3회 출제 패턴 분석 및 예상 문제 학습 노트</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781277382570,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">1·2·3회 모의고사 150문항 분석 결과, 3과목이 전체의 약 60%를 차지하며 통계·분류·군집·연관분석이 반복 출제된다. 2과목에서는 분석 방법론 순서·조직 구조·성숙도 진단이 고빈도 출제 포인트이며, 1과목에서는 DIKW·데이터 유형·위기 요인이 매회 등장한다. 계산형 문제와 R 출력값 해석 문제의 비중이 지속적으로 증가하는 추세다.</div>
+      <div class="fn-card-ref">아답터교육. (2026). ADsP 데이터분석 준전문가 모의고사 1·2·3회. 아답터교육 내부 교재, pp. 415-446.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">모의고사</span><span class="fn-card-tag">출제패턴</span><span class="fn-card-tag">데이터분석</span><span class="fn-card-tag">예상문제</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>3회 모의고사를 과목별로 분류하면 1과목 약 10문항, 2과목 약 10문항, 3과목 약 30문항으로 3과목 비중이 압도적이다. 1과목에서는 DIKW 지혜의 정의 오류, NoSQL vs RDBMS 구분, 빅데이터 3V, 위기 요인 3가지가 반복 출제된다. 2과목에서는 KDD와 CRISP-DM 단계 순서, 위험 대응 4가지, 분석 조직 구조, 성숙도 4단계, ISP 정의가 핵심이다. 3과목 통계 영역에서는 확률분포 기댓값 계산, 분산 공식, 신뢰구간 해석, 가설검정 p-value 판단이 매회 2~3문항씩 출제된다. 분류분석에서는 오분류표 기반 민감도·특이도·정밀도 계산, ROC 커브 AUC 해석, 의사결정나무 알고리즘 구분이 자주 출제된다. 군집분석에서는 K-means 절차 순서, 덴드로그램 해석, DBSCAN 특징, 와드연결법이 반복된다. 연관분석에서는 지지도·신뢰도·향상도를 직접 계산하는 문제가 2·3회 모두 출제되었다. R 출력값 해석 문제는 lm, glm, prcomp 결과를 읽고 유의 변수·결정계수·자유도를 판단하는 형태로 매회 3~5문항 출제된다.</p><p>[한계] 해답 페이지가 1회분만 포함되어 2·3회 정답 검증이 불완전하다. 계산 문제 일부 수식이 이미지 해상도상 불명확하다. 출제 기준 개정 반영 여부는 별도 확인이 필요하다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>반복 출제 패턴을 보면 계산과 R 해석 복합 문제가 증가 추세이므로 개념 암기보다 공식 적용 연습이 효율적이다. 특히 오분류표, 연관분석 지표, 기댓값·분산 계산은 반드시 손으로 풀어보는 반복 훈련이 필요하다. 분석 성숙도 4단계와 조직 구조 구분은 재정 데이터 거버넌스 설계 시에도 직접 활용 가능한 프레임워크다.</p>
+      </div></div><div class="fn-card" data-id="1781276043087">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-12</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP(데이터분석 준전문가) 전과목 핵심 개념 정리 노트</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781276043087,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">ADsP 시험은 데이터 이해(1과목), 데이터분석 기획(2과목), 데이터분석(3과목)의 3개 과목으로 구성되며, 데이터의 정의·DIKW 피라미드·빅데이터 3V부터 통계분석·머신러닝·연관분석까지 데이터 분석 실무의 전 영역을 다룬다. 각 과목은 암기 키워드(공표연내, 전후양상, 공통저변 등)와 개념 간 관계를 중심으로 출제 포인트가 구성되어 있다.</div>
+      <div class="fn-card-ref">아답터교육. (2026). ADsP 데이터분석 준전문가 핵심 개념 정리 (개정판 2026.02.13). 아답터교육 내부 교재, pp. 1-37.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">데이터분석</span><span class="fn-card-tag">머신러닝</span><span class="fn-card-tag">통계분석</span><span class="fn-card-tag">데이터거버넌스</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>1과목 '데이터 이해'는 데이터(가공 전 사실) → 정보 → 지식 → 지혜로 이어지는 DIKW 피라미드를 핵심으로 하며, 데이터 유형은 형태(정형·반정형·비정형), 표현방식(정량·정성), 분석목적(수치형·범주형)의 3가지 축으로 분류된다. NoSQL DBMS(HBase, MongoDB, Cassandra 등)와 관계형 DBMS(MySQL, MariaDB, Oracle)의 구분, 빅데이터의 3V(Volume·Variety·Velocity), 사생활 침해·책임원칙 훼손·데이터 오용의 3대 위기 요인과 대응방안이 주요 출제 포인트다. 2과목 '데이터분석 기획'은 KDD(데이터선택→전처리→변환→마이닝→평가), CRISP-DM(업무이해→데이터이해→준비→모델링→평가→전개), 빅데이터 분석 방법론의 위험 대응 4가지(회피·전이·완화·수용)를 다루며, 분석 조직 구조는 집중·기능·분산 구조로 구분된다. 분석 성숙도는 준비형→정착형→도입형→확산형(도준정확)으로 진단하며, 하향식 접근법은 문제탐색→문제정의→해결방안탐색→타당성검토의 순서로 진행된다. 3과목 '데이터분석'은 결측값 처리(완전분석법, 평균대치법, Hot/Cold-Deck), 이상값 검색(ESD·사분위수·Z-Score·DBScan), 회귀분석(단순·다중·다항·릿지·라쏘), 분류분석(로지스틱회귀·KNN·나이브베이즈·의사결정나무·SVM·앙상블), 군집분석(K-means·DBSCAN·SOM), 연관분석(지지도·신뢰도·향상도·Apriori)의 6개 핵심 분야로 구성된다. 평가지표는 오분류표 기반의 정확도·재현율·정밀도·F1-Score와 ROC-AUC를 활용하며, 분산과 편향은 Trade-Off 관계임을 이해해야 한다.</p><p>[한계] 모의고사 정답 및 해설이 별도로 수록되지 않아 취약 개념 자가진단에 한계가 있다. 수식 기반 계산문제(확률분포 기댓값, 실루엣계수, 지니지수 등)는 텍스트 노트만으로 반복 연습이 어렵다. 출제 비중(과목별 배점, 최신 개정 반영 여부)은 별도 공식 자료로 확인이 필요하다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>재정행정 및 예산 실무 관점에서 데이터 거버넌스 체계(표준화·조직·프로세스·시스템)와 분석 성숙도 진단 프레임(준비형→확산형)은 LG AI연구원의 EAS 시스템 개선이나 Sub CC 과제별 비용 추적 체계 설계 시 현행 수준 진단 도구로 직접 활용 가능하다. 하향식 접근법의 타당성 검토(경제적·데이터·기술적 타당성) 단계는 Project Code(CC) 도입 옵션 비교 슬라이드의 의사결정 프레임으로 응용할 수 있으며, 빅데이터 분석 방법론의 우선순위 선정 기준(시급성×난이도 매트릭스)은 CFO 보고용 증액 심의 안건의 우선순위 논리 구성에도 참고할 수 있다.</p>
+      </div></div><div class="fn-card" data-id="1781275692443">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-12</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP(데이터분석 준전문가) 과목 구조 및 1회 모의고사 정리 노트</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781275692443,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">ADsP 자격증은 데이터 이해, 데이터분석 기획, 데이터분석의 3과목으로 구성되며, 데이터베이스 기초부터 통계분석·데이터 마이닝까지 데이터 분석 실무의 기본 체계를 다룬다. 1회 모의고사는 NoSQL 데이터베이스 구분, DIKW 피라미드, 빅데이터 분석 방법론, 분석 조직 구조 등 각 과목의 핵심 개념을 문제 형태로 검증한다.</div>
+      <div class="fn-card-ref">ADsP 데이터분석 준전문가 수험서, 1회 모의고사, pp. 415-417</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">데이터분석</span><span class="fn-card-tag">자격증</span><span class="fn-card-tag">모의고사</span><span class="fn-card-tag">데이터거버넌스</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>ADsP 시험은 3개 과목으로 구성된다. 1과목 '데이터 이해'는 데이터의 이해, 데이터의 가치와 미래, 가치 창조를 위한 데이터 사이언스와 전략 인사이트의 3개 장으로 이루어지며 데이터베이스 정의, 빅데이터의 가치와 영향, 위기 요인과 통제 방안 등을 다룬다. 2과목 '데이터분석 기획'은 분석 방법론, 분석 과제 발굴, 마스터 플랜 수립, 분석 거버넌스 체계 등을 포함한다. 3과목 '데이터분석'은 R기초와 데이터 마트, 통계분석(기초 통계, 다변량 분석, 시계열 예측), 정형 데이터 마이닝(분류·군집·연관분석)으로 구성된다. 1회 모의고사 1~19번 문항을 분석하면 1과목에서는 NoSQL과 RDBMS 구분(MariaDB vs Cassandra/MongoDB/HBase), 가트너의 데이터 사이언티스트 역량, 블록체인·IoT 정의, DIKW 피라미드, 사전처리에서 사후처리로의 패러다임 전환 등이 출제되었다. 2과목에서는 위험 대응 방법(회피·수용·완화), 암묵지-형식지 변환 과정, 데이터 거버넌스 체계 순서, 집중·기능·분산 조직 구조의 장단점, 하향식 접근법 단계, ISP 정의가 핵심 출제 포인트로 확인된다.</p><p>[한계] 모의고사 정답 및 해설이 아직 입력되지 않아 오답 분석이 불가능하다. 3과목(데이터분석) 문항은 아직 수집되지 않았다. 출제 기준 개정 여부(R 중심 구성의 최신성)는 별도 확인이 필요하다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>재정·예산 실무 관점에서 ADsP의 데이터 거버넌스 체계와 분석 조직 구조(집중·기능·분산) 개념은 전사 비용 데이터 관리 체계나 Project Code 도입 같은 재무 데이터 표준화 과제와 직접 연결된다. 분석 과제 발굴의 하향식 접근법과 ISP 개념은 예산 시스템 개선 요구사항 정의나 중장기 재정 데이터 전략 수립 시 프레임워크로 활용할 수 있다.</p>
+      </div></div><div class="fn-card" data-id="1780758546071">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-06</span>
+            <span class="fn-card-cat" style="background:#FFF0F3;color:#8B1A3A">공공정책</span>
+          </div>
+          <div class="fn-card-title">조직문화와 업무전문성이 조직목표에 미치는 영향: 2018년 공직생활 실태조사를 중심으로</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1780758546071,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">이 논문은 공공조직에서 조직목표가 왜 명확하게 인식되지 않는지에 주목하고, 그 원인을 조직문화와 개인의 업무전문성에서 찾고자 했다. 저자는 공무원 조직의 목표명확성을 높이기 위해서는 단순한 제도 개편보다 집단문화, 혁신문화, 위계문화 등 조직문화의 특성과 개인의 업무전문성을 함께 관리해야 한다고 주장한다.</div>
+      <div class="fn-card-ref">허유민, 하재빈. (2021). 조직문화와 업무전문성이 조직목표에 미치는 영향: 2018년 공직생활 실태조사를 중심으로. 한국조직학회보, 18(2), 63-87. [https://doi.org/10.21484/kros.2021.18.2.63](https://doi.org/10.21484/kros.2021.18.2.63)</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">#공공조직</span><span class="fn-card-tag">#조직문화</span><span class="fn-card-tag">#업무전문성</span><span class="fn-card-tag">#조직목표</span><span class="fn-card-tag">#다중회귀분석</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>이 연구를 쓴 이유는 공공조직의 조직목표가 민간조직보다 모호하고 측정하기 어렵기 때문에, 무엇이 조직목표 인식에 영향을 미치는지 확인할 필요가 있었기 때문이다. 저자는 특히 공무원 조직이 레드테이프, 무사안일주의, 복지부동과 같은 비판을 받아온 상황에서 조직목표의 명확한 설정이 공공조직 변화의 출발점이라고 보았다. 연구는 한국행정연구원의 「2018년 공직생활 실태조사」 자료를 활용했으며, 응답자는 공무원 4,000명이었다. 분석방법은 기술통계분석, 상관분석, 탐색적 요인분석, 다중회귀분석이며, 조직문화는 집단문화·혁신문화·위계문화·합리문화로 구분하고 업무전문성은 개인의 업무전문성 인식을 중심으로 측정했다. 기초통계에서 조직문화 평균은 집단문화 3.630, 혁신문화 3.260, 위계문화 3.348, 합리문화 3.484로 나타나 공무원들은 혁신문화보다 합리문화와 집단문화를 더 강하게 인식했다. 상관분석 결과 조직목표와의 상관계수는 집단문화 0.540, 혁신문화 0.520, 합리문화 0.502, 위계문화 0.428, 전체 업무전문성 0.403, 개인 업무전문성 0.324로 모두 유의미한 정(+)의 관계를 보였다. 다중회귀분석에서는 업무전문성 β=0.206, 집단문화 β=0.203, 혁신문화 β=0.195, 위계문화 β=0.136으로 조직목표에 유의미한 양(+)의 영향을 미쳤고, 주효과 모델의 조정 R²는 0.407로 나타났다. 저자가 전달하려는 핵심은 공공조직의 조직목표를 명확히 하기 위해서는 협력·신뢰·팀워크 중심의 집단문화를 강화하고, 동시에 개인 공무원의 업무전문성을 높이는 전략이 필요하다는 점이다. </p><p>[한계] 첫째, 개인의 업무전문성을 자기기입식 설문으로 측정했기 때문에 응답자의 주관적 편견이 반영되었을 가능성이 있다. 둘째, 통제변수가 성별, 연령, 근무기간, 직급 등 인구통계학적 변수에 한정되어 조직구조나 리더십 등 다른 영향요인을 충분히 통제하지 못했다. 셋째, 2018년 단일 시점의 자료를 활용했기 때문에 시간에 따른 조직문화와 조직목표 인식의 변화를 분석하지 못했다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>공공정책과 재정행정 관점에서 이 논문은 조직목표의 명확성이 예산집행, 성과관리, 조직성과 평가의 전제조건이라는 점을 보여준다. 특히 공공조직의 성과를 높이려면 단순히 목표와 지표를 부여하는 방식만으로는 부족하며, 구성원 간 신뢰와 협력, 업무전문성 축적을 함께 설계해야 한다. 환경교육이나 재생에너지 정책 조직에도 적용하면, 탄소중립·에너지전환과 같은 복합 정책 목표를 달성하기 위해 부서 간 협력문화와 담당자의 전문성 강화가 중요하다는 시사점을 준다.</p>
+      </div></div></div>
 
 </div><!-- /fieldnotes tab -->
 
@@ -536,16 +642,22 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
     <div class="sec-head"><h2>경력</h2><small>Experience</small></div>
     <div class="tl" id="exp-tl">
       <div class="tl-row"><div class="dot"></div><div>
-        <div class="tl-org">LG AI Research (LG AI연구원) <button class="tl-del" onclick="this.closest('.tl-row').remove()">×</button></div>
-        <div class="tl-role">Finance · 책임 — R&D 프로젝트 예산관리 및 재무전략</div>
-        <div class="tl-when">2022 – 현재 · Seoul</div>
-        <div class="tags"><span class="tag b">EXAONE 국책과제</span><span class="tag b">K-SOX / ICFR</span><span class="tag b">API 비용 거버넌스</span><span class="tag">SAP ERP</span></div>
+        <div class="tl-org">LG 경영개발원 AI연구원 (LG AI Research) <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
+        <div class="tl-role">CFO 부문 · 책임 — 연구조직 예산·손익관리, 내부회계관리제도 총괄</div>
+        <div class="tl-when">2022.08 – 현재 · Seoul</div>
+        <div class="tags"><span class="tag b">R&amp;D 예산관리</span><span class="tag b">K-SOX / ICFR</span><span class="tag b">SAP ERP</span><span class="tag b">AI Finance Dashboard</span><span class="tag">이상 거래 모니터링</span></div>
       </div></div>
       <div class="tl-row"><div class="dot g"></div><div>
-        <div class="tl-org">Schneider Electric Korea <button class="tl-del" onclick="this.closest('.tl-row').remove()">×</button></div>
-        <div class="tl-role">Finance — 한국·일본·몽골 예산관리 및 내부통제</div>
-        <div class="tl-when">이전 · Seoul</div>
-        <div class="tags"><span class="tag g">Gate Review</span><span class="tag g">다국가 예산</span><span class="tag g">ICFR</span><span class="tag">원가분석</span></div>
+        <div class="tl-org">Schneider Electric Korea <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
+        <div class="tl-role">Finance · Manager — Project Controller / Accountant</div>
+        <div class="tl-when">2018.04 – 2022.05 · Seoul</div>
+        <div class="tags"><span class="tag g">As Sold·Forecast·Actual</span><span class="tag g">Project P&amp;L</span><span class="tag g">Cash Flow</span><span class="tag">Unbilled AR</span><span class="tag">Deferred Revenue</span></div>
+      </div></div>
+      <div class="tl-row"><div class="dot g"></div><div>
+        <div class="tl-org">Schneider Electric Korea <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
+        <div class="tl-role">Finance · Intern — Expense Report, AP Aging, Intercompany Netting 지원</div>
+        <div class="tl-when">2017.04 – 2017.10 · Seoul</div>
+        <div class="tags"><span class="tag g">Expense Report</span><span class="tag g">Long Aging AP</span><span class="tag">Intercompany Netting</span><span class="tag">월말 결산 지원</span></div>
       </div></div>
     </div>
     <button class="add-row-btn" onclick="addExpRow()">+ 경력 추가</button>
@@ -555,13 +667,13 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
     <div class="sec-head"><h2>학력</h2><small>Education</small></div>
     <div class="tl" id="edu-tl">
       <div class="tl-row"><div class="dot p"></div><div>
-        <div class="tl-org">서울대학교 행정대학원 (SNU GSPA) <button class="tl-del" onclick="this.closest('.tl-row').remove()">×</button></div>
-        <div class="tl-role">행정학 석사 과정 — 재정행정 · 디지털 R&D 예산 제도 연구</div>
+        <div class="tl-org">서울대학교 행정대학원 (SNU GSPA) <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
+        <div class="tl-role">행정학 석사 과정 — 재정행정 · 디지털 R&amp;D 예산 제도 연구</div>
         <div class="tl-when">2025 – 진행 중</div>
         <div class="tags"><span class="tag p">계량경제학</span><span class="tag p">비용편익분석</span><span class="tag p">공공예산론</span></div>
       </div></div>
       <div class="tl-row"><div class="dot p"></div><div>
-        <div class="tl-org">UNSW (University of New South Wales) <button class="tl-del" onclick="this.closest('.tl-row').remove()">×</button></div>
+        <div class="tl-org">UNSW (University of New South Wales) <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
         <div class="tl-role">Bachelor of Commerce — Accounting</div>
         <div class="tl-when">Sydney, Australia</div>
       </div></div>
@@ -635,7 +747,7 @@ function switchTab(id) {
 }
 
 /* ══════════════════════════════
-   PROJECT FILTER
+   KEYWORD FILTER
 ══════════════════════════════ */
 let projFilter = 'ALL';
 function setProjFilter(btn, cat) {
@@ -653,7 +765,7 @@ function filterProj() {
     c.style.display = show ? '' : 'none';
     if (show) v++;
   });
-  document.getElementById('catCount').textContent = v + '개 프로젝트';
+  document.getElementById('catCount').textContent = v + '개 키워드';
 }
 filterProj();
 
@@ -689,10 +801,10 @@ function saveHTML() {
    ADD ROWS
 ══════════════════════════════ */
 let pCount = 10;
-const catLabels = {FN:'FN · 재무/거버넌스',RS:'RS · 연구/정책',DT:'DT · 데이터/개발',PL:'PL · 정책/환경',ED:'ED · 교육/강의'};
+const catLabels = {ADSP:'ADSP · 예상문제',STAT:'STAT · 계산',MODEL:'MODEL · 모델',GOV:'GOV · 거버넌스',POLICY:'POLICY · 정책'};
 
 function addProject() {
-  const cat = prompt('카테고리:\nFN 재무/거버넌스\nRS 연구/정책\nDT 데이터/개발\nPL 정책/환경\nED 교육/강의', 'RS');
+  const cat = prompt('카테고리:\nADSP 예상문제\nSTAT 계산\nMODEL 모델\nGOV 거버넌스\nPOLICY 정책', 'ADSP');
   if (!cat || !catLabels[cat.toUpperCase()]) return;
   const C = cat.toUpperCase(); pCount++;
   const div = document.createElement('div');
@@ -700,9 +812,9 @@ function addProject() {
   div.innerHTML = `<button class="pc-del" onclick="this.closest('.pc').remove();filterProj()">×</button>
     <div class="pc-code" contenteditable="${isEditing}">P${pCount}</div>
     <div class="pc-cat-tag">${catLabels[C]}</div>
-    <div class="pc-title" contenteditable="${isEditing}">프로젝트 제목</div>
-    <div class="pc-desc" contenteditable="${isEditing}">프로젝트 설명</div>
-    <div class="pc-date" contenteditable="${isEditing}">2026 · 기술 스택</div>`;
+    <div class="pc-title" contenteditable="${isEditing}">키워드 제목</div>
+    <div class="pc-desc" contenteditable="${isEditing}">Field Notes에서 뽑은 핵심 문장</div>
+    <div class="pc-date" contenteditable="${isEditing}">태그 · 연결 개념</div>`;
   document.getElementById('projGrid').appendChild(div);
   filterProj();
 }
@@ -865,12 +977,41 @@ function showDbStatus(msg, type='info') {
   if (type === 'ok') setTimeout(() => bar.style.opacity = '0', 2500);
 }
 
+function getStaticNotes() {
+  return [...document.querySelectorAll('#fn-list .fn-card')].map(card => {
+    const paragraphs = [...card.querySelectorAll('.fn-card-body p')].map(p => p.textContent.trim()).filter(Boolean);
+    const insightTitle = [...card.querySelectorAll('.fn-card-body h4')].find(h => h.textContent.includes('시사점'));
+    const insight = insightTitle && insightTitle.nextElementSibling ? insightTitle.nextElementSibling.textContent.trim() : '';
+    const body = insight ? paragraphs.slice(0, -1).join('\n\n') : paragraphs.join('\n\n');
+    return {
+      id: Number(card.dataset.id),
+      date: card.querySelector('.fn-card-date')?.textContent.trim() || '',
+      title: card.querySelector('.fn-card-title')?.textContent.trim() || '',
+      cat: card.querySelector('.fn-card-cat')?.textContent.trim() || '기타',
+      summary: card.querySelector('.fn-card-summary')?.textContent.trim() || '',
+      body,
+      insight,
+      ref: card.querySelector('.fn-card-ref')?.textContent.trim() || '',
+      tags: [...card.querySelectorAll('.fn-card-tag')].map(t => t.textContent.trim())
+    };
+  }).filter(note => note.id && note.title);
+}
+
+function mergeStaticNotes(savedNotes, staticNotes) {
+  const byId = new Map((savedNotes || []).map(note => [Number(note.id), note]));
+  staticNotes.forEach(note => {
+    if (!byId.has(Number(note.id))) savedNotes.unshift(note);
+  });
+  return savedNotes;
+}
+
 // 노트 전체 불러오기
 async function loadNotesFromDB() {
+  const staticNotes = getStaticNotes();
   if (!dbReady()) {
     // URL 미설정 시 localStorage 폴백
     const saved = localStorage.getItem('fn_notes');
-    if (saved) notes = JSON.parse(saved);
+    notes = saved ? mergeStaticNotes(JSON.parse(saved), staticNotes) : staticNotes;
     renderNotes();
     updateFilterButtons();
     showDbStatus('💾 로컬 저장 모드 (Apps Script URL 미설정)', 'info');
@@ -889,7 +1030,7 @@ async function loadNotesFromDB() {
   } catch(e) {
     showDbStatus('⚠️ DB 연결 실패 — 로컬 모드', 'error');
     const saved = localStorage.getItem('fn_notes');
-    if (saved) notes = JSON.parse(saved);
+    notes = saved ? mergeStaticNotes(JSON.parse(saved), staticNotes) : staticNotes;
     renderNotes();
     updateFilterButtons();
   }
@@ -1054,5 +1195,6 @@ function updateFilterButtons() {
 loadNotesFromDB();
 
 </script>
-</body>
-</html>
+
+
+</body></html>
