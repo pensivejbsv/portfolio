@@ -520,7 +520,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   </div>
 
   <!-- Notes list -->
-  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">6개</small></div>
+  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">10개</small></div>
 
   <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
 
@@ -977,24 +977,181 @@ function showDbStatus(msg, type='info') {
   if (type === 'ok') setTimeout(() => bar.style.opacity = '0', 2500);
 }
 
+const ADSP_STUDY_NOTES = [
+  {
+    id: 1781282001001,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 01: DIKW와 빅데이터 기본 개념',
+    cat: 'AI/데이터',
+    summary: '1과목 데이터 이해에서 DIKW, 빅데이터 3V, 데이터베이스 유형은 짧은 정의를 바꿔 묻는 형태로 반복 출제될 가능성이 높다. 기초 정의를 먼저 고정한 뒤 보기의 단어 하나가 바뀌었는지 판별하는 연습이 핵심이다.',
+    body: `기초: 데이터는 가공 전 사실, 정보는 관계 속에서 의미가 생긴 데이터, 지식은 정보가 패턴화되어 의사결정에 쓰이는 상태, 지혜는 창의적 통찰과 전략적 판단이다.
+
+예상 문제: 보기에서 지혜를 타인에게 쉽게 공유 가능한 지식처럼 설명하거나, 정보를 단순한 원자료라고 설명하면 오답일 가능성이 높다. 빅데이터 3V는 Volume, Variety, Velocity이며, 여기에 Value나 Veracity가 확장 요소로 붙을 수 있다는 정도까지 구분한다.
+
+심화: RDBMS는 정형 테이블과 SQL, NoSQL은 비정형·대용량·분산 저장과 연결된다. MariaDB, MySQL, Oracle은 RDBMS이고 MongoDB, Cassandra, HBase는 NoSQL로 묶는다. 시험에서는 제품명을 섞어 하나만 다른 유형을 고르게 하는 문제가 잘 나온다.
+
+공부 순서: 1단계 DIKW 정의 암기, 2단계 3V와 확장 V 구분, 3단계 RDBMS/NoSQL 제품명 분류, 4단계 틀린 보기 직접 만들어 보기.`,
+    insight: '이 주제는 계산보다 빠른 판별력이 중요하다. 한 문장 정의를 외운 뒤, 보기의 핵심 명사가 데이터·정보·지식·지혜 중 어느 층위인지 표시하면서 풀면 실수를 줄일 수 있다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', 'DIKW', '빅데이터3V', 'NoSQL', '데이터이해']
+  },
+  {
+    id: 1781282001002,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 02: 데이터 유형과 표본추출',
+    cat: 'AI/데이터',
+    summary: '정형·반정형·비정형, 정량·정성, 수치형·범주형 데이터 구분과 층화·집락 표본추출의 방향 차이는 보기 함정으로 자주 쓰인다.',
+    body: `기초: 정형 데이터는 행과 열 구조가 명확한 테이블형 데이터다. 반정형 데이터는 XML, JSON처럼 구조 표식은 있지만 고정 테이블은 아닌 데이터다. 비정형 데이터는 이미지, 음성, 텍스트처럼 정해진 구조가 약한 데이터다.
+
+예상 문제: 정량 데이터는 수치로 측정 가능한 데이터, 정성 데이터는 범주나 속성으로 설명되는 데이터다. 수치형은 연속형과 이산형, 범주형은 명목형과 순서형으로 다시 갈라진다. 시험은 예시를 주고 데이터 유형을 고르게 만드는 방식으로 낸다.
+
+심화: 표본추출에서 층화추출은 집단 내부가 동질적이고 집단 간은 이질적일 때 각 층에서 표본을 뽑는다. 집락추출은 집락 내부가 이질적이고 집락 간은 비슷할 때 일부 집락을 뽑는다. 두 개념은 동질·이질 방향이 정반대라 가장 흔한 오답 포인트다.
+
+공부 순서: 1단계 데이터 유형 표 만들기, 2단계 예시 분류, 3단계 층화·집락 비교 암기, 4단계 '집단 내/집단 간' 문장을 보고 바로 표시하기.`,
+    insight: '표본추출은 암기어보다 그림으로 외우는 편이 빠르다. 층화는 케이크를 층별로 조금씩 자르는 느낌, 집락은 여러 도시 중 몇 도시를 통째로 뽑는 느낌으로 잡으면 된다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '데이터유형', '표본추출', '층화추출', '집락추출']
+  },
+  {
+    id: 1781282001003,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 03: KDD, CRISP-DM, 하향식 접근법',
+    cat: 'AI/데이터',
+    summary: '2과목 분석 기획에서는 방법론의 단계 순서를 바꾸는 문제가 유력하다. KDD, CRISP-DM, 하향식 접근법은 첫 단계와 마지막 단계를 중심으로 외워야 한다.',
+    body: `기초: KDD는 데이터 선택, 전처리, 변환, 데이터마이닝, 평가 순서다. CRISP-DM은 업무 이해, 데이터 이해, 데이터 준비, 모델링, 평가, 전개 순서다.
+
+예상 문제: KDD에서 전처리와 변환 순서를 바꾸거나, CRISP-DM에서 업무 이해보다 데이터 준비가 먼저 온다고 쓰는 보기는 오답이다. 하향식 접근법은 문제 탐색, 문제 정의, 해결방안 탐색, 타당성 검토 순서로 진행된다.
+
+심화: KDD는 데이터에서 지식을 발견하는 절차라는 느낌이 강하고, CRISP-DM은 비즈니스 문제를 데이터 분석 프로젝트로 전개하는 관리 방법론에 가깝다. 하향식 접근법의 타당성 검토는 경제적, 데이터, 기술적 타당성을 함께 본다.
+
+공부 순서: 1단계 각 방법론의 첫 글자 암기, 2단계 순서 빈칸 채우기, 3단계 서로 비슷한 단계 비교, 4단계 보기에서 순서가 뒤집힌 지점 찾기.`,
+    insight: '순서형 문제는 중간 단계 전체를 완벽히 외우기보다 시작점과 끝점을 고정한 뒤 연결하는 식으로 풀면 안정적이다. 특히 CRISP-DM은 업무에서 시작해 전개로 끝난다는 축을 놓치지 않는 것이 중요하다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', 'KDD', 'CRISP-DM', '하향식접근법', '분석기획']
+  },
+  {
+    id: 1781282001004,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 04: 분석 성숙도와 데이터 거버넌스',
+    cat: 'AI/데이터',
+    summary: '분석 성숙도, 분석 조직 구조, 위험 대응, 데이터 거버넌스는 2과목의 고빈도 암기 영역이다. 명칭보다 각 유형의 조건과 장단점을 구분해야 한다.',
+    body: `기초: 분석 성숙도는 조직의 분석 준비도와 업무 적용 수준을 함께 본다. 준비형은 준비도와 활용도가 모두 낮고, 정착형은 제한적으로 활용되며, 도입형은 준비는 되었지만 업무 적용이 낮고, 확산형은 준비와 활용이 모두 높다.
+
+예상 문제: 분석 조직 구조는 집중 구조, 기능 구조, 분산 구조로 구분된다. 집중 구조는 전문성 확보가 쉽지만 현업과 거리가 생길 수 있다. 기능 구조는 현업 밀착성이 강하지만 표준화가 약해질 수 있다. 분산 구조는 전사 확산에 유리하지만 조정 비용이 생긴다.
+
+심화: 위험 대응은 회피, 전이, 완화, 수용으로 묶는다. 회피는 위험 활동 자체를 하지 않는 것, 전이는 보험이나 계약처럼 다른 주체에게 넘기는 것, 완화는 발생 가능성이나 영향을 줄이는 것, 수용은 감수하는 것이다.
+
+공부 순서: 1단계 성숙도 사분면 그리기, 2단계 조직 구조 장단점 표 만들기, 3단계 위험 대응 예시 분류, 4단계 데이터 거버넌스 구성요소인 표준화·조직·프로세스·시스템 연결하기.`,
+    insight: '이 영역은 실무 감각과 연결하면 오래 남는다. 예산 데이터나 비용센터 데이터를 전사적으로 관리하려면 표준, 책임 조직, 승인 프로세스, 시스템이 함께 있어야 한다는 흐름으로 이해하면 된다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '분석성숙도', '데이터거버넌스', '위험대응', '분석조직']
+  },
+  {
+    id: 1781282001005,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 05: 확률분포, 기댓값, 분산',
+    cat: 'AI/데이터',
+    summary: '3과목 통계 계산의 출발점은 기댓값과 분산이다. 표를 주고 평균, 분산, 이항분포 값을 계산하게 하는 문제가 나올 가능성이 높다.',
+    body: `기초: 기댓값은 각 값에 그 값이 나올 확률을 곱해 모두 더한 값이다. 분산은 E(X제곱)에서 E(X)의 제곱을 뺀 값이다. 이 둘을 반대로 쓰거나 E(X제곱)을 빠뜨리는 실수가 많다.
+
+예상 문제: 확률변수 X가 0, 1, 2이고 확률이 각각 0.2, 0.5, 0.3이면 기댓값은 0 곱하기 0.2 더하기 1 곱하기 0.5 더하기 2 곱하기 0.3으로 1.1이다. 분산은 먼저 E(X제곱)을 구한 뒤 평균의 제곱을 뺀다.
+
+심화: 이항분포는 평균 np, 분산 np(1-p)다. 정규분포에서는 표준화 Z=(X-평균)/표준편차 흐름을 잡아야 한다. 신뢰구간 계산과 연결될 때는 표준편차와 표준오차를 구분해야 한다.
+
+공부 순서: 1단계 기댓값 공식 암기, 2단계 E(X제곱) 계산 연습, 3단계 이항분포 평균·분산 암기, 4단계 표준화 문제와 연결.`,
+    insight: '통계 계산은 한 번에 외우려 하면 흔들린다. 시험장에서는 평균을 먼저 쓰고, 그 아래 E(X제곱)을 따로 쓴 뒤, 마지막 줄에서 분산을 계산하는 고정 포맷을 쓰는 것이 좋다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '확률분포', '기댓값', '분산', '이항분포']
+  },
+  {
+    id: 1781282001006,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 06: 신뢰구간, 가설검정, p-value',
+    cat: 'AI/데이터',
+    summary: '신뢰구간과 가설검정은 계산과 해석을 같이 묻는다. p-value의 의미, 유의수준과 귀무가설 기각 여부, 표준오차 계산이 핵심이다.',
+    body: `기초: 신뢰구간은 추정값에 오차한계를 더하고 빼서 만든다. 평균의 신뢰구간에서는 표준오차가 표준편차를 표본 수의 제곱근으로 나눈 값이다. 95퍼센트 신뢰수준의 대표 임계값은 1.96이다.
+
+예상 문제: p-value가 유의수준 0.05보다 작으면 귀무가설을 기각한다. p-value가 작다는 것은 귀무가설이 맞다고 가정했을 때 현재 관측 결과가 나오기 어렵다는 뜻이다. 시험은 '귀무가설을 채택한다'라는 표현으로 혼동을 유도할 수 있다.
+
+심화: 1종 오류는 참인 귀무가설을 기각하는 오류이고, 2종 오류는 거짓인 귀무가설을 기각하지 못하는 오류다. 검정력은 1에서 2종 오류 확률을 뺀 값이다. 양측검정과 단측검정의 기각역 차이도 함께 정리한다.
+
+공부 순서: 1단계 귀무가설과 대립가설 쓰기, 2단계 p-value와 유의수준 비교, 3단계 신뢰구간 공식 적용, 4단계 1종·2종 오류 사례 구분.`,
+    insight: '가설검정 문제는 계산보다 문장 해석이 더 위험하다. p-value가 작으면 기각, 신뢰구간에 기준값이 들어가면 보통 유의하지 않다는 식의 판정 루틴을 따로 외워두면 좋다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '신뢰구간', '가설검정', 'p-value', '표준오차']
+  },
+  {
+    id: 1781282001007,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 07: 회귀분석과 R 출력 해석',
+    cat: 'AI/데이터',
+    summary: 'R의 lm 출력, 회귀계수, 결정계수, 자유도 해석은 매회 변형 가능한 영역이다. 출력표에서 무엇을 먼저 읽을지 순서를 정해두어야 한다.',
+    body: `기초: 단순회귀는 하나의 독립변수로 종속변수를 설명하고, 다중회귀는 여러 독립변수를 함께 사용한다. 회귀계수는 독립변수가 1단위 증가할 때 종속변수가 얼마나 변하는지 나타낸다.
+
+예상 문제: R 출력에서 p-value가 0.05보다 작으면 해당 회귀계수는 통계적으로 유의하다고 판단한다. 별표가 많을수록 보통 유의성이 강하다. R-squared는 모형이 종속변수 변동을 설명하는 비율이고, 다중회귀에서는 Adjusted R-squared를 함께 본다.
+
+심화: 잔차 자유도와 회귀 자유도를 이용해 표본 수를 역산하는 문제가 나올 수 있다. 전체 표본 수는 잔차 자유도에 추정한 모수 수를 더하는 방식으로 생각한다. 다중공선성은 독립변수들끼리 강하게 상관되어 계수 해석이 불안정해지는 문제다.
+
+공부 순서: 1단계 회귀식 구조 이해, 2단계 p-value와 별표 읽기, 3단계 R-squared와 Adjusted R-squared 구분, 4단계 잔차·자유도·표본 수 관계 풀기.`,
+    insight: 'R 출력 문제는 표 전체를 다 읽으려 하면 시간이 걸린다. 유의확률, 계수 방향, 결정계수, 자유도 순서로만 먼저 훑는 루틴을 만들면 계산형 문제보다 빠르게 득점할 수 있다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '회귀분석', 'R출력', '결정계수', '자유도']
+  },
+  {
+    id: 1781282001008,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 08: 오분류표, ROC, 분류모델 평가지표',
+    cat: 'AI/데이터',
+    summary: '오분류표는 ADsP 계산형 핵심이다. 정확도, 재현율, 정밀도, 특이도, F1-score를 실제값과 예측값 기준으로 흔들리지 않게 계산해야 한다.',
+    body: `기초: TP는 실제 양성을 양성으로 맞힌 값, TN은 실제 음성을 음성으로 맞힌 값이다. FP는 실제 음성을 양성으로 잘못 예측한 값, FN은 실제 양성을 음성으로 놓친 값이다.
+
+예상 문제: 정확도는 전체 중 맞힌 비율이다. 재현율 또는 민감도는 TP/(TP+FN), 정밀도는 TP/(TP+FP), 특이도는 TN/(TN+FP), F1-score는 정밀도와 재현율의 조화평균이다. 시험은 FP와 FN 위치를 바꿔 계산하게 유도한다.
+
+심화: ROC 곡선은 민감도와 1-특이도의 관계를 본다. AUC가 1에 가까울수록 분류 성능이 좋고, 0.5에 가까우면 무작위 분류와 비슷하다. 정밀도와 재현율은 trade-off 관계가 생길 수 있다.
+
+공부 순서: 1단계 2x2 표 직접 그리기, 2단계 각 지표 분모 표시, 3단계 F1 계산 연습, 4단계 ROC-AUC 해석 문장 외우기.`,
+    insight: '오분류표는 암산으로 풀지 말고 반드시 작은 표를 그려야 한다. 특히 실제 양성 행의 합계가 재현율 분모, 예측 양성 열의 합계가 정밀도 분모라는 식으로 위치를 고정하면 틀릴 확률이 크게 줄어든다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '오분류표', 'ROC', 'AUC', 'F1-score']
+  },
+  {
+    id: 1781282001009,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 09: 의사결정나무와 앙상블',
+    cat: 'AI/데이터',
+    summary: '의사결정나무 알고리즘 구분과 앙상블 방식 비교는 개념형과 보기형 모두 출제 가능성이 높다. CART, C4.5, CHAID와 배깅·부스팅을 묶어 외운다.',
+    body: `기초: 의사결정나무는 데이터를 조건에 따라 나누며 예측 규칙을 트리 형태로 만든다. CART는 범주형에서 지니지수, 연속형에서 분산감소량과 연결된다. C4.5는 엔트로피와 정보이득, CHAID는 카이제곱 검정과 연결된다.
+
+예상 문제: CART, C4.5, CHAID의 분할 기준을 서로 바꿔 놓는 보기가 자주 나온다. 지니지수는 불순도를 나타내며 낮을수록 한쪽 클래스로 잘 분리된 상태다.
+
+심화: 앙상블은 여러 모델을 결합해 성능을 높이는 방법이다. 배깅은 복원추출한 여러 표본으로 병렬 학습해 분산을 줄이고, 랜덤포레스트는 배깅에 변수 무작위 선택을 결합한다. 부스팅은 이전 모델의 오분류에 가중치를 주며 순차적으로 학습한다. 스태킹은 여러 모델의 예측값을 다시 메타 모델에 넣는다.
+
+공부 순서: 1단계 나무 알고리즘과 분할 기준 연결, 2단계 배깅·부스팅 차이 암기, 3단계 랜덤포레스트 위치 이해, 4단계 보기에서 병렬·직렬 단서 찾기.`,
+    insight: '앙상블은 이름이 많지만 축은 간단하다. 병렬로 여러 모델을 만들면 배깅 계열, 틀린 것에 집중하며 순서대로 만들면 부스팅 계열이라고 먼저 분류하면 된다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '의사결정나무', 'CART', 'CHAID', '앙상블']
+  },
+  {
+    id: 1781282001010,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 10: 군집분석, 연관분석, ARIMA',
+    cat: 'AI/데이터',
+    summary: '군집분석, 연관분석, 시계열은 3과목 후반부의 고빈도 비교 영역이다. K-means, DBSCAN, 지지도·신뢰도·향상도, ARIMA의 p,d,q를 연결해 공부한다.',
+    body: `기초: K-means는 군집 수 K를 미리 정하고 중심점에 가까운 데이터를 반복적으로 할당한다. DBSCAN은 밀도 기반 군집분석으로 K를 미리 정하지 않아도 되고 이상치에 비교적 강하다. 계층적 군집은 덴드로그램으로 군집 결합 과정을 보여준다.
+
+예상 문제: K-means 절차는 K 설정, 초기 중심 선택, 군집 할당, 중심 재계산, 반복 수렴 순서다. DBSCAN은 Eps와 MinPts가 핵심 파라미터다. 계층적 군집은 한 번 합쳐진 군집을 되돌리기 어렵다는 특징이 있다.
+
+심화: 연관분석은 지지도, 신뢰도, 향상도를 계산한다. 지지도는 A와 B가 동시에 나온 비율, 신뢰도는 A가 나왔을 때 B도 나올 조건부 확률, 향상도는 신뢰도를 B의 전체 발생 비율로 나눈 값이다. ARIMA(p,d,q)는 p가 AR 차수, d가 차분 횟수, q가 MA 차수이며 PACF는 p, ACF는 q 판단에 자주 연결된다.
+
+공부 순서: 1단계 군집 알고리즘 비교표 작성, 2단계 연관분석 공식 계산, 3단계 향상도 해석, 4단계 ARIMA p,d,q와 ACF/PACF 연결 암기.`,
+    insight: '이 카드의 세 주제는 서로 달라 보이지만 시험에서는 모두 “정의와 지표를 정확히 구분하는가”를 묻는다. 군집은 알고리즘 특징, 연관분석은 공식, ARIMA는 기호의 의미를 따로 고정하면 된다.',
+    ref: 'adsp_study_tree.png 및 ADsP 모의고사 출제 패턴 정리.',
+    tags: ['ADsP', '군집분석', '연관분석', 'K-means', 'ARIMA']
+  }
+];
+
 function getStaticNotes() {
-  return [...document.querySelectorAll('#fn-list .fn-card')].map(card => {
-    const paragraphs = [...card.querySelectorAll('.fn-card-body p')].map(p => p.textContent.trim()).filter(Boolean);
-    const insightTitle = [...card.querySelectorAll('.fn-card-body h4')].find(h => h.textContent.includes('시사점'));
-    const insight = insightTitle && insightTitle.nextElementSibling ? insightTitle.nextElementSibling.textContent.trim() : '';
-    const body = insight ? paragraphs.slice(0, -1).join('\n\n') : paragraphs.join('\n\n');
-    return {
-      id: Number(card.dataset.id),
-      date: card.querySelector('.fn-card-date')?.textContent.trim() || '',
-      title: card.querySelector('.fn-card-title')?.textContent.trim() || '',
-      cat: card.querySelector('.fn-card-cat')?.textContent.trim() || '기타',
-      summary: card.querySelector('.fn-card-summary')?.textContent.trim() || '',
-      body,
-      insight,
-      ref: card.querySelector('.fn-card-ref')?.textContent.trim() || '',
-      tags: [...card.querySelectorAll('.fn-card-tag')].map(t => t.textContent.trim())
-    };
-  }).filter(note => note.id && note.title);
+  return ADSP_STUDY_NOTES.map(note => ({...note, tags: [...note.tags]}));
 }
 
 function mergeStaticNotes(savedNotes, staticNotes) {
@@ -1010,8 +1167,8 @@ async function loadNotesFromDB() {
   const staticNotes = getStaticNotes();
   if (!dbReady()) {
     // URL 미설정 시 localStorage 폴백
-    const saved = localStorage.getItem('fn_notes');
-    notes = saved ? mergeStaticNotes(JSON.parse(saved), staticNotes) : staticNotes;
+    notes = staticNotes;
+    localStorage.setItem('fn_notes', JSON.stringify(notes));
     renderNotes();
     updateFilterButtons();
     showDbStatus('💾 로컬 저장 모드 (Apps Script URL 미설정)', 'info');
@@ -1029,8 +1186,8 @@ async function loadNotesFromDB() {
     } else throw new Error(data.error);
   } catch(e) {
     showDbStatus('⚠️ DB 연결 실패 — 로컬 모드', 'error');
-    const saved = localStorage.getItem('fn_notes');
-    notes = saved ? mergeStaticNotes(JSON.parse(saved), staticNotes) : staticNotes;
+    notes = staticNotes;
+    localStorage.setItem('fn_notes', JSON.stringify(notes));
     renderNotes();
     updateFilterButtons();
   }
