@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "databaseName": "adsp_query_history_db",
   "description": "Imported ADSP query-history text files and staged learning summaries used by the daily Process Map updater.",
-  "lastUpdatedAt": "2026-06-13T19:17:00+09:00",
+  "lastUpdatedAt": "2026-06-13T19:21:45+09:00",
   "sourcePolicy": {
     "filePattern": "질의내역_*.txt",
     "searchLocations": [
@@ -41,13 +41,50 @@
       "description": "Daily review checklist items that should be reflected in the next Process Map combination."
     }
   ],
-  "importedFiles": [],
+  "importedFiles": [
+    {
+      "fileName": "질의내역_260613.txt",
+      "path": "C:\\Users\\fanta\\Desktop\\포트폴리오\\질의내역_260613.txt",
+      "contentHash": "B0459C55490A28256C45D79FA3DF4ECD95C377F9173D42A94846ED62654C6C9C",
+      "importedAt": "2026-06-13T19:21:45+09:00",
+      "rawTopic": "아답터식 ADSP 약어 암기법과 전체 데이터 흐름도를 최소 토큰의 Flow Chart로 정리하는 질의",
+      "extractedQuestions": [
+        "아답터 ADSP 영상의 암기 전략을 관련 링크 기반으로 요약 분석해 달라.",
+        "영어 약자의 원어, 한글 역할, 앞글자 암기법을 전체 Flow Chart에 넣을 수 있는가.",
+        "전체 채팅 내용을 최소 토큰의 Flow Chart로 정리해 달라."
+      ]
+    }
+  ],
   "stagedSummaries": {
-    "foundation": [],
-    "intermediate": [],
+    "foundation": [
+      {
+        "sourceFile": "질의내역_260613.txt",
+        "summary": "영어 약자는 원어를 먼저 풀고 한글 역할로 번역한 뒤, 시험 직전 앞글자 암기법으로 회상한다.",
+        "keywords": ["DIKW", "DBMS", "SQL", "DDL", "DML", "DCL", "TCL", "ETL", "ODS", "DW"]
+      }
+    ],
+    "intermediate": [
+      {
+        "sourceFile": "질의내역_260613.txt",
+        "summary": "데이터 발생에서 기업 시스템, DB 관리, SQL, DB 설계, DW 전처리, 분석 활용으로 이어지는 순서를 고정한다.",
+        "keywords": ["정반비", "개논물", "추변적", "주통시비", "OLTP", "OLAP", "BI", "BA"]
+      }
+    ],
     "advanced": [],
-    "weakness": [],
-    "review": []
+    "weakness": [
+      {
+        "sourceFile": "질의내역_260613.txt",
+        "summary": "약자만 외우면 원어와 역할을 묻는 문제에서 흔들리고, 한글 뜻만 외우면 약자 보기에서 막히는 점이 취약 포인트다.",
+        "keywords": ["약어", "원어", "역할", "보기 함정"]
+      }
+    ],
+    "review": [
+      {
+        "sourceFile": "질의내역_260613.txt",
+        "summary": "정반비, 개논물, 추변적, 주통시비, 데정지지를 매일 Flow Chart 옆 암기 박스로 복습한다.",
+        "keywords": ["정반비", "개논물", "추변적", "주통시비", "데정지지"]
+      }
+    ]
   },
   "history": [
     {
@@ -55,6 +92,14 @@
       "createdAt": "2026-06-13T19:17:00+09:00",
       "sourceFiles": [],
       "summary": "Initialized the query-history database. Future files matching 질의내역_*.txt will be imported, staged, deduplicated, and used by the daily ADSP Process Map updater."
+    },
+    {
+      "version": "2026-06-13-query-history-260613-import",
+      "createdAt": "2026-06-13T19:21:45+09:00",
+      "sourceFiles": ["질의내역_260613.txt"],
+      "contentHashes": ["B0459C55490A28256C45D79FA3DF4ECD95C377F9173D42A94846ED62654C6C9C"],
+      "stagesUpdated": ["foundation", "intermediate", "weakness", "review"],
+      "summary": "Imported one query-history text file and staged its ADSP acronym memorization flow into the query-history DB."
     }
   ]
 }

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "databaseName": "adsp_process_map_db",
   "description": "Daily snapshots and generated variants for the ADSP Process Map shown in the portfolio ADSP tab.",
-  "lastUpdatedAt": "2026-06-13T19:12:00+09:00",
-  "currentVersion": "2026-06-13-initial-process-map",
+  "lastUpdatedAt": "2026-06-13T19:21:45+09:00",
+  "currentVersion": "2026-06-13-query-history-acronym-flow",
   "updatePolicy": {
     "cadence": "daily",
     "minimumSnapshotsPerRun": 1,
@@ -123,6 +123,12 @@
       "name": "취약 주제 회복형",
       "compositionRule": "최근 추가된 Field Note와 누락되기 쉬운 후반부 주제인 PCA, SVM, KNN, 나이브베이즈를 우선 노출한다.",
       "recommendedUse": "자동 생성된 최신 Field Note 반영 여부 점검"
+    },
+    {
+      "id": "query_history_acronym_flow",
+      "name": "질의 기반 약어 흐름형",
+      "compositionRule": "질의내역에서 반복된 영어 약자를 원어, 한글 역할, 앞글자 암기법, 데이터 흐름 순서로 재조합한다.",
+      "recommendedUse": "아답터식 암기법처럼 약어를 풀어 이해한 뒤 시험 직전 앞글자로 빠르게 회상할 때"
     }
   ],
   "history": [
@@ -132,6 +138,20 @@
       "variantId": "exam_flow",
       "sourceNotes": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
       "summary": "Initial Process Map snapshot created from the visible ADSP tab and the existing ADSP Field Notes."
+    },
+    {
+      "version": "2026-06-13-query-history-acronym-flow",
+      "createdAt": "2026-06-13T19:21:45+09:00",
+      "variantId": "query_history_acronym_flow",
+      "sourceNotes": ["01", "02", "03", "04"],
+      "queryHistoryFiles": ["질의내역_260613.txt"],
+      "queryStagesUsed": ["foundation", "intermediate", "review"],
+      "summary": "Imported the query history focused on ADSP acronym-first memorization and updated the visible Process Map with a compact data lifecycle flow.",
+      "keyChanges": [
+        "Connected English acronyms to full names, Korean roles, and mnemonic chunks.",
+        "Added a query-based flow from big-data background through enterprise systems, DB, SQL, DW, OLAP, BI, BA, and DIKW.",
+        "Emphasized high-recall mnemonics: 정반비, 개논물, 추변적, 주통시비, 데정지지."
+      ]
     }
   ]
 }
