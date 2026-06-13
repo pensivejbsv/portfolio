@@ -490,70 +490,100 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <span class="automation-live-label">Daily Process Map Live</span>
       <strong id="adsp-process-map-status">이상없음</strong>
     </div>
-    <small id="adsp-process-map-detail">2026-06-13 19:36 KST · 아답터식 약어 풀이·질의내역 2건 반영</small>
+    <small id="adsp-process-map-detail">2026-06-13 20:00 KST · 어답터 ADsP 교재 순서 기준 메인 Process Map 재편</small>
   </div>
 
   <div class="sec">
-    <div class="sec-head"><h2>Process Map</h2><small>Exam Flow</small></div>
+    <div class="sec-head"><h2>Process Map</h2><small>Adapter ADsP Flow</small></div>
     <div class="adsp-map">
       <div class="adsp-stage">
-        <div class="adsp-stage-num">01 · DATA LITERACY</div>
-        <h3>데이터를 정보로 바꾸기</h3>
-        <p>데이터가 그냥 숫자에서 의미 있는 정보와 지식으로 바뀌는 과정을 이해한다.</p>
+        <div class="adsp-stage-num">01 · DATA → DIKW</div>
+        <h3>데이터의 정의를 먼저 고정</h3>
+        <p>어답터 교재 첫 흐름처럼 데이터, 정보, 지식, 지혜의 차이를 보기 문장으로 판별한다.</p>
         <ul>
-          <li>DIKW, 데이터 유형, DBMS</li>
-          <li>빅데이터 3V와 데이터 가치</li>
-          <li>Field Note 01, 02</li>
+          <li>데이터=가공 전 객관적 사실</li>
+          <li>정형·반정형·비정형, 정량·정성</li>
+          <li>암기: DIKW, 공표연내, 정반비</li>
         </ul>
       </div>
       <div class="adsp-stage">
-        <div class="adsp-stage-num">02 · PLANNING</div>
-        <h3>분석 과제를 설계하기</h3>
-        <p>문제 정의, 방법론 선택, 거버넌스, 조직 구조를 통해 분석이 실제 업무가 되도록 만든다.</p>
+        <div class="adsp-stage-num">02 · DB / SQL</div>
+        <h3>DB 구조와 명령어 분리</h3>
+        <p>DBMS, 스키마, 메타데이터, SQL 분류를 원어와 역할 중심으로 연결해 암기한다.</p>
         <ul>
-          <li>KDD, CRISP-DM, ISP</li>
-          <li>성숙도, 위험 대응, 거버넌스</li>
-          <li>Field Note 03, 04</li>
+          <li>DB 특징: 공용·통합·저장·변화</li>
+          <li>DDL·DML·DCL·TCL 역할 구분</li>
+          <li>암기: 공통저변, 개논물</li>
         </ul>
       </div>
       <div class="adsp-stage">
-        <div class="adsp-stage-num">03 · STATISTICS</div>
-        <h3>불확실성을 숫자로 판단하기</h3>
-        <p>확률과 표본을 바탕으로 평균, 분산, 신뢰구간, 가설검정을 계산하고 해석한다.</p>
+        <div class="adsp-stage-num">03 · DW / ENTERPRISE</div>
+        <h3>기업 시스템과 저장소 연결</h3>
+        <p>OLTP에서 발생한 운영 데이터가 ODS, ETL, DW, OLAP, BI/BA로 이어지는 흐름을 잡는다.</p>
         <ul>
-          <li>기댓값, 분산, 표준오차</li>
-          <li>p-value, 1종·2종 오류</li>
-          <li>Field Note 05, 06</li>
+          <li>ERP·CRM·SCM·KMS·RTE</li>
+          <li>ODS → ETL → DW → OLAP</li>
+          <li>암기: 추변적, 주통시비</li>
         </ul>
       </div>
       <div class="adsp-stage">
-        <div class="adsp-stage-num">04 · MODELING</div>
-        <h3>모델로 예측·분류하기</h3>
-        <p>회귀, 분류, 나무, 앙상블, SVM, 신경망 등 모델의 판단 원리와 차이를 구분한다.</p>
+        <div class="adsp-stage-num">04 · BIG DATA</div>
+        <h3>빅데이터 변화 방향 암기</h3>
+        <p>3V/5V와 빅데이터가 만든 분석 패러다임 변화를 짧은 앞글자 암기로 회상한다.</p>
         <ul>
-          <li>회귀, 로지스틱, KNN, SVM</li>
-          <li>의사결정나무, 앙상블, 신경망</li>
-          <li>Field Note 07, 09, 12, 13</li>
+          <li>Volume·Variety·Velocity</li>
+          <li>표본→전수, 사전→사후, 질→양</li>
+          <li>암기: 3V, 개정신, 전후양상</li>
         </ul>
       </div>
       <div class="adsp-stage">
-        <div class="adsp-stage-num">05 · EVALUATION</div>
-        <h3>모델 성능을 검증하기</h3>
-        <p>좋은 모델인지 판단하기 위해 오분류표, ROC, AUC, F1-score를 계산한다.</p>
+        <div class="adsp-stage-num">05 · PLANNING</div>
+        <h3>분석 방법론 순서 고정</h3>
+        <p>KDD, CRISP-DM, 빅데이터 분석 방법론은 순서가 바뀌는 보기 함정에 대비한다.</p>
         <ul>
-          <li>TP, FP, FN, TN</li>
-          <li>Precision, Recall, ROC-AUC</li>
-          <li>Field Note 08</li>
+          <li>KDD: 선택→전처리→변환→마이닝→평가</li>
+          <li>CRISP-DM: 업무→데이터→준비→모델링→평가→전개</li>
+          <li>암기: 업데데이트모델평가전</li>
         </ul>
       </div>
       <div class="adsp-stage">
-        <div class="adsp-stage-num">06 · DISCOVERY</div>
-        <h3>구조와 패턴을 발견하기</h3>
-        <p>군집, 연관규칙, 차원축소, 시계열로 데이터 안의 숨은 구조와 시간 패턴을 찾는다.</p>
+        <div class="adsp-stage-num">06 · GOVERNANCE</div>
+        <h3>과제 발굴과 조직 구조 연결</h3>
+        <p>하향식·상향식 접근, 분석 성숙도, 거버넌스, 분석 조직 구조를 2과목 핵심 덩어리로 묶는다.</p>
         <ul>
-          <li>K-means, DBSCAN, PCA</li>
-          <li>Support, Confidence, Lift, ARIMA</li>
-          <li>Field Note 10, 11</li>
+          <li>문제탐색→문제정의→해결방안→타당성</li>
+          <li>준비형·정착형·도입형·확산형</li>
+          <li>암기: 도준정확, 집기분, 회전완수</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">07 · PREPROCESSING</div>
+        <h3>EDA와 데이터 마트 준비</h3>
+        <p>3과목 계산에 들어가기 전 결측값, 이상값, 요약변수, 파생변수의 처리 기준을 정리한다.</p>
+        <ul>
+          <li>완전분석법, 평균대치, Hot/Cold-Deck</li>
+          <li>ESD, IQR, Z-Score</li>
+          <li>암기: 저잔재현, 대치→분석→결합</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">08 · CALCULATION</div>
+        <h3>계산형 문제 손풀이 루프</h3>
+        <p>기댓값, 분산, 신뢰구간, p-value, 오분류표, 연관분석은 공식 적용 순서를 먼저 떠올린다.</p>
+        <ul>
+          <li>E(X), Var(X), 표준오차</li>
+          <li>TP/FP/FN/TN, Precision, Recall</li>
+          <li>Support, Confidence, Lift</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">09 · MODEL / REVIEW</div>
+        <h3>모델 비교 후 오답 회독</h3>
+        <p>분류·군집·연관·시계열 모델의 보기 단서를 비교하고, 틀린 문항은 앞 단계 암기어로 되돌린다.</p>
+        <ul>
+          <li>CART·C4.5·CHAID, K-means·DBSCAN</li>
+          <li>Bagging·Boosting·Random Forest</li>
+          <li>오답 복귀: 암기어·공식·단계 순서</li>
         </ul>
       </div>
     </div>

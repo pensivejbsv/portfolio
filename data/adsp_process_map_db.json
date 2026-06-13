@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "databaseName": "adsp_process_map_db",
   "description": "Daily snapshots and generated variants for the ADSP Process Map shown in the portfolio ADSP tab.",
-  "lastUpdatedAt": "2026-06-13T19:36:22+09:00",
-  "currentVersion": "2026-06-13-adapter-query-acronym-expanded",
+  "lastUpdatedAt": "2026-06-13T20:00:00+09:00",
+  "currentVersion": "2026-06-13-adapter-main-process-map",
   "updatePolicy": {
     "cadence": "daily",
     "minimumSnapshotsPerRun": 1,
@@ -34,58 +34,85 @@
     "title": "ADsP 시험 흐름과 Field Notes 학습 지도",
     "stages": [
       {
-        "id": "data-literacy",
+        "id": "data-dikw",
         "order": 1,
-        "label": "DATA LITERACY",
-        "headline": "데이터를 정보로 바꾸기",
-        "purpose": "데이터가 그냥 숫자에서 의미 있는 정보와 지식으로 바뀌는 과정을 이해한다.",
-        "keywords": ["DIKW", "데이터 유형", "DBMS", "빅데이터 3V", "데이터 가치"],
+        "label": "DATA → DIKW",
+        "headline": "데이터의 정의를 먼저 고정",
+        "purpose": "어답터 교재 첫 흐름처럼 데이터, 정보, 지식, 지혜의 차이를 보기 문장으로 판별한다.",
+        "keywords": ["DIKW", "데이터 유형", "공표연내", "정반비"],
+        "fieldNotes": ["01"]
+      },
+      {
+        "id": "db-sql",
+        "order": 2,
+        "label": "DB / SQL",
+        "headline": "DB 구조와 명령어 분리",
+        "purpose": "DBMS, 스키마, 메타데이터, SQL 분류를 원어와 역할 중심으로 연결해 암기한다.",
+        "keywords": ["DBMS", "스키마", "메타데이터", "DDL", "DML", "DCL", "TCL", "공통저변", "개논물"],
+        "fieldNotes": ["01"]
+      },
+      {
+        "id": "dw-enterprise",
+        "order": 3,
+        "label": "DW / ENTERPRISE",
+        "headline": "기업 시스템과 저장소 연결",
+        "purpose": "OLTP에서 발생한 운영 데이터가 ODS, ETL, DW, OLAP, BI/BA로 이어지는 흐름을 잡는다.",
+        "keywords": ["ERP", "CRM", "SCM", "KMS", "RTE", "ODS", "ETL", "DW", "OLAP", "BI", "BA", "추변적", "주통시비"],
+        "fieldNotes": ["01", "14"]
+      },
+      {
+        "id": "big-data",
+        "order": 4,
+        "label": "BIG DATA",
+        "headline": "빅데이터 변화 방향 암기",
+        "purpose": "3V/5V와 빅데이터가 만든 분석 패러다임 변화를 짧은 앞글자 암기로 회상한다.",
+        "keywords": ["3V", "5V", "전후양상", "개정신", "가명정보", "비식별화"],
         "fieldNotes": ["01", "02"]
       },
       {
         "id": "planning",
-        "order": 2,
+        "order": 5,
         "label": "PLANNING",
-        "headline": "분석 과제를 설계하기",
-        "purpose": "문제 정의, 방법론 선택, 거버넌스, 조직 구조를 통해 분석이 실제 업무가 되도록 만든다.",
-        "keywords": ["KDD", "CRISP-DM", "ISP", "성숙도", "위험 대응", "거버넌스"],
+        "headline": "분석 방법론 순서 고정",
+        "purpose": "KDD, CRISP-DM, 빅데이터 분석 방법론은 순서가 바뀌는 보기 함정에 대비한다.",
+        "keywords": ["KDD", "CRISP-DM", "업데데이트모델평가전", "회전완수"],
         "fieldNotes": ["03", "04"]
       },
       {
-        "id": "statistics",
-        "order": 3,
-        "label": "STATISTICS",
-        "headline": "불확실성을 숫자로 판단하기",
-        "purpose": "확률과 표본을 바탕으로 평균, 분산, 신뢰구간, 가설검정을 계산하고 해석한다.",
-        "keywords": ["기댓값", "분산", "표준오차", "p-value", "1종 오류", "2종 오류"],
+        "id": "governance",
+        "order": 6,
+        "label": "GOVERNANCE",
+        "headline": "과제 발굴과 조직 구조 연결",
+        "purpose": "하향식·상향식 접근, 분석 성숙도, 거버넌스, 분석 조직 구조를 2과목 핵심 덩어리로 묶는다.",
+        "keywords": ["하향식 접근", "상향식 접근", "도준정확", "집기분", "시조프로마인드데"],
+        "fieldNotes": ["03", "04"]
+      },
+      {
+        "id": "preprocessing",
+        "order": 7,
+        "label": "PREPROCESSING",
+        "headline": "EDA와 데이터 마트 준비",
+        "purpose": "3과목 계산에 들어가기 전 결측값, 이상값, 요약변수, 파생변수의 처리 기준을 정리한다.",
+        "keywords": ["EDA", "요약변수", "파생변수", "결측값", "이상값", "저잔재현", "ESD", "IQR", "Z-Score"],
         "fieldNotes": ["05", "06"]
       },
       {
-        "id": "modeling",
-        "order": 4,
-        "label": "MODELING",
-        "headline": "모델로 예측·분류하기",
-        "purpose": "회귀, 분류, 나무, 앙상블, SVM, 신경망 등 모델의 판단 원리와 차이를 구분한다.",
-        "keywords": ["회귀", "로지스틱 회귀", "KNN", "SVM", "의사결정나무", "앙상블", "신경망"],
-        "fieldNotes": ["07", "09", "12", "13"]
+        "id": "calculation",
+        "order": 8,
+        "label": "CALCULATION",
+        "headline": "계산형 문제 손풀이 루프",
+        "purpose": "기댓값, 분산, 신뢰구간, p-value, 오분류표, 연관분석은 공식 적용 순서를 먼저 떠올린다.",
+        "keywords": ["E(X)", "Var(X)", "표준오차", "p-value", "TP", "FP", "FN", "TN", "Support", "Confidence", "Lift"],
+        "fieldNotes": ["06", "08", "11"]
       },
       {
-        "id": "evaluation",
-        "order": 5,
-        "label": "EVALUATION",
-        "headline": "모델 성능을 검증하기",
-        "purpose": "좋은 모델인지 판단하기 위해 오분류표, ROC, AUC, F1-score를 계산한다.",
-        "keywords": ["TP", "FP", "FN", "TN", "Precision", "Recall", "ROC-AUC"],
-        "fieldNotes": ["08"]
-      },
-      {
-        "id": "discovery",
-        "order": 6,
-        "label": "DISCOVERY",
-        "headline": "구조와 패턴을 발견하기",
-        "purpose": "군집, 연관규칙, 차원축소, 시계열로 데이터 안의 숨은 구조와 시간 패턴을 찾는다.",
-        "keywords": ["K-means", "DBSCAN", "PCA", "Support", "Confidence", "Lift", "ARIMA"],
-        "fieldNotes": ["10", "11"]
+        "id": "model-review",
+        "order": 9,
+        "label": "MODEL / REVIEW",
+        "headline": "모델 비교 후 오답 회독",
+        "purpose": "분류·군집·연관·시계열 모델의 보기 단서를 비교하고, 틀린 문항은 앞 단계 암기어로 되돌린다.",
+        "keywords": ["CART", "C4.5", "CHAID", "K-means", "DBSCAN", "Bagging", "Boosting", "Random Forest", "오답 회독"],
+        "fieldNotes": ["07", "09", "10", "11", "12", "13"]
       }
     ]
   },
@@ -173,6 +200,20 @@
         "Expanded the daily query flow from compressed acronyms into full-name, Korean-role, purpose, and exam-recall explanations.",
         "Added 3V, 5V, and 전후양상 to connect big-data background with adapter-note memorization cues.",
         "Extended the acronym and concept background table with SQL, DDL, DML, DCL, TCL, OLTP, OLAP, ERP, CRM, SCM, KMS, ODS, ETL, DW, BI, BA, and RTE."
+      ]
+    },
+    {
+      "version": "2026-06-13-adapter-main-process-map",
+      "createdAt": "2026-06-13T20:00:00+09:00",
+      "variantId": "query_history_bigdata_transition",
+      "sourceNotes": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"],
+      "queryHistoryFiles": ["질의내역_260613.txt", "질의내역_260613 1925.txt"],
+      "queryStagesUsed": ["foundation", "intermediate", "weakness", "review"],
+      "summary": "Rebuilt the visible main Process Map into a nine-stage Adapter ADsP flow from data definitions through DB, SQL, DW, big-data transition, planning, governance, preprocessing, calculation, model comparison, and review.",
+      "keyChanges": [
+        "Replaced the generic six-card exam flow with a nine-card Adapter ADsP sequence.",
+        "Moved mnemonic cues such as 공표연내, 공통저변, 개논물, 추변적, 주통시비, 전후양상, 도준정확, 집기분, and 저잔재현 into the main visible map.",
+        "Connected calculation and model-comparison stages back to wrong-answer review so users can return to acronyms, formulas, and step order."
       ]
     }
   ]
