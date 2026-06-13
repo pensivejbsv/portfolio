@@ -208,6 +208,40 @@ body.editing .add-proj-btn{display:flex}
 .sk-list{font-size:13px;color:var(--ink2);line-height:1.9}
 
 /* ── FIELD NOTES ── */
+.adsp-hero{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--rL);padding:26px 28px;margin-bottom:26px;
+}
+.adsp-hero h2{font-family:'DM Serif Display',serif;font-size:30px;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+.adsp-hero p{font-size:14px;color:var(--ink2);line-height:1.8;max-width:720px}
+.adsp-map{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:28px}
+@media(max-width:760px){.adsp-map{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.adsp-map{grid-template-columns:1fr}}
+.adsp-stage{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 17px;min-height:190px;
+}
+.adsp-stage-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin-bottom:8px}
+.adsp-stage h3{font-size:15px;line-height:1.35;margin-bottom:8px}
+.adsp-stage p{font-size:12.5px;color:var(--ink2);line-height:1.65;margin-bottom:10px}
+.adsp-stage ul{padding-left:16px}
+.adsp-stage li{font-size:12.5px;color:var(--ink2);line-height:1.65;margin-bottom:3px}
+.adsp-flow{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:34px;
+}
+@media(max-width:700px){.adsp-flow{grid-template-columns:1fr}}
+.adsp-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--rL);padding:20px 22px}
+.adsp-panel h3{font-size:16px;margin-bottom:12px}
+.adsp-panel ol{padding-left:20px}
+.adsp-panel li{font-size:13.5px;color:var(--ink2);line-height:1.8;margin-bottom:5px}
+.adsp-table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--rL);margin-bottom:28px}
+.adsp-table{width:100%;border-collapse:collapse;min-width:760px}
+.adsp-table th,.adsp-table td{padding:12px 14px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.adsp-table th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);background:rgba(23,22,15,.03)}
+.adsp-table td{font-size:13px;color:var(--ink2);line-height:1.65}
+.adsp-table td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+.adsp-table tr:last-child td{border-bottom:none}
+.adsp-note-link{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:20px;background:var(--accent-bg);color:var(--accent);margin-top:5px}
 .automation-live{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   background:var(--surface);border:1px solid var(--border);
@@ -358,6 +392,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   <div class="nav-logo">Beomseok Jeong</div>
   <div class="nav-links">
     <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;portfolio&#39;);return false">포트폴리오</a>
+    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;adsp&#39;);return false">ADSP</a>
     <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">Field Notes</a>
     <a href="https://www.linkedin.com/in/jeongbs/" target="_blank">LinkedIn ↗</a>
     <button class="admin-badge" id="adminBadge" onclick="logoutAdmin()" title="클릭하면 관리자 로그아웃">🔓 관리자</button>
@@ -369,6 +404,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 <!-- TABS -->
 <div class="page-tabs">
   <button class="ptab active" data-tab="portfolio" onclick="switchTab(&#39;portfolio&#39;)">포트폴리오</button>
+  <button class="ptab" data-tab="adsp" onclick="switchTab(&#39;adsp&#39;)">ADSP</button>
   <button class="ptab" data-tab="fieldnotes" onclick="switchTab(&#39;fieldnotes&#39;)">Field Notes</button>
   <button class="ptab" data-tab="career" onclick="switchTab(&#39;career&#39;)">경력</button>
 </div>
@@ -439,6 +475,137 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   </div>
 
 </div><!-- /portfolio tab -->
+
+<!-- ═══════════ ADSP TAB ═══════════ -->
+<div class="page-section" id="tab-adsp">
+  <div class="adsp-hero">
+    <div class="eyebrow">ADSP Process Map</div>
+    <h2>ADsP 시험 흐름과 Field Notes 학습 지도</h2>
+    <p>ADsP는 데이터 개념을 외우는 시험처럼 보이지만, 실제로는 데이터가 의미가 되는 과정, 분석 과제를 설계하는 과정, 통계와 모델로 판단하는 과정을 순서대로 묻는다. 이 탭은 Field Notes의 ADsP 주제를 시험 전체 Process Map에 연결해, 기초 용어부터 계산·모델링·해석까지 한 번에 따라가도록 만든 학습 지도다.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><h2>Process Map</h2><small>Exam Flow</small></div>
+    <div class="adsp-map">
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">01 · DATA LITERACY</div>
+        <h3>데이터를 정보로 바꾸기</h3>
+        <p>데이터가 그냥 숫자에서 의미 있는 정보와 지식으로 바뀌는 과정을 이해한다.</p>
+        <ul>
+          <li>DIKW, 데이터 유형, DBMS</li>
+          <li>빅데이터 3V와 데이터 가치</li>
+          <li>Field Note 01, 02</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">02 · PLANNING</div>
+        <h3>분석 과제를 설계하기</h3>
+        <p>문제 정의, 방법론 선택, 거버넌스, 조직 구조를 통해 분석이 실제 업무가 되도록 만든다.</p>
+        <ul>
+          <li>KDD, CRISP-DM, ISP</li>
+          <li>성숙도, 위험 대응, 거버넌스</li>
+          <li>Field Note 03, 04</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">03 · STATISTICS</div>
+        <h3>불확실성을 숫자로 판단하기</h3>
+        <p>확률과 표본을 바탕으로 평균, 분산, 신뢰구간, 가설검정을 계산하고 해석한다.</p>
+        <ul>
+          <li>기댓값, 분산, 표준오차</li>
+          <li>p-value, 1종·2종 오류</li>
+          <li>Field Note 05, 06</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">04 · MODELING</div>
+        <h3>모델로 예측·분류하기</h3>
+        <p>회귀, 분류, 나무, 앙상블, SVM, 신경망 등 모델의 판단 원리와 차이를 구분한다.</p>
+        <ul>
+          <li>회귀, 로지스틱, KNN, SVM</li>
+          <li>의사결정나무, 앙상블, 신경망</li>
+          <li>Field Note 07, 09, 12, 13</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">05 · EVALUATION</div>
+        <h3>모델 성능을 검증하기</h3>
+        <p>좋은 모델인지 판단하기 위해 오분류표, ROC, AUC, F1-score를 계산한다.</p>
+        <ul>
+          <li>TP, FP, FN, TN</li>
+          <li>Precision, Recall, ROC-AUC</li>
+          <li>Field Note 08</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">06 · DISCOVERY</div>
+        <h3>구조와 패턴을 발견하기</h3>
+        <p>군집, 연관규칙, 차원축소, 시계열로 데이터 안의 숨은 구조와 시간 패턴을 찾는다.</p>
+        <ul>
+          <li>K-means, DBSCAN, PCA</li>
+          <li>Support, Confidence, Lift, ARIMA</li>
+          <li>Field Note 10, 11</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="adsp-flow">
+    <div class="adsp-panel">
+      <h3>공부 순서</h3>
+      <ol>
+        <li>1과목 용어를 먼저 외운다: DIKW, 데이터 유형, DBMS, 빅데이터 3V.</li>
+        <li>2과목 방법론 순서를 고정한다: KDD, CRISP-DM, 하향식 접근법, 거버넌스.</li>
+        <li>3과목 계산을 손으로 푼다: 기댓값, 분산, 신뢰구간, p-value, 오분류표.</li>
+        <li>모델은 한 줄 차이로 구분한다: 회귀는 관계, 분류는 범주, 군집은 구조, 연관은 동시 발생.</li>
+        <li>마지막에는 약어를 풀어 쓰며 왜 만들어졌는지 설명해 본다.</li>
+      </ol>
+    </div>
+    <div class="adsp-panel">
+      <h3>문제 풀이 루틴</h3>
+      <ol>
+        <li>보기에서 약어가 나오면 먼저 원어를 떠올린다.</li>
+        <li>그 개념이 해결하려는 문제를 한 문장으로 말한다.</li>
+        <li>계산 문제는 표나 식을 먼저 그리고 숫자를 넣는다.</li>
+        <li>모델 비교 문제는 지도/비지도, 분류/회귀, 병렬/순차를 먼저 가른다.</li>
+        <li>헷갈리는 보기는 “분모가 무엇인가”, “순서가 바뀌었는가”, “가정이 무엇인가”로 검산한다.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><h2>약어와 개념 배경</h2><small>Acronyms &amp; Origins</small></div>
+    <div class="adsp-table-wrap">
+      <table class="adsp-table">
+        <thead>
+          <tr><th>용어</th><th>무슨 약자인가</th><th>왜 만들어졌는가</th><th>Field Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ADsP</td><td>Advanced Data Analytics Semi-Professional</td><td>데이터 분석 실무의 기본 역량을 검증하기 위해 만들어진 준전문가 자격 체계다. 데이터 이해, 분석 기획, 분석 수행을 폭넓게 묻는다.</td><td><span class="adsp-note-link">전체</span></td></tr>
+          <tr><td>DIKW</td><td>Data, Information, Knowledge, Wisdom</td><td>데이터가 단순 사실에서 의사결정 가능한 지혜로 발전하는 계층을 설명하려고 만들어진 프레임이다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>DBMS</td><td>Database Management System</td><td>데이터를 안전하게 저장, 검색, 수정하고 여러 사용자가 함께 쓰도록 관리하기 위해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>RDBMS</td><td>Relational Database Management System</td><td>데이터를 행과 열의 관계형 테이블로 관리해 중복을 줄이고 SQL로 일관되게 조회하기 위해 발전했다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>NoSQL</td><td>Not Only SQL</td><td>웹·모바일·센서 데이터처럼 비정형·대용량·분산 처리가 필요한 데이터가 늘면서 관계형 DB만으로 어려운 문제를 풀기 위해 등장했다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>KDD</td><td>Knowledge Discovery in Databases</td><td>대량 데이터베이스에서 의미 있는 지식을 발견하는 절차를 표준화하려고 만들어진 분석 프로세스다.</td><td><span class="adsp-note-link">03</span></td></tr>
+          <tr><td>CRISP-DM</td><td>Cross Industry Standard Process for Data Mining</td><td>산업과 조직이 달라도 데이터마이닝 프로젝트를 일관된 단계로 관리하기 위해 만들어졌다.</td><td><span class="adsp-note-link">03</span></td></tr>
+          <tr><td>ISP</td><td>Information Strategy Planning</td><td>정보시스템과 데이터 활용을 조직 전략에 맞춰 장기적으로 설계하기 위해 만들어진 계획 수립 방법이다.</td><td><span class="adsp-note-link">04</span></td></tr>
+          <tr><td>EDA</td><td>Exploratory Data Analysis</td><td>모델링 전에 데이터의 분포, 이상값, 패턴을 눈으로 탐색해 잘못된 가정과 오류를 줄이기 위해 만들어졌다.</td><td><span class="adsp-note-link">05-07</span></td></tr>
+          <tr><td>p-value</td><td>probability value</td><td>귀무가설이 맞다고 가정했을 때 현재 관찰값 이상으로 극단적인 결과가 나올 확률을 수치화하기 위해 쓰인다.</td><td><span class="adsp-note-link">06</span></td></tr>
+          <tr><td>GLM</td><td>Generalized Linear Model</td><td>정규분포 연속형 종속변수만 다루던 회귀를 이항·포아송 같은 다양한 자료형으로 확장하기 위해 만들어졌다.</td><td><span class="adsp-note-link">07, 13</span></td></tr>
+          <tr><td>ROC / AUC</td><td>Receiver Operating Characteristic / Area Under the Curve</td><td>분류 기준값이 달라져도 모델의 판별력을 비교하기 위해 만들어진 평가 곡선과 그 면적 지표다.</td><td><span class="adsp-note-link">08</span></td></tr>
+          <tr><td>CART</td><td>Classification and Regression Tree</td><td>분류와 회귀 문제를 나무 구조의 규칙으로 설명하고 예측하기 위해 만들어진 의사결정나무 알고리즘이다.</td><td><span class="adsp-note-link">09</span></td></tr>
+          <tr><td>CHAID</td><td>Chi-squared Automatic Interaction Detection</td><td>범주형 변수 간 관계를 카이제곱 검정으로 찾아 자동으로 나무를 분기하기 위해 만들어졌다.</td><td><span class="adsp-note-link">09</span></td></tr>
+          <tr><td>DBSCAN</td><td>Density-Based Spatial Clustering of Applications with Noise</td><td>군집 수를 미리 정하기 어렵고 이상치가 있는 데이터에서 밀도 기반으로 군집을 찾기 위해 만들어졌다.</td><td><span class="adsp-note-link">10</span></td></tr>
+          <tr><td>ARIMA</td><td>AutoRegressive Integrated Moving Average</td><td>시간에 따라 변하는 데이터를 자기상관, 차분, 이동평균으로 설명하고 예측하기 위해 만들어졌다.</td><td><span class="adsp-note-link">10</span></td></tr>
+          <tr><td>ACF / PACF</td><td>AutoCorrelation Function / Partial AutoCorrelation Function</td><td>시계열에서 과거 값과 현재 값의 관련성을 보고 ARIMA 차수를 정하기 위해 쓰인다.</td><td><span class="adsp-note-link">10</span></td></tr>
+          <tr><td>PCA</td><td>Principal Component Analysis</td><td>서로 상관된 많은 변수를 정보 손실을 줄이며 적은 수의 축으로 압축하기 위해 만들어졌다.</td><td><span class="adsp-note-link">11</span></td></tr>
+          <tr><td>SVM</td><td>Support Vector Machine</td><td>두 집단을 가장 넓은 마진으로 나누는 경계를 찾아 일반화 성능을 높이기 위해 만들어진 분류 방법이다.</td><td><span class="adsp-note-link">12</span></td></tr>
+          <tr><td>KNN</td><td>K-Nearest Neighbors</td><td>복잡한 모형을 세우지 않고 가까운 사례들의 다수결로 새 데이터를 분류하기 위해 만들어진 직관적 방법이다.</td><td><span class="adsp-note-link">13</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- /adsp tab -->
 
 <!-- ═══════════ FIELD NOTES TAB ═══════════ -->
 <div class="page-section" id="tab-fieldnotes">
