@@ -569,6 +569,7 @@ FIELD NOTES TAB ═══════════ -->
   <!-- Notes list -->
 
   <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">19개</small></div>
+  <div id="fn-data-source" style="font-size:12.5px;color:var(--ink3);margin:-12px 0 18px">데이터 확인 중...</div>
 
   <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
 
@@ -1081,6 +1082,11 @@ function showDbStatus(msg, type='info') {
   if (type === 'ok') setTimeout(() => bar.style.opacity = '0', 2500);
 }
 
+function updateDataSourceStatus(msg) {
+  const el = document.getElementById('fn-data-source');
+  if (el) el.textContent = msg;
+}
+
 const FIELD_NOTE_SEED_DATA = [
 {
     id: 1781527200001,
@@ -1424,12 +1430,13 @@ function mergeStaticNotes(savedNotes, staticNotes) {
 async function loadNotesFromDB() {
   const staticNotes = getStaticNotes();
   if (!dbReady()) {
-    // URL 미설정 시 localStorage 폴백
+    // GitHub Pages는 정적 내장 데이터를 우선 사용한다.
     notes = staticNotes;
     localStorage.setItem('fn_notes', JSON.stringify(notes));
     renderNotes();
     updateFilterButtons();
-    showDbStatus('💾 로컬 저장 모드 (Apps Script URL 미설정)', 'info');
+    updateDataSourceStatus(`데이터 소스: GitHub Pages 내장 Field Notes ${notes.length}개 로드됨`);
+    showDbStatus(`GitHub Pages 내장 데이터 ${notes.length}개 로드됨`, 'ok');
     return;
   }
   showDbStatus('📡 노트 불러오는 중…', 'info');
@@ -1440,6 +1447,7 @@ async function loadNotesFromDB() {
       notes = data.notes.reverse(); // 최신순
       renderNotes();
       updateFilterButtons();
+      updateDataSourceStatus(`데이터 소스: Google Sheets ${notes.length}개 로드됨`);
       showDbStatus('✅ Google Sheets 연결됨', 'ok');
     } else throw new Error(data.error);
   } catch(e) {
@@ -1448,6 +1456,7 @@ async function loadNotesFromDB() {
     localStorage.setItem('fn_notes', JSON.stringify(notes));
     renderNotes();
     updateFilterButtons();
+    updateDataSourceStatus(`데이터 소스: DB 연결 실패, 내장 Field Notes ${notes.length}개 표시 중`);
   }
 }
 
@@ -1535,6 +1544,7 @@ function renderNotes() {
   const filtered = fnFilter === 'ALL' ? notes : notes.filter(n => n.cat === fnFilter);
 
   document.getElementById('fn-note-count').textContent = notes.length + '개';
+  updateDataSourceStatus(`데이터 소스: 현재 Field Notes ${notes.length}개 표시 중`);
 
   if (filtered.length === 0) {
     empty.style.display = 'block';
