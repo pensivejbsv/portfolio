@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "databaseName": "adsp_process_map_db",
+  "description": "Daily snapshots and generated variants for the ADSP Process Map shown in the portfolio ADSP tab.",
+  "lastUpdatedAt": "2026-06-13T19:12:00+09:00",
+  "currentVersion": "2026-06-13-initial-process-map",
+  "updatePolicy": {
+    "cadence": "daily",
+    "minimumSnapshotsPerRun": 1,
+    "sourcePriority": [
+      "index.html ADSP_STUDY_NOTES",
+      "local adapter ADSP text file",
+      "available YouTube lecture transcript or accessible lecture summary"
+    ],
+    "variantRotation": [
+      "exam_flow",
+      "concept_dependency",
+      "calculation_drill",
+      "model_comparison",
+      "acronym_origin",
+      "weak_topic_recovery"
+    ]
+  },
+  "processMap": {
+    "title": "ADsP 시험 흐름과 Field Notes 학습 지도",
+    "stages": [
+      {
+        "id": "data-literacy",
+        "order": 1,
+        "label": "DATA LITERACY",
+        "headline": "데이터를 정보로 바꾸기",
+        "purpose": "데이터가 그냥 숫자에서 의미 있는 정보와 지식으로 바뀌는 과정을 이해한다.",
+        "keywords": ["DIKW", "데이터 유형", "DBMS", "빅데이터 3V", "데이터 가치"],
+        "fieldNotes": ["01", "02"]
+      },
+      {
+        "id": "planning",
+        "order": 2,
+        "label": "PLANNING",
+        "headline": "분석 과제를 설계하기",
+        "purpose": "문제 정의, 방법론 선택, 거버넌스, 조직 구조를 통해 분석이 실제 업무가 되도록 만든다.",
+        "keywords": ["KDD", "CRISP-DM", "ISP", "성숙도", "위험 대응", "거버넌스"],
+        "fieldNotes": ["03", "04"]
+      },
+      {
+        "id": "statistics",
+        "order": 3,
+        "label": "STATISTICS",
+        "headline": "불확실성을 숫자로 판단하기",
+        "purpose": "확률과 표본을 바탕으로 평균, 분산, 신뢰구간, 가설검정을 계산하고 해석한다.",
+        "keywords": ["기댓값", "분산", "표준오차", "p-value", "1종 오류", "2종 오류"],
+        "fieldNotes": ["05", "06"]
+      },
+      {
+        "id": "modeling",
+        "order": 4,
+        "label": "MODELING",
+        "headline": "모델로 예측·분류하기",
+        "purpose": "회귀, 분류, 나무, 앙상블, SVM, 신경망 등 모델의 판단 원리와 차이를 구분한다.",
+        "keywords": ["회귀", "로지스틱 회귀", "KNN", "SVM", "의사결정나무", "앙상블", "신경망"],
+        "fieldNotes": ["07", "09", "12", "13"]
+      },
+      {
+        "id": "evaluation",
+        "order": 5,
+        "label": "EVALUATION",
+        "headline": "모델 성능을 검증하기",
+        "purpose": "좋은 모델인지 판단하기 위해 오분류표, ROC, AUC, F1-score를 계산한다.",
+        "keywords": ["TP", "FP", "FN", "TN", "Precision", "Recall", "ROC-AUC"],
+        "fieldNotes": ["08"]
+      },
+      {
+        "id": "discovery",
+        "order": 6,
+        "label": "DISCOVERY",
+        "headline": "구조와 패턴을 발견하기",
+        "purpose": "군집, 연관규칙, 차원축소, 시계열로 데이터 안의 숨은 구조와 시간 패턴을 찾는다.",
+        "keywords": ["K-means", "DBSCAN", "PCA", "Support", "Confidence", "Lift", "ARIMA"],
+        "fieldNotes": ["10", "11"]
+      }
+    ]
+  },
+  "variants": [
+    {
+      "id": "exam_flow",
+      "name": "시험 흐름형",
+      "compositionRule": "1과목 데이터 이해, 2과목 분석 기획, 3과목 분석 수행 순서대로 배치한다.",
+      "recommendedUse": "전체 회독 첫날 또는 시험 직전 큰 흐름 복습"
+    },
+    {
+      "id": "concept_dependency",
+      "name": "개념 의존형",
+      "compositionRule": "DIKW와 데이터 유형에서 시작해 방법론, 통계, 모델링, 평가 지표로 이어지는 선후관계를 강조한다.",
+      "recommendedUse": "용어가 서로 섞일 때 개념 연결 복구"
+    },
+    {
+      "id": "calculation_drill",
+      "name": "계산 훈련형",
+      "compositionRule": "기댓값, 분산, 신뢰구간, p-value, 오분류표, 연관분석 지표를 앞쪽에 배치한다.",
+      "recommendedUse": "계산형 예상문제 집중 훈련"
+    },
+    {
+      "id": "model_comparison",
+      "name": "모델 비교형",
+      "compositionRule": "회귀, 로지스틱 회귀, KNN, SVM, 의사결정나무, 앙상블, 신경망을 지도학습 비교축으로 묶는다.",
+      "recommendedUse": "보기형 모델 구분 문제 대비"
+    },
+    {
+      "id": "acronym_origin",
+      "name": "약어 배경형",
+      "compositionRule": "ADsP, DIKW, DBMS, KDD, CRISP-DM, EDA, PCA, SVM처럼 약어 원어와 탄생 배경을 중심으로 재배열한다.",
+      "recommendedUse": "낯선 영어 약어가 많은 날의 암기 회독"
+    },
+    {
+      "id": "weak_topic_recovery",
+      "name": "취약 주제 회복형",
+      "compositionRule": "최근 추가된 Field Note와 누락되기 쉬운 후반부 주제인 PCA, SVM, KNN, 나이브베이즈를 우선 노출한다.",
+      "recommendedUse": "자동 생성된 최신 Field Note 반영 여부 점검"
+    }
+  ],
+  "history": [
+    {
+      "version": "2026-06-13-initial-process-map",
+      "createdAt": "2026-06-13T19:12:00+09:00",
+      "variantId": "exam_flow",
+      "sourceNotes": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
+      "summary": "Initial Process Map snapshot created from the visible ADSP tab and the existing ADSP Field Notes."
+    }
+  ]
+}
