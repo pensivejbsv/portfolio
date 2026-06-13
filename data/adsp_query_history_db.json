@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "databaseName": "adsp_query_history_db",
   "description": "Imported ADSP query-history text files and staged learning summaries used by the daily Process Map updater.",
-  "lastUpdatedAt": "2026-06-13T19:21:45+09:00",
+  "lastUpdatedAt": "2026-06-13T19:36:22+09:00",
   "sourcePolicy": {
     "filePattern": "질의내역_*.txt",
     "searchLocations": [
@@ -53,6 +53,18 @@
         "영어 약자의 원어, 한글 역할, 앞글자 암기법을 전체 Flow Chart에 넣을 수 있는가.",
         "전체 채팅 내용을 최소 토큰의 Flow Chart로 정리해 달라."
       ]
+    },
+    {
+      "fileName": "질의내역_260613 1925.txt",
+      "path": "C:\\Users\\fanta\\Desktop\\포트폴리오\\질의내역_260613 1925.txt",
+      "contentHash": "E08EA9902BABF98B2090D4A05A4BA845D51ADF4E9132302EDC4C934CFDA3F04F",
+      "importedAt": "2026-06-13T19:36:22+09:00",
+      "rawTopic": "빅데이터 3V, 5V, 7V가 왜 만들어졌는지와 전후양상 암기법을 시험용으로 이해하는 질의",
+      "extractedQuestions": [
+        "빅데이터를 3V로 구분하는 이유가 무엇인가.",
+        "5V와 7V는 왜 추가로 만들어졌는가.",
+        "빅데이터가 만들어낸 변화인 전후양상을 시험을 위해 어떻게 기억할까."
+      ]
     }
   ],
   "stagedSummaries": {
@@ -61,6 +73,11 @@
         "sourceFile": "질의내역_260613.txt",
         "summary": "영어 약자는 원어를 먼저 풀고 한글 역할로 번역한 뒤, 시험 직전 앞글자 암기법으로 회상한다.",
         "keywords": ["DIKW", "DBMS", "SQL", "DDL", "DML", "DCL", "TCL", "ETL", "ODS", "DW"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1925.txt",
+        "summary": "3V는 빅데이터의 발생 특징인 규모, 다양성, 속도를 설명하고 5V는 활용 단계에서 신뢰성과 가치를 추가로 묻는다.",
+        "keywords": ["3V", "5V", "Volume", "Variety", "Velocity", "Veracity", "Value"]
       }
     ],
     "intermediate": [
@@ -68,6 +85,11 @@
         "sourceFile": "질의내역_260613.txt",
         "summary": "데이터 발생에서 기업 시스템, DB 관리, SQL, DB 설계, DW 전처리, 분석 활용으로 이어지는 순서를 고정한다.",
         "keywords": ["정반비", "개논물", "추변적", "주통시비", "OLTP", "OLAP", "BI", "BA"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1925.txt",
+        "summary": "전후양상은 표본조사에서 전수조사, 사전처리에서 사후처리, 질에서 양, 인과관계에서 상관관계로 분석 중심이 이동한 것을 압축한다.",
+        "keywords": ["전후양상", "전수조사", "사후처리", "양", "상관관계"]
       }
     ],
     "advanced": [],
@@ -76,6 +98,11 @@
         "sourceFile": "질의내역_260613.txt",
         "summary": "약자만 외우면 원어와 역할을 묻는 문제에서 흔들리고, 한글 뜻만 외우면 약자 보기에서 막히는 점이 취약 포인트다.",
         "keywords": ["약어", "원어", "역할", "보기 함정"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1925.txt",
+        "summary": "3V, 5V, 7V는 교재마다 확장 요소가 흔들릴 수 있으므로 ADsP에서는 3V를 기본축으로, 5V를 활용 가치 확장으로 잡아야 한다.",
+        "keywords": ["7V", "확장 V", "교재 차이", "시험 안정성"]
       }
     ],
     "review": [
@@ -83,6 +110,11 @@
         "sourceFile": "질의내역_260613.txt",
         "summary": "정반비, 개논물, 추변적, 주통시비, 데정지지를 매일 Flow Chart 옆 암기 박스로 복습한다.",
         "keywords": ["정반비", "개논물", "추변적", "주통시비", "데정지지"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1925.txt",
+        "summary": "3V는 규다속, 5V는 규다속정가, 빅데이터 변화는 전후양상으로 회상한다.",
+        "keywords": ["규다속", "규다속정가", "전후양상"]
       }
     ]
   },
@@ -100,6 +132,14 @@
       "contentHashes": ["B0459C55490A28256C45D79FA3DF4ECD95C377F9173D42A94846ED62654C6C9C"],
       "stagesUpdated": ["foundation", "intermediate", "weakness", "review"],
       "summary": "Imported one query-history text file and staged its ADSP acronym memorization flow into the query-history DB."
+    },
+    {
+      "version": "2026-06-13-query-history-260613-1925-import",
+      "createdAt": "2026-06-13T19:36:22+09:00",
+      "sourceFiles": ["질의내역_260613 1925.txt"],
+      "contentHashes": ["E08EA9902BABF98B2090D4A05A4BA845D51ADF4E9132302EDC4C934CFDA3F04F"],
+      "stagesUpdated": ["foundation", "intermediate", "weakness", "review"],
+      "summary": "Imported the second query-history file and staged its big-data V expansion and 전후양상 memorization points."
     }
   ]
 }

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "databaseName": "adsp_process_map_db",
   "description": "Daily snapshots and generated variants for the ADSP Process Map shown in the portfolio ADSP tab.",
-  "lastUpdatedAt": "2026-06-13T19:21:45+09:00",
-  "currentVersion": "2026-06-13-query-history-acronym-flow",
+  "lastUpdatedAt": "2026-06-13T19:36:22+09:00",
+  "currentVersion": "2026-06-13-adapter-query-acronym-expanded",
   "updatePolicy": {
     "cadence": "daily",
     "minimumSnapshotsPerRun": 1,
@@ -25,7 +25,9 @@
       "calculation_drill",
       "model_comparison",
       "acronym_origin",
-      "weak_topic_recovery"
+      "weak_topic_recovery",
+      "query_history_acronym_flow",
+      "query_history_bigdata_transition"
     ]
   },
   "processMap": {
@@ -129,6 +131,12 @@
       "name": "질의 기반 약어 흐름형",
       "compositionRule": "질의내역에서 반복된 영어 약자를 원어, 한글 역할, 앞글자 암기법, 데이터 흐름 순서로 재조합한다.",
       "recommendedUse": "아답터식 암기법처럼 약어를 풀어 이해한 뒤 시험 직전 앞글자로 빠르게 회상할 때"
+    },
+    {
+      "id": "query_history_bigdata_transition",
+      "name": "질의 기반 빅데이터 변화형",
+      "compositionRule": "질의내역에서 반복된 3V, 5V, 7V, 전후양상 흐름을 데이터 발생 배경과 시험 보기 함정으로 재조합한다.",
+      "recommendedUse": "빅데이터 특징과 기존 분석 방식에서 빅데이터 방식으로 이동한 이유를 함께 복습할 때"
     }
   ],
   "history": [
@@ -151,6 +159,20 @@
         "Connected English acronyms to full names, Korean roles, and mnemonic chunks.",
         "Added a query-based flow from big-data background through enterprise systems, DB, SQL, DW, OLAP, BI, BA, and DIKW.",
         "Emphasized high-recall mnemonics: 정반비, 개논물, 추변적, 주통시비, 데정지지."
+      ]
+    },
+    {
+      "version": "2026-06-13-adapter-query-acronym-expanded",
+      "createdAt": "2026-06-13T19:36:22+09:00",
+      "variantId": "query_history_bigdata_transition",
+      "sourceNotes": ["01", "02", "14"],
+      "queryHistoryFiles": ["질의내역_260613.txt", "질의내역_260613 1925.txt"],
+      "queryStagesUsed": ["foundation", "intermediate", "weakness", "review"],
+      "summary": "Checked the visible ADSP tab against the adapter ADSP note and query history, then expanded the daily query-based flow with full acronym meanings, roles, reasons, and exam recall cues.",
+      "keyChanges": [
+        "Expanded the daily query flow from compressed acronyms into full-name, Korean-role, purpose, and exam-recall explanations.",
+        "Added 3V, 5V, and 전후양상 to connect big-data background with adapter-note memorization cues.",
+        "Extended the acronym and concept background table with SQL, DDL, DML, DCL, TCL, OLTP, OLAP, ERP, CRM, SCM, KMS, ODS, ETL, DW, BI, BA, and RTE."
       ]
     }
   ]

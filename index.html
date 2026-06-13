@@ -490,7 +490,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <span class="automation-live-label">Daily Process Map Live</span>
       <strong id="adsp-process-map-status">이상없음</strong>
     </div>
-    <small id="adsp-process-map-detail">2026-06-13 19:21 KST · 질의내역_260613.txt 반영 · DB 스냅샷 완료</small>
+    <small id="adsp-process-map-detail">2026-06-13 19:36 KST · 아답터식 약어 풀이·질의내역 2건 반영</small>
   </div>
 
   <div class="sec">
@@ -584,16 +584,58 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
   <div class="sec">
     <div class="sec-head"><h2>오늘의 질의 기반 Flow</h2><small>Query History Run · 2026-06-13</small></div>
-    <div class="adsp-panel">
-      <h3>약어·앞글자 암기형 Process Map</h3>
+    <div class="adsp-panel" style="margin-bottom:16px">
+      <h3>정합성 체크</h3>
       <ol>
-        <li>빅데이터 배경: 디지털화, 인터넷·모바일, IoT, 비정형 증가, 클라우드, 분산처리.</li>
-        <li>데이터 발생: 정형, 반정형, 비정형을 먼저 구분한다. 암기: 정반비.</li>
-        <li>기업 시스템: OLTP, ERP, CRM, SCM, KMS의 원어와 역할을 연결한다.</li>
-        <li>DB 관리: DBMS, Schema, SQL을 묶고 SQL은 DDL, DML, DCL, TCL로 분류한다.</li>
-        <li>저장소 구축: ODS와 ETL을 거쳐 DW, Data Lake로 이동한다. 암기: 추변적, 주통시비.</li>
-        <li>분석 활용: OLAP, BI, BA, RTE를 의사결정 흐름에 배치하고 DIKW는 데정지지로 복습한다.</li>
+        <li>반영 자료: 어답터 adsp.txt, 질의내역_260613.txt, 질의내역_260613 1925.txt, Field Note 01·02·14.</li>
+        <li>검토 결과: Process Map은 아답터 노트의 1과목 흐름인 데이터 이해, DB·SQL, 기업 시스템, DW·ETL, 빅데이터 3V·전후양상과 일치한다.</li>
+        <li>보강 방향: 약어를 단순 나열하지 않고 원어, 한글 뜻, 만들어진 이유, 시험 회상법까지 연결한다.</li>
       </ol>
+    </div>
+    <div class="adsp-panel">
+      <h3>아답터식 약어·앞글자 암기형 Process Map</h3>
+      <ol>
+        <li>빅데이터 배경: 디지털화, 인터넷·모바일, IoT, 비정형 데이터 증가, 클라우드, 하둡 기반 분산처리가 결합되며 기존 DB·엑셀 방식으로 처리하기 어려운 데이터 환경이 생겼다.</li>
+        <li>빅데이터 특징: 3V는 Volume(규모), Variety(다양성), Velocity(속도)다. 5V는 여기에 Veracity(정확성·신뢰성)와 Value(가치)를 더해 “많고 다양한 데이터가 빠르게 생기는 것”을 넘어 “믿을 수 있고 쓸모 있는가”까지 묻는다.</li>
+        <li>빅데이터 변화: 기존 방식은 표본조사, 사전처리, 질, 인과관계 중심이었다. 빅데이터 방식은 전수조사, 사후처리, 양, 상관관계 중심으로 이동한다. 암기: 전후양상.</li>
+        <li>데이터 발생: 정형은 행·열 구조가 있는 데이터, 반정형은 JSON/XML처럼 구조 표식이 있는 데이터, 비정형은 이미지·음성·텍스트처럼 고정 구조가 약한 데이터다. 암기: 정반비.</li>
+        <li>기업 시스템: OLTP는 실시간 거래 처리, ERP는 전사 자원 관리, CRM은 고객 관계 관리, SCM은 공급망 관리, KMS는 조직 지식 관리를 담당한다. 약자는 원어와 역할을 같이 외워야 보기형 함정을 피한다.</li>
+        <li>DB 관리: DBMS는 데이터베이스 관리 시스템, Schema는 설계도, SQL은 구조화 질의어다. SQL은 DDL(구조 정의), DML(데이터 조작), DCL(권한 제어), TCL(트랜잭션 확정·취소)로 나눈다.</li>
+        <li>저장소 구축: ODS는 운영 데이터 임시 저장소, ETL은 Extract·Transform·Load로 추출·변환·적재 절차, DW는 분석용 데이터 창고다. DW 특징은 주제지향성, 통합성, 시계열성, 비휘발성이다. 암기: 추변적, 주통시비.</li>
+        <li>분석 활용: OLAP는 다차원 분석 처리, BI는 보고·대시보드 중심 경영정보, BA는 통계·예측 기반 비즈니스 분석, RTE는 최신 정보로 빠르게 반응하는 실시간 기업이다.</li>
+        <li>가치화: DIKW는 Data, Information, Knowledge, Wisdom이다. 데이터가 정보, 지식, 지혜로 올라가며 의사결정에 가까워진다. 암기: 데정지지.</li>
+      </ol>
+    </div>
+
+    <div class="adsp-table-wrap" style="margin-top:16px">
+      <table class="adsp-table">
+        <thead>
+          <tr><th>Flow 위치</th><th>약어</th><th>원어</th><th>무슨 내용인가</th><th>시험 회상법</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>빅데이터 특징</td><td>3V</td><td>Volume, Variety, Velocity</td><td>데이터가 얼마나 많은지, 형태가 얼마나 다양한지, 얼마나 빠르게 생기고 처리되는지를 보는 기본 기준이다.</td><td>규다속: 규모·다양성·속도</td></tr>
+          <tr><td>빅데이터 품질·가치</td><td>5V</td><td>3V + Veracity, Value</td><td>많고 빠른 데이터라도 틀리거나 쓸모없으면 분석 가치가 낮기 때문에 신뢰성과 가치를 추가로 본다.</td><td>규다속정가: 규모·다양성·속도·정확성·가치</td></tr>
+          <tr><td>기업 거래</td><td>OLTP</td><td>Online Transaction Processing</td><td>주문, 결제, 입출고처럼 다량의 짧은 거래를 실시간으로 처리하는 운영계 시스템이다.</td><td>Transaction은 거래, Processing은 처리</td></tr>
+          <tr><td>기업 자원</td><td>ERP</td><td>Enterprise Resource Planning</td><td>회계, 인사, 생산, 구매 같은 전사 자원을 하나의 프로세스로 관리하는 시스템이다.</td><td>Enterprise=전사, Resource=자원</td></tr>
+          <tr><td>고객 관리</td><td>CRM</td><td>Customer Relationship Management</td><td>고객 정보와 접점을 분석해 마케팅, 영업, 고객 유지에 활용하는 시스템이다.</td><td>Customer Relationship=고객 관계</td></tr>
+          <tr><td>공급망</td><td>SCM</td><td>Supply Chain Management</td><td>원재료, 생산, 물류, 유통까지 이어지는 공급 흐름을 최적화하는 시스템이다.</td><td>Supply Chain=공급망</td></tr>
+          <tr><td>지식 관리</td><td>KMS</td><td>Knowledge Management System</td><td>암묵지와 형식지를 조직 차원에서 저장·공유·재사용하게 하는 지식 관리 시스템이다.</td><td>Knowledge=지식</td></tr>
+          <tr><td>DB 관리</td><td>DBMS</td><td>Database Management System</td><td>데이터베이스를 저장, 검색, 수정, 보안, 동시 접근 측면에서 관리하는 소프트웨어다.</td><td>DB를 관리하는 시스템</td></tr>
+          <tr><td>DB 명령</td><td>SQL</td><td>Structured Query Language</td><td>관계형 DB에서 데이터를 정의하고 조회·삽입·수정·삭제하도록 만든 구조화 질의어다.</td><td>Query=질의, Language=언어</td></tr>
+          <tr><td>SQL 분류</td><td>DDL</td><td>Data Definition Language</td><td>CREATE, ALTER, DROP처럼 테이블 구조와 스키마를 정의하는 언어다.</td><td>Definition=정의</td></tr>
+          <tr><td>SQL 분류</td><td>DML</td><td>Data Manipulation Language</td><td>SELECT, INSERT, UPDATE, DELETE처럼 실제 데이터를 조회하거나 조작하는 언어다.</td><td>Manipulation=조작</td></tr>
+          <tr><td>SQL 분류</td><td>DCL</td><td>Data Control Language</td><td>GRANT, REVOKE처럼 사용자 권한을 부여하거나 회수하는 제어 언어다.</td><td>Control=권한 제어</td></tr>
+          <tr><td>SQL 분류</td><td>TCL</td><td>Transaction Control Language</td><td>COMMIT, ROLLBACK처럼 트랜잭션 결과를 확정하거나 취소하는 언어다.</td><td>Transaction 확정·취소</td></tr>
+          <tr><td>DW 전처리</td><td>ODS</td><td>Operational Data Store</td><td>여러 운영 시스템에서 가져온 데이터를 DW로 보내기 전 임시로 모으는 운영 데이터 저장소다.</td><td>Operational=운영, 중간 저장</td></tr>
+          <tr><td>DW 전처리</td><td>ETL</td><td>Extract, Transform, Load</td><td>원천 데이터를 추출하고, 형식과 품질을 변환한 뒤, 분석 저장소에 적재하는 절차다.</td><td>추변적: 추출·변환·적재</td></tr>
+          <tr><td>분석 저장소</td><td>DW</td><td>Data Warehouse</td><td>기업 내외부 데이터를 분석 목적에 맞게 통합한 중앙 저장소다. 읽기 중심, 이력 관리, 주제별 분석에 강하다.</td><td>Warehouse=창고, 특징은 주통시비</td></tr>
+          <tr><td>분석 처리</td><td>OLAP</td><td>Online Analytical Processing</td><td>다차원 관점으로 데이터를 빠르게 집계·분석해 의사결정에 활용하는 분석 처리 방식이다.</td><td>Analytical=분석</td></tr>
+          <tr><td>분석 활용</td><td>BI</td><td>Business Intelligence</td><td>기업 데이터를 정리해 보고서, 대시보드, 현황 모니터링으로 보여주는 경영정보 도구다.</td><td>보여주는 분석</td></tr>
+          <tr><td>분석 활용</td><td>BA</td><td>Business Analytics</td><td>통계와 예측모델로 원인, 패턴, 미래 가능성을 분석해 전략 판단을 돕는 활동이다.</td><td>판단하는 분석</td></tr>
+          <tr><td>실시간 경영</td><td>RTE</td><td>Real-Time Enterprise</td><td>최신 데이터를 바탕으로 기업이 지연 없이 상황을 파악하고 대응하는 실시간 기업 개념이다.</td><td>Real-Time=실시간</td></tr>
+          <tr><td>가치화</td><td>DIKW</td><td>Data, Information, Knowledge, Wisdom</td><td>값 자체인 데이터가 맥락을 얻어 정보가 되고, 패턴과 원인을 이해해 지식이 되며, 최종적으로 판단 가능한 지혜가 되는 구조다.</td><td>데정지지</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -610,6 +652,24 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
           <tr><td>DBMS</td><td>Database Management System</td><td>데이터를 안전하게 저장, 검색, 수정하고 여러 사용자가 함께 쓰도록 관리하기 위해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
           <tr><td>RDBMS</td><td>Relational Database Management System</td><td>데이터를 행과 열의 관계형 테이블로 관리해 중복을 줄이고 SQL로 일관되게 조회하기 위해 발전했다.</td><td><span class="adsp-note-link">01</span></td></tr>
           <tr><td>NoSQL</td><td>Not Only SQL</td><td>웹·모바일·센서 데이터처럼 비정형·대용량·분산 처리가 필요한 데이터가 늘면서 관계형 DB만으로 어려운 문제를 풀기 위해 등장했다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>3V / 5V</td><td>Volume, Variety, Velocity / + Veracity, Value</td><td>빅데이터를 기존 데이터와 구분하기 위해 양, 다양성, 속도를 먼저 보았고, 실제 활용 단계에서는 신뢰성과 가치까지 필요해 확장됐다.</td><td><span class="adsp-note-link">01, 02</span></td></tr>
+          <tr><td>SQL</td><td>Structured Query Language</td><td>관계형 데이터베이스에서 사람이 데이터 구조와 값을 질의하고 조작할 수 있도록 표준화된 언어가 필요해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>DDL</td><td>Data Definition Language</td><td>테이블, 스키마, 인덱스처럼 데이터 구조 자체를 만들고 바꾸고 삭제하기 위한 SQL 분류다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>DML</td><td>Data Manipulation Language</td><td>SELECT, INSERT, UPDATE, DELETE처럼 실제 데이터 값을 조회하고 조작하기 위한 SQL 분류다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>DCL</td><td>Data Control Language</td><td>데이터 접근 권한을 부여하거나 회수해 보안과 통제를 관리하기 위한 SQL 분류다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>TCL</td><td>Transaction Control Language</td><td>COMMIT과 ROLLBACK처럼 작업 묶음의 확정과 취소를 관리해 데이터 일관성을 지키기 위한 SQL 분류다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>OLTP</td><td>Online Transaction Processing</td><td>주문, 결제, 입출고 같은 짧고 많은 거래를 실시간으로 정확하게 처리하기 위해 만들어진 운영계 처리 방식이다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>OLAP</td><td>Online Analytical Processing</td><td>운영 데이터가 쌓인 뒤 다차원 관점에서 빠르게 집계하고 비교 분석하기 위해 만들어진 분석 처리 방식이다.</td><td><span class="adsp-note-link">01, 14</span></td></tr>
+          <tr><td>ERP</td><td>Enterprise Resource Planning</td><td>회계, 인사, 생산, 구매처럼 흩어진 기업 자원을 하나의 전사 프로세스로 관리하기 위해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>CRM</td><td>Customer Relationship Management</td><td>고객 접점과 구매 이력을 분석해 마케팅, 영업, 고객 유지 활동을 체계화하기 위해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>SCM</td><td>Supply Chain Management</td><td>원재료 조달부터 생산, 물류, 유통까지 이어지는 공급망을 최적화하기 위해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>KMS</td><td>Knowledge Management System</td><td>개인의 암묵지와 조직의 형식지를 저장, 공유, 재사용 가능한 지식 자산으로 만들기 위해 만들어졌다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>ODS</td><td>Operational Data Store</td><td>여러 운영계 시스템에서 온 데이터를 DW에 적재하기 전 임시로 통합하고 정리하기 위해 만들어진 중간 저장소다.</td><td><span class="adsp-note-link">14</span></td></tr>
+          <tr><td>ETL</td><td>Extract, Transform, Load</td><td>서로 다른 원천 데이터에서 필요한 데이터를 추출하고, 분석 가능한 형태로 변환한 뒤, 저장소에 적재하기 위해 만들어진 절차다.</td><td><span class="adsp-note-link">14</span></td></tr>
+          <tr><td>DW</td><td>Data Warehouse</td><td>운영 데이터가 아니라 분석과 의사결정을 위해 주제별로 통합된 이력 데이터를 보관하려고 만들어진 중앙 저장소다.</td><td><span class="adsp-note-link">14</span></td></tr>
+          <tr><td>BI</td><td>Business Intelligence</td><td>기업 데이터를 보고서, 대시보드, 지표 모니터링 형태로 보여주어 현재 상태를 파악하기 위해 발전했다.</td><td><span class="adsp-note-link">01, 14</span></td></tr>
+          <tr><td>BA</td><td>Business Analytics</td><td>단순 현황 보고를 넘어 통계, 예측, 최적화로 비즈니스 판단을 돕기 위해 발전한 분석 활동이다.</td><td><span class="adsp-note-link">01</span></td></tr>
+          <tr><td>RTE</td><td>Real-Time Enterprise</td><td>최신 정보를 빠르게 파악하고 즉시 의사결정하는 실시간 기업 운영을 설명하기 위해 만들어진 개념이다.</td><td><span class="adsp-note-link">01</span></td></tr>
           <tr><td>KDD</td><td>Knowledge Discovery in Databases</td><td>대량 데이터베이스에서 의미 있는 지식을 발견하는 절차를 표준화하려고 만들어진 분석 프로세스다.</td><td><span class="adsp-note-link">03</span></td></tr>
           <tr><td>CRISP-DM</td><td>Cross Industry Standard Process for Data Mining</td><td>산업과 조직이 달라도 데이터마이닝 프로젝트를 일관된 단계로 관리하기 위해 만들어졌다.</td><td><span class="adsp-note-link">03</span></td></tr>
           <tr><td>ISP</td><td>Information Strategy Planning</td><td>정보시스템과 데이터 활용을 조직 전략에 맞춰 장기적으로 설계하기 위해 만들어진 계획 수립 방법이다.</td><td><span class="adsp-note-link">04</span></td></tr>
