@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beomseok Jeong · Portfolio</title>
+<title>배수정 · Home</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -84,26 +84,25 @@ body.editing{padding-top:44px}
 [contenteditable="true"]:focus{background:#DBEAFE;box-shadow:0 0 0 2px #3B82F6}
 
 /* ── LAYOUT ── */
-.wrap{max-width:900px;margin:0 auto;padding:0 28px 100px}
+.wrap{max-width:1560px;margin:0 auto;padding:0 60px 100px}
 
 /* ── NAV ── */
 nav{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:0;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:24px 0;border-bottom:1px solid var(--border);margin-bottom:0;
 }
-.nav-logo{font-family:'DM Serif Display',serif;font-size:16px;letter-spacing:-.01em}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{font-size:13px;color:var(--ink2);transition:color .12s}
+.nav-logo{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.nav-links{display:flex;gap:34px;align-items:center;justify-content:center}
+.nav-links a{font-size:17px;font-weight:700;color:var(--ink2);transition:color .12s}
 .nav-links a:hover{color:var(--ink)}
+.nav-social{display:flex;gap:14px;justify-content:flex-end;align-items:center;color:var(--ink2)}
+.nav-social a{font-size:20px;line-height:1}
 .edit-toggle{padding:7px 16px;border-radius:40px;border:1.5px solid var(--border2);background:transparent;color:var(--ink2);font-size:12.5px;font-weight:500;transition:all .12s}
 .edit-toggle:hover{border-color:var(--accent);color:var(--accent)}
 .edit-toggle.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 /* ── PAGE TABS ── */
-.page-tabs{
-  display:flex;gap:0;border-bottom:1px solid var(--border);
-  margin-bottom:56px;
-}
+.page-tabs{display:none}
 .ptab{
   padding:14px 22px;font-size:13.5px;font-weight:500;color:var(--ink3);
   border-bottom:2px solid transparent;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;
@@ -117,25 +116,26 @@ nav{
 .page-section.active{display:block}
 
 /* ── HERO ── */
-.hero{display:grid;grid-template-columns:1fr 120px;gap:40px;align-items:start;margin-bottom:72px;animation:fadeUp .4s ease both}
-.eyebrow{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.hero h1{font-family:'DM Serif Display',serif;font-size:52px;line-height:1.02;letter-spacing:-.03em;margin-bottom:6px}
-.hero h1 em{font-style:italic;color:var(--ink2)}
-.hero-role{font-size:17px;color:var(--ink2);font-weight:300;margin-bottom:18px}
-.hero-about{font-size:14px;color:var(--ink2);line-height:1.8;max-width:520px;margin-bottom:26px;border-left:2px solid var(--border2);padding-left:16px}
-.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:26px}
-.pill{font-size:12px;padding:3px 11px;border-radius:40px;background:var(--surface);border:1px solid var(--border2);color:var(--ink2)}
-.btns{display:flex;gap:9px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:40px;font-size:13px;font-weight:500;transition:all .13s;border:1.5px solid transparent}
+.hero{display:grid;grid-template-columns:minmax(520px,1fr) minmax(420px,580px);gap:90px;align-items:center;min-height:760px;margin-bottom:72px;animation:fadeUp .4s ease both}
+.eyebrow{display:inline-flex;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:38px;background:var(--accent-bg);border-radius:999px;padding:7px 16px}
+.hero h1{font-size:112px;line-height:.95;letter-spacing:-.06em;margin-bottom:58px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--ink)}
+.hero-role{font-size:18px;color:var(--ink2);font-weight:500;margin-bottom:18px}
+.hero-about{font-size:23px;color:var(--ink2);line-height:1.75;max-width:720px;margin-bottom:34px;border-left:0;padding-left:0}
+.pill-row{display:none}
+.btns{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:999px;font-size:17px;font-weight:700;transition:all .13s;border:1.5px solid transparent}
 .btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
 .btn-dark:hover{background:#333;border-color:#333}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--border2)}
 .btn-ghost:hover{border-color:var(--ink)}
-.avatar-col{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:4px}
-.avatar{width:108px;height:108px;border-radius:18px;background:linear-gradient(140deg,#1A3FCE 0%,#4A1D90 100%);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:26px;color:#fff}
-.stat{text-align:center}
-.stat-n{font-family:'DM Serif Display',serif;font-size:22px;line-height:1}
-.stat-l{font-size:11px;color:var(--ink3);letter-spacing:.03em;margin-top:3px}
+.home-contact{display:flex;align-items:center;gap:18px;font-size:17px;color:var(--ink);font-weight:700}
+.home-contact a{display:inline-flex;align-items:center;gap:8px}
+.avatar-col{display:block;padding-top:0}
+.avatar{width:100%;aspect-ratio:1/1;border-radius:16px;background:var(--surface);border:1px solid var(--border2);box-shadow:0 18px 42px rgba(23,22,15,.04)}
+.stat{display:none}
+.hero-legend{margin-top:18px;text-align:right;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.hero-legend::before{content:'•';color:var(--accent);margin-right:9px}
 
 /* ── SECTION ── */
 .sec{margin-bottom:60px}
@@ -165,6 +165,31 @@ body.editing .tl-del{display:inline-flex}
 .add-row-btn{width:100%;padding:10px;border-radius:var(--r);border:1.5px dashed var(--border2);background:transparent;color:var(--ink3);font-size:12px;cursor:pointer;transition:all .12s;display:none;margin-top:8px}
 .add-row-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 body.editing .add-row-btn{display:block}
+
+/* ── PRACTICE EXPERIENCE ── */
+.practice-page{max-width:1120px;margin:0 auto}
+.practice-kicker{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.practice-title{font-family:'DM Serif Display',serif;font-size:48px;letter-spacing:-.03em;margin-bottom:34px}
+.practice-list{display:flex;flex-direction:column;gap:22px}
+.practice-company{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px 30px}
+.practice-company-head{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;margin-bottom:22px}
+.practice-company-name{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.practice-company-range{font-family:monospace;font-size:14px;color:var(--ink2);white-space:nowrap}
+.practice-role{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:18px 0;border-top:1px solid var(--border)}
+.practice-role-period{font-family:monospace;font-size:13px;color:var(--ink3);padding-top:2px}
+.practice-org{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.practice-position{font-size:14px;color:var(--ink2);margin-bottom:10px}
+.practice-position span{color:var(--ink3)}
+.practice-toggle{display:inline-flex;border:0;background:transparent;color:var(--ink3);font-size:13px;font-weight:700;margin-bottom:10px;padding:0}
+.practice-activities{margin-top:8px;padding-left:18px}
+.practice-activities li{font-size:14px;color:var(--ink2);line-height:1.8;margin-bottom:4px}
+.practice-count{font-size:13px;color:var(--ink3);font-weight:700}
+@media(max-width:720px){
+  .practice-title{font-size:36px}
+  .practice-company-head{grid-template-columns:1fr}
+  .practice-role{grid-template-columns:1fr;gap:6px}
+  .practice-company-range{white-space:normal}
+}
 
 /* ── CATALOGUE ── */
 .cat-filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
@@ -383,6 +408,12 @@ body.editing .add-proj-btn{display:flex}
 .fn-empty{text-align:center;padding:48px 24px;color:var(--ink3);font-size:14px}
 .fn-empty strong{display:block;font-size:16px;color:var(--ink2);margin-bottom:6px}
 @media(max-width:860px){
+  .wrap{padding:0 24px 80px}
+  nav{grid-template-columns:1fr;gap:14px;text-align:center}
+  .nav-social{justify-content:center}
+  .hero{grid-template-columns:1fr;gap:36px;min-height:auto;padding-top:56px}
+  .hero h1{font-size:74px;margin-bottom:34px}
+  .hero-about{font-size:18px}
   .fn-board-head{flex-direction:column}
   .fn-board-title{font-size:34px}
   .fn-layout{grid-template-columns:1fr}
@@ -425,11 +456,15 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Beomseok Jeong</div>
+  <div class="nav-logo">배수정</div>
   <div class="nav-links">
-    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;portfolio&#39;);return false">포트폴리오</a>
+    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;portfolio&#39;);return false">Home</a>
+    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;career&#39;);return false">Career</a>
     <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">Field Notes</a>
-    <a href="https://www.linkedin.com/in/jeongbs/" target="_blank">LinkedIn ↗</a>
+  </div>
+  <div class="nav-social">
+    <a href="https://www.linkedin.com/in/jeongbs/" target="_blank" aria-label="LinkedIn">in</a>
+    <a href="mailto:aaaaa124@naver.com" aria-label="Email">✉</a>
     <button class="admin-badge" id="adminBadge" onclick="logoutAdmin()" title="클릭하면 관리자 로그아웃">🔓 관리자</button>
     <button class="edit-toggle" id="editToggle" onclick="toggleEdit()">✏️ 편집</button>
     <button class="edit-toggle" id="adminLoginBtn" onclick="openAdminOverlay()" style="display:inline-flex">🔐 관리자</button>
@@ -438,7 +473,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
 <!-- TABS -->
 <div class="page-tabs">
-  <button class="ptab active" data-tab="portfolio" onclick="switchTab(&#39;portfolio&#39;)">포트폴리오</button>
+  <button class="ptab active" data-tab="portfolio" onclick="switchTab(&#39;portfolio&#39;)">Home</button>
   <button class="ptab" data-tab="fieldnotes" onclick="switchTab(&#39;fieldnotes&#39;)">Field Notes</button>
   <button class="ptab" data-tab="career" onclick="switchTab(&#39;career&#39;)">경력</button>
 </div>
@@ -448,25 +483,17 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
   <div class="hero">
     <div>
-      <div class="eyebrow" id="hero-eyebrow">Finance Strategy · Governance · R&amp;D Budget · Policy Research</div>
-      <h1>Beomseok<br><em>Jeong</em></h1>
-      <div class="hero-role" id="hero-role">LG AI Research · Finance &nbsp;·&nbsp; Seoul, South Korea</div>
-      <p class="hero-about" id="hero-about">Finance Strategy &amp; ICFR experience across AI research, global manufacturing, and multinational operations. Specializing in governance frameworks, internal controls (K-SOX/ICFR), and SAP/AI-driven process improvement that transforms manual workflows into scalable, executive-ready systems.</p>
-      <div class="pill-row">
-        <span class="pill">K-SOX / ICFR</span><span class="pill">R&amp;D Budget Governance</span><span class="pill">SAP ERP</span><span class="pill">Finance Planning</span><span class="pill">Policy Research</span>
-      </div>
+      <div class="eyebrow" id="hero-eyebrow">Psychologist · People Analytics · AI</div>
+      <h1>배수정</h1>
+      <p class="hero-about" id="hero-about">서울대학교에서 인지심리학과 계량심리학을 공부하며 학습자의 질문 행동과 측정·분석 방법론을 연구해왔습니다. 삼성경제연구소(SGR) People Analytics 팀에서 데이터 기반 인사 의사결정 연구를 시작해, 현재는 SK Group(SK아카데미·mySUNI)에서 리더십 진단, 조직 효과성 연구, 교육 콘텐츠 기획 등 HRM과 HRD를 가로지르는 일을 해왔습니다.<br><br>최근 몇 년은 심리학 베이스의 진단 도구와 AI 기술을 결합하는 데 집중하고 있습니다. LLM·RAG·토픽모델링·IRT 같은 방법론을 임원 진단, 인터뷰 분석, 서베이 해석에 접목해 HR 실무자가 코드 없이도 데이터를 직접 다룰 수 있게 만드는 작업입니다. 이 사이트는 그 과정에서 만들어진 도구·플러그인·강의 자료·실험 프로토타입의 카탈로그입니다.</p>
       <div class="btns">
-        <a class="btn btn-dark" href="https://www.linkedin.com/in/jeongbs/" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
-          LinkedIn
-        </a>
-        <a class="btn btn-ghost" href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">Field Notes →</a>
+        <a class="btn btn-dark" href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">View experiments →</a>
+        <div class="home-contact"><a href="https://www.linkedin.com/in/jeongbs/" target="_blank">in LinkedIn</a><a href="mailto:aaaaa124@naver.com">✉ aaaaa124@naver.com</a></div>
       </div>
     </div>
     <div class="avatar-col">
-      <div class="avatar">BS</div>
-      <div class="stat"><div class="stat-n">500+</div><div class="stat-l">connections</div></div>
-      <div class="stat"><div class="stat-n">8.5</div><div class="stat-l">years exp.</div></div>
+      <div class="avatar"></div>
+      <div class="hero-legend">People Analytics · AI · Research Archive</div>
     </div>
   </div>
 
@@ -813,57 +840,141 @@ FIELD NOTES TAB ═══════════ -->
 
 <!-- ═══════════ CAREER TAB ═══════════ -->
 <div class="page-section" id="tab-career">
-  <div class="sec">
-    <div class="sec-head"><h2>경력</h2><small>Experience</small></div>
-    <div class="tl" id="exp-tl">
-      <div class="tl-row"><div class="dot"></div><div>
-        <div class="tl-org">LG 경영개발원 AI연구원 (LG AI Research) <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
-        <div class="tl-role">CFO 부문 · 책임 — 연구조직 예산·손익관리, 내부회계관리제도 총괄</div>
-        <div class="tl-when">2022.08 – 현재 · Seoul</div>
-        <div class="tags"><span class="tag b">R&amp;D 예산관리</span><span class="tag b">K-SOX / ICFR</span><span class="tag b">SAP ERP</span><span class="tag b">AI Finance Dashboard</span><span class="tag">이상 거래 모니터링</span></div>
-      </div></div>
-      <div class="tl-row"><div class="dot g"></div><div>
-        <div class="tl-org">Schneider Electric Korea <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
-        <div class="tl-role">Finance · Manager — Project Controller / Accountant</div>
-        <div class="tl-when">2018.04 – 2022.05 · Seoul</div>
-        <div class="tags"><span class="tag g">As Sold·Forecast·Actual</span><span class="tag g">Project P&amp;L</span><span class="tag g">Cash Flow</span><span class="tag">Unbilled AR</span><span class="tag">Deferred Revenue</span></div>
-      </div></div>
-      <div class="tl-row"><div class="dot g"></div><div>
-        <div class="tl-org">Schneider Electric Korea <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
-        <div class="tl-role">Finance · Intern — Expense Report, AP Aging, Intercompany Netting 지원</div>
-        <div class="tl-when">2017.04 – 2017.10 · Seoul</div>
-        <div class="tags"><span class="tag g">Expense Report</span><span class="tag g">Long Aging AP</span><span class="tag">Intercompany Netting</span><span class="tag">월말 결산 지원</span></div>
-      </div></div>
+  <div class="practice-page">
+    <div class="practice-kicker">Practice</div>
+    <h2 class="practice-title">Experience</h2>
+
+    <div class="practice-list">
+      <section class="practice-company">
+        <div class="practice-company-head">
+          <h3 class="practice-company-name">SK Group</h3>
+          <div class="practice-company-range">2023.05 – Present</div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2026.01 – Present</div>
+          <div>
+            <div class="practice-org">SK아카데미 | 리더십 진단팀</div>
+            <div class="practice-position">Research Fellow <span>· 서울</span></div>
+          </div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2025.01 – 2025.12</div>
+          <div>
+            <div class="practice-org">SK아카데미 | 리더십 연구팀</div>
+            <div class="practice-position">Research Fellow <span>· 서울</span></div>
+          </div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2024.01 – 2024.12</div>
+          <div>
+            <div class="practice-org">SK mySUNI | 행복College</div>
+            <div class="practice-position">Research Fellow <span>· 서울</span></div>
+          </div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2023.05 – 2023.12</div>
+          <div>
+            <div class="practice-org">SK mySUNI | 전략기획</div>
+            <div class="practice-position">Research Fellow <span>· 서울</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-company">
+        <div class="practice-company-head">
+          <h3 class="practice-company-name">Samsung Global Research (SGR)</h3>
+          <div class="practice-company-range">2018.07 – 2023.05</div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2018.07 – 2023.05</div>
+          <div>
+            <div class="practice-org">(전) 삼성경제연구소 | 인재경영연구실 People Analytics 팀</div>
+            <div class="practice-position">Research Fellow <span>· 서울</span></div>
+            <button class="practice-toggle" type="button">접기</button>
+            <ul class="practice-activities">
+              <li>인사·진단 데이터 분석 기반의 인사이트 도출 (연구 7건)</li>
+              <li>全관계사 리더십 진단 운영 총괄, 통합 보고서 작성, 인사팀장·CEO 보고 (2019~2021)</li>
+              <li>조직문화 컨설팅 (담당사 직원·인사팀 심층 인터뷰, 인사팀장·CEO 보고, 매년)</li>
+              <li>인사 제도 혁신안 기획 및 HR 테크 도입 지원</li>
+              <li>CEO 대상 주간 보고서 5건, 인사팀장 대상 월간 보고서 12건</li>
+              <li>인사조직 및 HR Tech 관련 영상 19건 제작</li>
+              <li>관계사 임원 대상 진단 디브리핑 워크샵 강의 15건</li>
+              <li>드림클래스 면접위원 강의 3건</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-company">
+        <div class="practice-company-head">
+          <h3 class="practice-company-name">MIDAS IT Co., Ltd.</h3>
+          <div class="practice-company-range">2017.03 – 2018.06</div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2017.03 – 2018.06</div>
+          <div>
+            <div class="practice-org">행복기획팀 | 경영철학 연구 및 조직문화 기획</div>
+            <div class="practice-position">파트장, 대리 <span>· 판교</span></div>
+            <div class="practice-count">주요 활동 4</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-company">
+        <div class="practice-company-head">
+          <h3 class="practice-company-name">서울대학교 사회과학대학 심리학과</h3>
+          <div class="practice-company-range">2014.03 – 2016.08</div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2014.03 – 2016.08</div>
+          <div>
+            <div class="practice-org">대학원 학사 및 주요 행사 진행</div>
+            <div class="practice-position">대학원 조교 (총장 발령) <span>· 서울</span></div>
+            <div class="practice-count">주요 활동 4</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-company">
+        <div class="practice-company-head">
+          <h3 class="practice-company-name">서울대학교 심리과학연구소</h3>
+          <div class="practice-company-range">2014.03 – 2016.08</div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2014.03 – 2016.08</div>
+          <div>
+            <div class="practice-org">연구소 운영 관리</div>
+            <div class="practice-position">조교 (자체 직원) <span>· 서울</span></div>
+            <div class="practice-count">주요 활동 3</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-company">
+        <div class="practice-company-head">
+          <h3 class="practice-company-name">위즈덤 센터</h3>
+          <div class="practice-company-range">2011.01 – 2011.04</div>
+        </div>
+        <div class="practice-role">
+          <div class="practice-role-period">2011.01 – 2011.04</div>
+          <div>
+            <div class="practice-org">연희동 소재, 황상민 (전)연세대학교 심리학과 교수 | 연구소 프로젝트 보조 및 관련 자료 정리</div>
+            <div class="practice-position">인턴 연구원 <span>· 서울</span></div>
+            <div class="practice-count">주요 활동 4</div>
+          </div>
+        </div>
+      </section>
     </div>
-    <button class="add-row-btn" onclick="addExpRow()">+ 경력 추가</button>
-  </div>
-  <div class="divider"></div>
-  <div class="sec">
-    <div class="sec-head"><h2>학력</h2><small>Education</small></div>
-    <div class="tl" id="edu-tl">
-      <div class="tl-row"><div class="dot p"></div><div>
-        <div class="tl-org">서강대학교 MOT대학원 <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
-        <div class="tl-role">기술경영학 석사 — 재무전략 · 데이터 기반 경영관리</div>
-        <div class="tl-when">2020.03 – 2022.02</div>
-        <div class="tags"><span class="tag p">기술경영</span><span class="tag p">재무전략</span><span class="tag p">데이터분석</span></div>
-      </div></div>
-      <div class="tl-row"><div class="dot p"></div><div>
-        <div class="tl-org">UNSW (University of New South Wales) <button class="tl-del" onclick="this.closest(&#39;.tl-row&#39;).remove()">×</button></div>
-        <div class="tl-role">Bachelor of Commerce — Accounting</div>
-        <div class="tl-when">Sydney, Australia</div>
-      </div></div>
-    </div>
-    <button class="add-row-btn" onclick="addEduRow()">+ 학력 추가</button>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-name">Beomseok Jeong · Seoul, South Korea</div>
+  <div class="foot-name">배수정 · Seoul, South Korea</div>
   <div class="foot-links">
     <a href="https://www.linkedin.com/in/jeongbs/" target="_blank">LinkedIn</a>
-    <a href="mailto:">이메일</a>
-    <span style="font-size:12px;color:var(--ink3)">Portfolio · 2026</span>
+    <a href="mailto:aaaaa124@naver.com">이메일</a>
+    <span style="font-size:12px;color:var(--ink3)">Home · 2026</span>
   </div>
 </footer>
 
