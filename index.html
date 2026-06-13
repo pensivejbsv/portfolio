@@ -730,7 +730,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <span class="automation-live-label">Live</span>
       <strong id="adsp-automation-status">이상없음</strong>
     </div>
-    <small id="adsp-automation-detail">2026-06-13 19:33 KST · ADsP Field Note 14 생성 완료</small>
+    <small id="adsp-automation-detail">2026-06-13 20:33 KST · ADsP Field Note 16 생성 완료</small>
   </div>
 
   <!-- Admin Toolbar: JSON paste workflow -->
@@ -822,7 +822,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   </div>
 
   <!-- Notes list -->
-  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">14개</small></div>
+  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">16개</small></div>
 
   <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
 
@@ -831,6 +831,42 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <strong>아직 노트가 없습니다</strong>
       논문 PDF를 업로드해서 첫 번째 Field Note를 만들어보세요.
     </div>
+  <div class="fn-card" data-id="1781521980001">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-13</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 예상주제 16: 연관분석 지지도, 신뢰도, 향상도</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781521980001,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">연관분석은 ADsP 계산형과 보기형을 함께 노리는 대표 주제다. 지지도, 신뢰도, 향상도를 조건부확률 흐름으로 묶어두면 장바구니 예시가 숫자만 바뀌어도 빠르게 식을 세울 수 있다.</div>
+      <div class="fn-card-ref">로컬 교재 txt(연관분석·Apriori·FP-Growth 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">연관분석</span><span class="fn-card-tag">지지도</span><span class="fn-card-tag">신뢰도</span><span class="fn-card-tag">향상도</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>[기초] 연관분석은 여러 품목이 함께 나타나는 패턴을 규칙 형태로 찾는 방법이다. 가장 기본 규칙은 A이면 B가 함께 나온다는 A → B 형태다. 지지도는 전체 거래 중 A와 B가 동시에 나온 비율이고, 신뢰도는 A가 나온 거래 중 B도 함께 나온 비율이며, 향상도는 A와 B의 동시출현이 우연보다 얼마나 강한지를 보여주는 비율이다.</p><p>[예상 문제] 시험에서는 전체 거래 수, A 구매 수, B 구매 수, A와 B 동시 구매 수를 주고 세 지표를 계산하게 하거나, 향상도 1을 기준으로 양의 연관·독립·음의 연관을 구분하게 만든다. 지지도는 전체 분모, 신뢰도는 조건부확률, 향상도는 신뢰도 ÷ B의 단순 구매확률이라는 흐름이 흔들리면 보기형 함정에 걸리기 쉽다.</p><p>[심화] Apriori는 최소 지지도를 만족하는 빈발항목집합만 확장하면서 후보를 줄이는 알고리즘이고, FP-Growth는 반복 후보 생성 부담을 줄이기 위해 트리 구조를 활용한다. ADsP에서는 복잡한 구현보다 Apriori가 계산량이 커질 수 있다는 점, FP-Growth가 이를 개선한 방법이라는 비교가 더 자주 출제된다. 향상도가 1보다 크면 양의 상관관계, 1이면 독립, 1보다 작으면 음의 상관관계라는 해석도 정리해야 한다.</p><p>[공부 순서] 1단계로 지지도·신뢰도·향상도 공식을 한 줄씩 암기하고, 2단계로 장바구니 표에서 분모가 무엇인지 먼저 표시한다. 3단계로 향상도 해석을 1 기준으로 구분하고, 4단계로 Apriori와 FP-Growth 차이를 비교형 문장으로 직접 써보며 마무리한다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>연관분석은 수식 자체보다 분모를 바르게 잡는 습관이 합격 점수를 가른다. 시험장에서 숫자가 많아 보여도 전체 기준인지, A 조건 기준인지, 독립 대비 강도인지 세 층으로만 나누면 계산형과 개념형을 같이 정리할 수 있다.</p>
+      </div></div>
+  <div class="fn-card" data-id="1781519580001">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-13</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 예상주제 15: 과대적합, 과소적합, 교차검증, 편향-분산</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781519580001,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">과대적합과 과소적합, 편향-분산 trade-off, 교차검증은 ADsP 3과목에서 모델 성능 해석과 검증 절차를 함께 묶어 묻는 대표 주제다. 계산식보다 어떤 상황에서 분산이 커지고 왜 교차검증이 필요한지 연결해 기억해야 보기 함정에 강해진다.</div>
+      <div class="fn-card-ref">로컬 교재 txt(과대적합·과소적합·편향-분산·교차검증 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">과대적합</span><span class="fn-card-tag">과소적합</span><span class="fn-card-tag">교차검증</span><span class="fn-card-tag">편향분산</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>[기초] 과대적합은 모델이 학습데이터를 지나치게 세밀하게 따라가서 훈련 성능은 높지만 새로운 데이터에서 성능이 떨어지는 상태다. 보통 분산이 높고 편향이 낮은 쪽과 연결된다. 반대로 과소적합은 모델이 지나치게 단순해 데이터 구조를 충분히 설명하지 못하는 상태로, 편향은 높고 분산은 낮은 쪽과 연결된다. 교차검증은 데이터를 여러 조각으로 나눠 학습과 검증을 반복하면서 모델의 일반화 성능을 안정적으로 확인하는 절차다.</p><p>[예상 문제] 시험에서는 과대적합을 “복잡한 모델이라 항상 좋은 상태”처럼 바꾸거나, 과소적합을 단순히 데이터 수가 적어서 생기는 현상으로 축소하는 보기를 자주 낸다. 또 K-fold 교차검증을 훈련세트와 테스트세트를 한 번만 나누는 홀드아웃 방식과 섞어 출제하기도 한다. 핵심은 과대적합은 높은 분산, 과소적합은 높은 편향, 교차검증은 일반화 성능 확인이라는 연결 문장을 고정하는 것이다.</p><p>[심화] 편향과 분산은 trade-off 관계라서 모델이 복잡해질수록 편향은 줄기 쉽지만 분산은 커질 수 있다. 의사결정나무처럼 복잡도가 빠르게 높아지는 모델은 가지치기나 앙상블로 분산을 낮추고, 지나치게 단순한 모델은 변수 추가나 모형 구조 조정으로 편향을 완화한다. K-fold 교차검증은 데이터를 k개로 나눈 뒤 k-1개로 학습하고 나머지 1개로 검증하는 과정을 반복해 특정 분할에 따른 우연을 줄여 준다. ADsP에서는 공식보다 “왜 검증을 반복하는가”와 “어떤 상태가 편향/분산 문제인가”를 구별하는 문제가 자주 나온다.</p><p>[공부 순서] 1단계 과대적합·과소적합 정의를 편향과 분산 축으로 암기, 2단계 홀드아웃과 K-fold 교차검증 차이 정리, 3단계 가지치기·앙상블·변수조정이 어느 문제를 완화하는지 연결, 4단계 보기 문장에서 높은 편향/높은 분산 표현을 찾아 즉시 분류하는 연습.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>이 주제는 계산보다 해석이 중요하다. 시험장에서 모델 성능이 훈련에서는 높은데 검증에서 급락한다면 먼저 과대적합과 높은 분산을 떠올리고, 반대로 훈련과 검증 모두 낮으면 과소적합과 높은 편향을 의심하는 습관을 들이면 응용 문항까지 빠르게 정리된다.</p>
+      </div></div>
   <div class="fn-card" data-id="1781516340001">
       <div class="fn-card-head">
         <div>
@@ -1519,6 +1555,40 @@ const ADSP_STUDY_NOTES = [
     insight: '이 세 모델은 모두 분류 문제를 푼다는 공통점 때문에 시험장에서 서로 섞이기 쉽다. “확률식으로 추정하면 로지스틱, 가까운 이웃이면 KNN, 독립가정 확률계산이면 나이브베이즈”라는 판별 문장을 먼저 세우면 빠르게 정리된다.',
     ref: '로컬 교재 txt(로지스틱 회귀·KNN·나이브베이즈 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
     tags: ['ADsP', '로지스틱회귀', 'KNN', '나이브베이즈', '분류분석']
+  },
+  {
+    id: 1781521980001,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 16: 연관분석 지지도, 신뢰도, 향상도',
+    cat: 'AI/데이터',
+    summary: '연관분석은 ADsP 계산형과 보기형을 함께 노리는 대표 주제다. 지지도, 신뢰도, 향상도를 조건부확률 흐름으로 묶어두면 장바구니 예시가 숫자만 바뀌어도 빠르게 식을 세울 수 있다.',
+    body: `기초: 연관분석은 여러 품목이 함께 나타나는 패턴을 규칙 형태로 찾는 방법이다. 가장 기본 규칙은 A이면 B가 함께 나온다는 A → B 형태다. 지지도는 전체 거래 중 A와 B가 동시에 나온 비율이고, 신뢰도는 A가 나온 거래 중 B도 함께 나온 비율이며, 향상도는 A와 B의 동시출현이 우연보다 얼마나 강한지를 보여주는 비율이다.
+
+예상 문제: 시험에서는 전체 거래 수, A 구매 수, B 구매 수, A와 B 동시 구매 수를 주고 세 지표를 계산하게 하거나, 향상도 1을 기준으로 양의 연관·독립·음의 연관을 구분하게 만든다. 지지도는 전체 분모, 신뢰도는 조건부확률, 향상도는 신뢰도 ÷ B의 단순 구매확률이라는 흐름이 흔들리면 보기형 함정에 걸리기 쉽다.
+
+심화: Apriori는 최소 지지도를 만족하는 빈발항목집합만 확장하면서 후보를 줄이는 알고리즘이고, FP-Growth는 반복 후보 생성 부담을 줄이기 위해 트리 구조를 활용한다. ADsP에서는 복잡한 구현보다 Apriori가 계산량이 커질 수 있다는 점, FP-Growth가 이를 개선한 방법이라는 비교가 더 자주 출제된다. 향상도가 1보다 크면 양의 상관관계, 1이면 독립, 1보다 작으면 음의 상관관계라는 해석도 정리해야 한다.
+
+공부 순서: 1단계로 지지도·신뢰도·향상도 공식을 한 줄씩 암기하고, 2단계로 장바구니 표에서 분모가 무엇인지 먼저 표시한다. 3단계로 향상도 해석을 1 기준으로 구분하고, 4단계로 Apriori와 FP-Growth 차이를 비교형 문장으로 직접 써보며 마무리한다.`,
+    insight: '연관분석은 수식 자체보다 분모를 바르게 잡는 습관이 합격 점수를 가른다. 시험장에서 숫자가 많아 보여도 전체 기준인지, A 조건 기준인지, 독립 대비 강도인지 세 층으로만 나누면 계산형과 개념형을 같이 정리할 수 있다.',
+    ref: '로컬 교재 txt(연관분석·Apriori·FP-Growth 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
+    tags: ['ADsP', '연관분석', '지지도', '신뢰도', '향상도']
+  },
+  {
+    id: 1781519580001,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 15: 과대적합, 과소적합, 교차검증, 편향-분산',
+    cat: 'AI/데이터',
+    summary: '과대적합과 과소적합, 편향-분산 trade-off, 교차검증은 ADsP 3과목에서 모델 성능 해석과 검증 절차를 함께 묶어 묻는 대표 주제다. 계산식보다 어떤 상황에서 분산이 커지고 왜 교차검증이 필요한지 연결해 기억해야 보기 함정에 강해진다.',
+    body: `기초: 과대적합은 모델이 학습데이터를 지나치게 세밀하게 따라가서 훈련 성능은 높지만 새로운 데이터에서 성능이 떨어지는 상태다. 보통 분산이 높고 편향이 낮은 쪽과 연결된다. 반대로 과소적합은 모델이 지나치게 단순해 데이터 구조를 충분히 설명하지 못하는 상태로, 편향은 높고 분산은 낮은 쪽과 연결된다. 교차검증은 데이터를 여러 조각으로 나눠 학습과 검증을 반복하면서 모델의 일반화 성능을 안정적으로 확인하는 절차다.
+
+예상 문제: 시험에서는 과대적합을 “복잡한 모델이라 항상 좋은 상태”처럼 바꾸거나, 과소적합을 단순히 데이터 수가 적어서 생기는 현상으로 축소하는 보기를 자주 낸다. 또 K-fold 교차검증을 훈련세트와 테스트세트를 한 번만 나누는 홀드아웃 방식과 섞어 출제하기도 한다. 핵심은 과대적합은 높은 분산, 과소적합은 높은 편향, 교차검증은 일반화 성능 확인이라는 연결 문장을 고정하는 것이다.
+
+심화: 편향과 분산은 trade-off 관계라서 모델이 복잡해질수록 편향은 줄기 쉽지만 분산은 커질 수 있다. 의사결정나무처럼 복잡도가 빠르게 높아지는 모델은 가지치기나 앙상블로 분산을 낮추고, 지나치게 단순한 모델은 변수 추가나 모형 구조 조정으로 편향을 완화한다. K-fold 교차검증은 데이터를 k개로 나눈 뒤 k-1개로 학습하고 나머지 1개로 검증하는 과정을 반복해 특정 분할에 따른 우연을 줄여 준다. ADsP에서는 공식보다 “왜 검증을 반복하는가”와 “어떤 상태가 편향/분산 문제인가”를 구별하는 문제가 자주 나온다.
+
+공부 순서: 1단계 과대적합·과소적합 정의를 편향과 분산 축으로 암기, 2단계 홀드아웃과 K-fold 교차검증 차이 정리, 3단계 가지치기·앙상블·변수조정이 어느 문제를 완화하는지 연결, 4단계 보기 문장에서 높은 편향/높은 분산 표현을 찾아 즉시 분류하는 연습.`,
+    insight: '이 주제는 계산보다 해석이 중요하다. 시험장에서 모델 성능이 훈련에서는 높은데 검증에서 급락한다면 먼저 과대적합과 높은 분산을 떠올리고, 반대로 훈련과 검증 모두 낮으면 과소적합과 높은 편향을 의심하는 습관을 들이면 응용 문항까지 빠르게 정리된다.',
+    ref: '로컬 교재 txt(과대적합·과소적합·편향-분산·교차검증 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
+    tags: ['ADsP', '과대적합', '과소적합', '교차검증', '편향분산']
   },
   {
     id: 1781516340001,
