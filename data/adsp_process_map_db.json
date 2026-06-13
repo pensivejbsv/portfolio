@@ -9,9 +9,16 @@
     "minimumSnapshotsPerRun": 1,
     "sourcePriority": [
       "index.html ADSP_STUDY_NOTES",
+      "query history text files matching 질의내역_*.txt",
       "local adapter ADSP text file",
       "available YouTube lecture transcript or accessible lecture summary"
     ],
+    "queryHistorySource": {
+      "filePattern": "질의내역_*.txt",
+      "databasePath": "data/adsp_query_history_db.json",
+      "stagingLevels": ["foundation", "intermediate", "advanced", "weakness", "review"],
+      "dedupeKeys": ["fileName", "contentHash"]
+    },
     "variantRotation": [
       "exam_flow",
       "concept_dependency",

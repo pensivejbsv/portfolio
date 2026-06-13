@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "databaseName": "adsp_query_history_db",
+  "description": "Imported ADSP query-history text files and staged learning summaries used by the daily Process Map updater.",
+  "lastUpdatedAt": "2026-06-13T19:17:00+09:00",
+  "sourcePolicy": {
+    "filePattern": "질의내역_*.txt",
+    "searchLocations": [
+      ".",
+      "data",
+      "data/query_history",
+      "C:\\Users\\fanta\\Desktop\\포트폴리오"
+    ],
+    "acceptedFormat": "Plain text. Each file can contain raw questions, study prompts, Q&A logs, wrong-answer notes, or topic requests.",
+    "dedupeStrategy": "Track imported files by fileName and contentHash. If a file changes, import the changed version as a new snapshot instead of overwriting history."
+  },
+  "stagingModel": [
+    {
+      "id": "foundation",
+      "label": "기초",
+      "description": "Terms, abbreviations, definitions, and why each concept exists."
+    },
+    {
+      "id": "intermediate",
+      "label": "중간",
+      "description": "Exam-style distinctions, formulas, process orders, and common multiple-choice traps."
+    },
+    {
+      "id": "advanced",
+      "label": "심화",
+      "description": "Model comparison, assumptions, limitations, interpretation, and cross-topic synthesis."
+    },
+    {
+      "id": "weakness",
+      "label": "취약점",
+      "description": "Repeated confusion, wrong-answer patterns, missing links, and topics needing reinforcement."
+    },
+    {
+      "id": "review",
+      "label": "복습",
+      "description": "Daily review checklist items that should be reflected in the next Process Map combination."
+    }
+  ],
+  "importedFiles": [],
+  "stagedSummaries": {
+    "foundation": [],
+    "intermediate": [],
+    "advanced": [],
+    "weakness": [],
+    "review": []
+  },
+  "history": [
+    {
+      "version": "2026-06-13-query-history-db-init",
+      "createdAt": "2026-06-13T19:17:00+09:00",
+      "sourceFiles": [],
+      "summary": "Initialized the query-history database. Future files matching 질의내역_*.txt will be imported, staged, deduplicated, and used by the daily ADSP Process Map updater."
+    }
+  ]
+}
