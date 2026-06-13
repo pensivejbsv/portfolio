@@ -640,7 +640,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <span class="automation-live-label">Live</span>
       <strong id="adsp-automation-status">이상없음</strong>
     </div>
-    <small id="adsp-automation-detail">2026-06-13 19:39 KST · ADsP 예상주제 14 반영 완료</small>
+    <small id="adsp-automation-detail">2026-06-13 19:33 KST · ADsP Field Note 14 생성 완료</small>
   </div>
 
   <!-- Admin Toolbar: JSON paste workflow -->
@@ -741,7 +741,26 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <strong>아직 노트가 없습니다</strong>
       논문 PDF를 업로드해서 첫 번째 Field Note를 만들어보세요.
     </div>
+  <div class="fn-card" data-id="1781516340001">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-13</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 예상주제 14: 데이터웨어하우스, 데이터레이크, ETL 비교</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781516340001,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">데이터웨어하우스, 데이터레이크, ETL·ODS는 ADsP 1과목에서 정의형과 비교형으로 자주 엮인다. 저장 구조와 활용 목적을 한 축으로 묶어두면 비슷한 용어 함정을 빠르게 걸러낼 수 있다.</div>
+      <div class="fn-card-ref">로컬 교재 txt(데이터웨어하우스·데이터레이크·ETL/ODS 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">데이터웨어하우스</span><span class="fn-card-tag">데이터레이크</span><span class="fn-card-tag">ETL</span><span class="fn-card-tag">ODS</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>[기초] 데이터웨어하우스(DW)는 기업 안팎의 다양한 데이터를 한곳에 통합해 분석용으로 저장하는 중앙 저장소다. 특징은 주제지향성, 통합성, 시계열성, 비휘발성이다. ODS는 여러 운영계에서 추출한 데이터를 임시 저장하는 중간 저장소이고, ETL은 서로 다른 원천 데이터에서 추출하고 정제·변환한 뒤 적재하는 절차다. 데이터레이크는 정형·반정형·비정형 데이터를 원형에 가깝게 저장해 두고 필요 시 분석하는 저장 방식이다.</p><p>[예상 문제] 시험에서는 DW와 DB를 같은 개념처럼 섞거나, ODS를 최종 분석 저장소라고 바꾸는 보기를 자주 낸다. DW는 분석 목적의 통합 저장소이고, ODS는 적재 전후의 연결 지점이라는 점을 분리해야 한다. 또 ETL의 T를 단순 전송으로 오해하게 만들거나, 데이터레이크를 반드시 정형 데이터 중심이라고 설명하면 오답 가능성이 높다.</p><p>[심화] DW는 읽기 중심, 이력 관리, 주제별 분석에 강하고 BI·OLAP와 자연스럽게 연결된다. 반면 데이터레이크는 스키마를 먼저 강제하기보다 저장 후 활용하는 유연성이 강해 대용량 로그, 센서, 텍스트 같은 비정형 데이터에 유리하다. 시험 포인트는 “DW는 구조화·정제 후 적재, 데이터레이크는 원천 형태 보존 후 분석”이라는 대비다. ETL은 DW 구축 흐름과 함께 자주 나오고, ODS는 여러 운영 DBMS에서 모인 데이터를 통합해 다음 단계로 넘기는 완충지대로 이해하면 좋다.</p><p>[공부 순서] 1단계로 DW의 4대 특징(주제지향·통합·시계열·비휘발) 암기, 2단계로 ETL과 ODS 역할 구분, 3단계로 DW와 데이터레이크 비교표 작성, 4단계로 BI·OLAP·하둡과 연결되는 문장을 직접 만들어 보기.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>이 주제는 약어를 따로 외우기보다 “운영데이터를 모아 정제해 분석용 저장소로 보내는 흐름”으로 기억해야 오래 간다. 시험장에서 DW, ODS, ETL, 데이터레이크가 한 문제에 같이 나오면 저장 시점과 데이터 형태부터 구분하면 정답률이 올라간다.</p>
+      </div></div>
   <div class="fn-card" data-id="1781280806130">
+
       <div class="fn-card-head">
         <div>
           <div class="fn-card-meta">
