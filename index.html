@@ -323,6 +323,35 @@ body.editing .add-proj-btn{display:flex}
 .fn-filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}
 .fn-filter-btn{padding:5px 14px;border-radius:40px;border:1px solid var(--border2);font-size:12.5px;color:var(--ink2);background:transparent;cursor:pointer;transition:all .12s}
 .fn-filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fn-board-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:10px 0 30px}
+.fn-board-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.fn-board-title{font-family:'DM Serif Display',serif;font-size:42px;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px}
+.fn-board-copy{font-size:15px;color:var(--ink2);line-height:1.8;max-width:720px}
+.fn-linkedin-top{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);border-radius:999px;padding:8px 14px;color:var(--ink2);font-size:13px;white-space:nowrap;background:var(--surface)}
+.fn-linkedin-top:hover{border-color:var(--ink);color:var(--ink)}
+.fn-layout{display:grid;grid-template-columns:minmax(210px,260px) 1fr;gap:34px;align-items:start}
+.fn-index-panel{position:sticky;top:90px;background:var(--surface);border:1px solid var(--border);border-radius:var(--rL);padding:22px 24px}
+.fn-index-section{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--border)}
+.fn-index-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.fn-index-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+.fn-index-list{display:flex;flex-direction:column;gap:11px}
+.fn-index-row{display:flex;justify-content:space-between;gap:14px;align-items:center;border:0;background:transparent;padding:0;color:var(--ink2);font-family:inherit;font-size:14px;cursor:pointer;text-align:left}
+.fn-index-row strong{font-size:15px;color:var(--ink)}
+.fn-index-row span:last-child{font-family:monospace;color:var(--ink3)}
+.fn-index-row.active span:first-child,.fn-index-row:hover span:first-child{color:var(--accent)}
+.fn-hash-list{display:flex;flex-wrap:wrap;gap:7px}
+.fn-hash-chip{border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:5px 10px;font-size:12px;color:var(--ink2);cursor:pointer}
+.fn-hash-chip:hover{border-color:var(--accent);color:var(--accent)}
+.fn-search-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--rL);padding:17px 19px;margin-bottom:20px}
+.fn-search-row{display:flex;align-items:center;gap:12px}
+.fn-search-icon{color:var(--ink3);font-size:18px;line-height:1}
+.fn-search-input{flex:1;border:0;background:transparent;outline:none;font-family:inherit;font-size:16px;color:var(--ink);min-width:0}
+.fn-search-input::placeholder{color:var(--ink3)}
+.fn-search-clear{width:28px;height:28px;border-radius:50%;border:0;background:transparent;color:var(--ink3);font-size:20px;cursor:pointer;line-height:1}
+.fn-search-clear:hover{background:rgba(23,22,15,.05);color:var(--ink)}
+.fn-search-meta{font-size:12px;color:var(--ink3);margin-top:8px;padding-left:31px}
+.fn-reading-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 16px;padding-bottom:13px;border-bottom:1px solid var(--border)}
+.fn-reading-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
 
 .fn-list{display:flex;flex-direction:column;gap:16px}
 .fn-card{
@@ -333,6 +362,7 @@ body.editing .add-proj-btn{display:flex}
 .fn-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:10px}
 .fn-card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .fn-card-date{font-size:12px;color:var(--ink3)}
+.fn-card-time{font-size:12px;color:var(--ink3)}
 .fn-card-cat{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:500}
 .fn-card-title{font-size:16px;font-weight:500;margin-bottom:6px;line-height:1.4}
 .fn-card-summary{font-size:13.5px;color:var(--ink2);line-height:1.7;margin-bottom:12px}
@@ -352,6 +382,12 @@ body.editing .add-proj-btn{display:flex}
 
 .fn-empty{text-align:center;padding:48px 24px;color:var(--ink3);font-size:14px}
 .fn-empty strong{display:block;font-size:16px;color:var(--ink2);margin-bottom:6px}
+@media(max-width:860px){
+  .fn-board-head{flex-direction:column}
+  .fn-board-title{font-size:34px}
+  .fn-layout{grid-template-columns:1fr}
+  .fn-index-panel{position:static}
+}
 
 /* ── FOOTER ── */
 footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
@@ -566,12 +602,44 @@ FIELD NOTES TAB ═══════════ -->
     </div>
   </div>
 
-  <!-- Notes list -->
+  <div class="fn-board-head">
+    <div>
+      <div class="fn-board-kicker">§ Field Notes</div>
+      <h2 class="fn-board-title">Field Notes</h2>
+      <p class="fn-board-copy">공부, 정책, 데이터 분석에서 반복해서 돌아볼 질문과 답을 시간순으로 정리합니다.</p>
+      <div id="fn-data-source" style="font-size:12.5px;color:var(--ink3);margin-top:10px">데이터 확인 중...</div>
+    </div>
+    <a class="fn-linkedin-top" href="https://www.linkedin.com/in/jeongbs/" target="_blank">LinkedIn ↗</a>
+  </div>
 
-  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">19개</small></div>
-  <div id="fn-data-source" style="font-size:12.5px;color:var(--ink3);margin:-12px 0 18px">데이터 확인 중...</div>
+  <div class="fn-layout">
+    <aside class="fn-index-panel" aria-label="Field Notes index">
+      <div class="fn-index-section">
+        <div class="fn-index-label">Posts · Category</div>
+        <div class="fn-index-list" id="fn-topic-index"></div>
+      </div>
+      <div class="fn-index-section">
+        <div class="fn-index-label">Index · Month</div>
+        <div class="fn-index-list" id="fn-month-index"></div>
+      </div>
+      <div class="fn-index-section">
+        <div class="fn-index-label">Top · Hashtags</div>
+        <div class="fn-hash-list" id="fn-hashtag-index"></div>
+      </div>
+    </aside>
 
-  <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
+    <main class="fn-main-panel">
+      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">19개</small></div>
+      <div class="fn-search-panel">
+        <div class="fn-search-row">
+          <span class="fn-search-icon">⌕</span>
+          <input class="fn-search-input" id="fn-search-input" type="search" placeholder="키워드로 Field Note 검색" oninput="setFnSearch(this.value)">
+          <button class="fn-search-clear" onclick="clearFnSearch()" aria-label="검색어 지우기">×</button>
+        </div>
+        <div class="fn-search-meta" id="fn-search-meta">제목, 요약, 본문, 태그, 출처에서 검색합니다.</div>
+      </div>
+      <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
+      <div class="fn-reading-head"><span class="fn-reading-label">Reading</span><span id="fn-visible-count" class="fn-reading-label">19 posts</span></div>
 
   <div class="fn-list" id="fn-list">
     <div class="fn-empty" id="fn-empty" style="display: none;">
@@ -738,6 +806,8 @@ FIELD NOTES TAB ═══════════ -->
         <h4>📋 주요 내용</h4><p>이 연구를 쓴 이유는 공공조직의 조직목표가 민간조직보다 모호하고 측정하기 어렵기 때문에, 무엇이 조직목표 인식에 영향을 미치는지 확인할 필요가 있었기 때문이다. 저자는 특히 공무원 조직이 레드테이프, 무사안일주의, 복지부동과 같은 비판을 받아온 상황에서 조직목표의 명확한 설정이 공공조직 변화의 출발점이라고 보았다. 연구는 한국행정연구원의 「2018년 공직생활 실태조사」 자료를 활용했으며, 응답자는 공무원 4,000명이었다. 분석방법은 기술통계분석, 상관분석, 탐색적 요인분석, 다중회귀분석이며, 조직문화는 집단문화·혁신문화·위계문화·합리문화로 구분하고 업무전문성은 개인의 업무전문성 인식을 중심으로 측정했다. 기초통계에서 조직문화 평균은 집단문화 3.630, 혁신문화 3.260, 위계문화 3.348, 합리문화 3.484로 나타나 공무원들은 혁신문화보다 합리문화와 집단문화를 더 강하게 인식했다. 상관분석 결과 조직목표와의 상관계수는 집단문화 0.540, 혁신문화 0.520, 합리문화 0.502, 위계문화 0.428, 전체 업무전문성 0.403, 개인 업무전문성 0.324로 모두 유의미한 정(+)의 관계를 보였다. 다중회귀분석에서는 업무전문성 β=0.206, 집단문화 β=0.203, 혁신문화 β=0.195, 위계문화 β=0.136으로 조직목표에 유의미한 양(+)의 영향을 미쳤고, 주효과 모델의 조정 R²는 0.407로 나타났다. 저자가 전달하려는 핵심은 공공조직의 조직목표를 명확히 하기 위해서는 협력·신뢰·팀워크 중심의 집단문화를 강화하고, 동시에 개인 공무원의 업무전문성을 높이는 전략이 필요하다는 점이다. </p><p>[한계] 첫째, 개인의 업무전문성을 자기기입식 설문으로 측정했기 때문에 응답자의 주관적 편견이 반영되었을 가능성이 있다. 둘째, 통제변수가 성별, 연령, 근무기간, 직급 등 인구통계학적 변수에 한정되어 조직구조나 리더십 등 다른 영향요인을 충분히 통제하지 못했다. 셋째, 2018년 단일 시점의 자료를 활용했기 때문에 시간에 따른 조직문화와 조직목표 인식의 변화를 분석하지 못했다.</p>
         <h4>💡 내 생각 / 시사점</h4><p>공공정책과 재정행정 관점에서 이 논문은 조직목표의 명확성이 예산집행, 성과관리, 조직성과 평가의 전제조건이라는 점을 보여준다. 특히 공공조직의 성과를 높이려면 단순히 목표와 지표를 부여하는 방식만으로는 부족하며, 구성원 간 신뢰와 협력, 업무전문성 축적을 함께 설계해야 한다. 환경교육이나 재생에너지 정책 조직에도 적용하면, 탄소중립·에너지전환과 같은 복합 정책 목표를 달성하기 위해 부서 간 협력문화와 담당자의 전문성 강화가 중요하다는 시사점을 준다.</p>
       </div></div></div>
+    </main>
+  </div>
 
 </div><!-- /fieldnotes tab -->
 
@@ -1496,6 +1566,28 @@ async function deleteNoteFromDB(id) {
 ══════════════════════════════ */
 let notes = [];
 let fnFilter = 'ALL';
+let fnMonth = 'ALL';
+let fnSearch = '';
+
+function currentKstDate() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    timeZone: 'Asia/Seoul'
+  }).formatToParts(new Date());
+  const byType = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return `${byType.year}-${byType.month}-${byType.day}`;
+}
+
+function currentKstTime() {
+  return new Intl.DateTimeFormat('ko-KR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Seoul'
+  }).format(new Date()) + ' KST';
+}
 
 async function publishNote() {
   const title = document.getElementById('draft-title').value.trim();
@@ -1503,7 +1595,8 @@ async function publishNote() {
 
   const note = {
     id: Date.now(),
-    date: new Date().toISOString().slice(0,10),
+    date: currentKstDate(),
+    time: currentKstTime(),
     title,
     cat: document.getElementById('draft-cat').value,
     summary: document.getElementById('draft-summary').value,
@@ -1538,13 +1631,104 @@ const catColors = {
   '기타': {bg:'rgba(23,22,15,.05)',color:'#5A5950'}
 };
 
+function noteMonth(note) {
+  return (note.date || '').slice(0, 7) || '미상';
+}
+
+function noteTime(note) {
+  if (note.time) return note.time;
+  const stamp = Number(note.id);
+  if (!Number.isFinite(stamp) || stamp < 1000000000000) return '시간 미상';
+  return new Intl.DateTimeFormat('ko-KR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Seoul'
+  }).format(new Date(stamp)) + ' KST';
+}
+
+function noteSearchText(note) {
+  return [
+    note.title,
+    note.summary,
+    note.body,
+    note.insight,
+    note.ref,
+    note.cat,
+    ...(note.tags || [])
+  ].join(' ').toLowerCase();
+}
+
+function getFilteredNotes() {
+  const q = fnSearch.trim().toLowerCase();
+  return notes.filter(note => {
+    const catOk = fnFilter === 'ALL' || note.cat === fnFilter;
+    const monthOk = fnMonth === 'ALL' || noteMonth(note) === fnMonth;
+    const searchOk = !q || noteSearchText(note).includes(q);
+    return catOk && monthOk && searchOk;
+  });
+}
+
+function countBy(items) {
+  return items.reduce((acc, item) => {
+    acc[item] = (acc[item] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+function renderIndexPanel() {
+  const topic = document.getElementById('fn-topic-index');
+  const month = document.getElementById('fn-month-index');
+  const tags = document.getElementById('fn-hashtag-index');
+  if (!topic || !month || !tags) return;
+
+  const catCounts = countBy(notes.map(note => note.cat || '기타'));
+  const catRows = [['ALL', '전체', notes.length], ...Object.entries(catCounts).map(([cat, count]) => [cat, cat, count])];
+  topic.innerHTML = catRows.map(([cat, label, count]) => `
+    <button class="fn-index-row${fnFilter === cat ? ' active' : ''}" onclick="setFnFilter(null,'${cat}')">
+      <span>${label}</span><span>${String(count).padStart(2, '0')}</span>
+    </button>
+  `).join('');
+
+  const monthCounts = countBy(notes.map(noteMonth));
+  const monthRows = Object.entries(monthCounts).sort((a, b) => b[0].localeCompare(a[0]));
+  month.innerHTML = [
+    `<button class="fn-index-row${fnMonth === 'ALL' ? ' active' : ''}" onclick="setFnMonth('ALL')"><span>전체 월</span><span>${String(notes.length).padStart(2, '0')}</span></button>`,
+    ...monthRows.map(([m, count]) => `
+      <button class="fn-index-row${fnMonth === m ? ' active' : ''}" onclick="setFnMonth('${m}')">
+        <span>${m.replace('-', '.')}</span><span>${String(count).padStart(2, '0')}</span>
+      </button>
+    `)
+  ].join('');
+
+  const tagCounts = {};
+  notes.forEach(note => (note.tags || []).forEach(tag => {
+    const clean = String(tag).replace(/^#/, '').trim();
+    if (clean) tagCounts[clean] = (tagCounts[clean] || 0) + 1;
+  }));
+  tags.innerHTML = Object.entries(tagCounts)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 10)
+    .map(([tag, count]) => `<button class="fn-hash-chip" onclick="setFnSearch('${tag}')"># ${tag} <span>${String(count).padStart(2, '0')}</span></button>`)
+    .join('');
+}
+
 function renderNotes() {
   const list = document.getElementById('fn-list');
   const empty = document.getElementById('fn-empty');
-  const filtered = fnFilter === 'ALL' ? notes : notes.filter(n => n.cat === fnFilter);
+  const filtered = getFilteredNotes();
 
   document.getElementById('fn-note-count').textContent = notes.length + '개';
+  const visibleCount = document.getElementById('fn-visible-count');
+  if (visibleCount) visibleCount.textContent = `${filtered.length} posts`;
+  const searchMeta = document.getElementById('fn-search-meta');
+  if (searchMeta) {
+    searchMeta.textContent = fnSearch.trim()
+      ? `"${fnSearch.trim()}" 검색 결과 ${filtered.length}개`
+      : '제목, 요약, 본문, 태그, 출처에서 검색합니다.';
+  }
   updateDataSourceStatus(`데이터 소스: 현재 Field Notes ${notes.length}개 표시 중`);
+  renderIndexPanel();
 
   if (filtered.length === 0) {
     empty.style.display = 'block';
@@ -1565,6 +1749,7 @@ function renderNotes() {
         <div>
           <div class="fn-card-meta">
             <span class="fn-card-date">${note.date}</span>
+            <span class="fn-card-time">${noteTime(note)}</span>
             <span class="fn-card-cat" style="background:${cc.bg};color:${cc.color}">${note.cat}</span>
           </div>
           <div class="fn-card-title">${note.title}</div>
@@ -1602,8 +1787,25 @@ async function deleteNote(id, e) {
 function setFnFilter(btn, cat) {
   fnFilter = cat;
   document.querySelectorAll('.fn-filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
   renderNotes();
+  updateFilterButtons();
+}
+
+function setFnMonth(month) {
+  fnMonth = month;
+  renderNotes();
+}
+
+function setFnSearch(value) {
+  fnSearch = value || '';
+  const input = document.getElementById('fn-search-input');
+  if (input && input.value !== fnSearch) input.value = fnSearch;
+  renderNotes();
+}
+
+function clearFnSearch() {
+  setFnSearch('');
 }
 
 function updateFilterButtons() {
