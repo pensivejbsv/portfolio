@@ -449,7 +449,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
       <span class="automation-live-label">Live</span>
       <strong id="adsp-automation-status">이상없음</strong>
     </div>
-    <small id="adsp-automation-detail">2026-06-13 18:22 KST · ADsP 노트 12번 생성 및 동기화 완료</small>
+    <small id="adsp-automation-detail">2026-06-13 18:22 KST · ADsP 예상주제 13 반영 완료</small>
   </div>
 
   <!-- Admin Toolbar: JSON paste workflow -->
@@ -541,7 +541,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
   </div>
 
   <!-- Notes list -->
-  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">10개</small></div>
+  <div class="sec-head" style="margin-top:8px"><h2>Field Notes</h2><small id="fn-note-count">13개</small></div>
 
   <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
 
@@ -1202,6 +1202,23 @@ const ADSP_STUDY_NOTES = [
     insight: '이 주제는 수식보다 “SVM은 경계 최적화, 신경망은 가중치 반복학습”이라는 대비로 잡는 편이 효율적이다. 시험장에서 커널, 마진, 역전파, 활성함수 키워드만 식별해도 보기 대부분을 빠르게 정리할 수 있다.',
     ref: '로컬 교재 txt(SVM/인공신경망 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
     tags: ['ADsP', 'SVM', '인공신경망', '퍼셉트론', '역전파']
+  },
+  {
+    id: 1781510520001,
+    date: '2026-06-13',
+    title: 'ADsP 예상주제 13: 로지스틱 회귀, KNN, 나이브베이즈 비교',
+    cat: 'AI/데이터',
+    summary: '로지스틱 회귀, KNN, 나이브베이즈는 ADsP 분류분석 파트에서 개념 비교형으로 자주 묶여 출제된다. 각각의 판단 원리와 장단점을 한 줄 기준으로 고정하면 보기형 함정에 흔들리지 않는다.',
+    body: `기초: 로지스틱 회귀는 종속변수가 범주형일 때 사건이 발생할 확률을 추정하는 분류모형이다. 오즈와 로짓 변환을 통해 선형식을 확률로 연결한다. KNN은 가장 가까운 이웃 다수의 범주를 따라 분류하는 거리 기반 방법이며, 별도의 학습 과정을 거의 두지 않는 lazy learner 성격이 강하다. 나이브베이즈는 변수들이 서로 독립이라는 가정 아래 베이즈 정리를 적용해 사후확률이 가장 큰 범주를 고른다.
+
+예상 문제: 시험에서는 로지스틱 회귀를 선형회귀처럼 연속형 예측모형으로 바꾸거나, KNN을 모수 추정 기반 모형처럼 설명하는 함정을 자주 낸다. 또 나이브베이즈의 핵심 가정인 조건부 독립성을 빼고 단순히 “과거 빈도만 보는 모델”처럼 축소하는 보기도 경계해야 한다. 로지스틱 회귀는 확률과 계수 해석, KNN은 거리와 K값 설정, 나이브베이즈는 독립가정과 확률 계산으로 기억하면 구분이 쉽다.
+
+심화: 로지스틱 회귀는 회귀계수 부호로 사건 발생 확률의 증가·감소 방향을 읽을 수 있고, 모형 전체 유의성은 우도비 검정과 연결된다. KNN은 K가 너무 작으면 노이즈에 민감해지고, 너무 크면 경계가 지나치게 완만해져 과소적합 위험이 커진다. 나이브베이즈는 계산이 빠르고 텍스트 분류처럼 고차원 문제에 강점이 있지만, 독립 가정이 크게 깨지면 성능 해석에 주의가 필요하다. 시험에서는 세 모형의 계산식보다 “어떤 원리로 분류하는가”와 “어떤 상황에서 취약한가”를 비교하는 문제가 더 잘 나온다.
+
+공부 순서: 1단계 세 모형의 핵심 원리를 한 문장으로 암기, 2단계 로지스틱 회귀의 오즈·로짓 정리, 3단계 KNN의 K값 변화와 거리 개념 복습, 4단계 나이브베이즈의 베이즈 정리와 독립가정 함정 보기 분류.`,
+    insight: '이 세 모델은 모두 분류 문제를 푼다는 공통점 때문에 시험장에서 서로 섞이기 쉽다. “확률식으로 추정하면 로지스틱, 가까운 이웃이면 KNN, 독립가정 확률계산이면 나이브베이즈”라는 판별 문장을 먼저 세우면 빠르게 정리된다.',
+    ref: '로컬 교재 txt(로지스틱 회귀·KNN·나이브베이즈 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
+    tags: ['ADsP', '로지스틱회귀', 'KNN', '나이브베이즈', '분류분석']
   }
 ];
 
