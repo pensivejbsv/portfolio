@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "databaseName": "adsp_process_map_db",
   "description": "Daily snapshots and generated variants for the ADSP Process Map shown in the portfolio ADSP tab.",
-  "lastUpdatedAt": "2026-06-13T20:00:00+09:00",
-  "currentVersion": "2026-06-13-adapter-main-process-map",
+  "lastUpdatedAt": "2026-06-14T18:58:14+09:00",
+  "currentVersion": "2026-06-14-query-history-planning-methodology",
   "updatePolicy": {
     "cadence": "daily",
     "minimumSnapshotsPerRun": 1,
@@ -31,88 +31,88 @@
     ]
   },
   "processMap": {
-    "title": "ADsP 시험 흐름과 Field Notes 학습 지도",
+    "title": "ADsP 기획 함정과 방법론 구성을 앞당긴 일일 Process Map",
     "stages": [
       {
         "id": "data-dikw",
         "order": 1,
         "label": "DATA → DIKW",
-        "headline": "데이터의 정의를 먼저 고정",
-        "purpose": "어답터 교재 첫 흐름처럼 데이터, 정보, 지식, 지혜의 차이를 보기 문장으로 판별한다.",
-        "keywords": ["DIKW", "데이터 유형", "공표연내", "정반비"],
-        "fieldNotes": ["01"]
+        "headline": "Data → Information → Knowledge → Wisdom의 층위를 먼저 고정",
+        "purpose": "DIKW(Data, Information, Knowledge, Wisdom)는 가공 전 사실이 왜 의사결정 가능한 지혜로 변하는지를 설명하려고 존재한다. 정형·반정형·비정형과 공표연내(SECI)까지 함께 잡아 1과목 정의형 함정을 먼저 막는다.",
+        "keywords": ["DIKW", "정반비", "공표연내", "SECI", "정보 vs 지식"],
+        "fieldNotes": ["01", "16", "18"]
       },
       {
         "id": "db-sql",
         "order": 2,
         "label": "DB / SQL",
-        "headline": "DB 구조와 명령어 분리",
-        "purpose": "DBMS, 스키마, 메타데이터, SQL 분류를 원어와 역할 중심으로 연결해 암기한다.",
-        "keywords": ["DBMS", "스키마", "메타데이터", "DDL", "DML", "DCL", "TCL", "공통저변", "개논물"],
-        "fieldNotes": ["01"]
+        "headline": "Database Management System과 SQL 명령 체계를 역할별로 분리",
+        "purpose": "DBMS(Database Management System), RDBMS, NoSQL, 스키마, 메타데이터, SQL과 DDL·DML·DCL·TCL은 왜 데이터 저장과 제어가 나뉘는지 설명하는 기초 구조다. 공통저변과 개논물을 함께 붙여 DB 특성과 설계 순서를 한 번에 회상한다.",
+        "keywords": ["DBMS", "RDBMS", "NoSQL", "DDL/DML/DCL/TCL", "공통저변", "개논물"],
+        "fieldNotes": ["01", "18"]
       },
       {
-        "id": "dw-enterprise",
+        "id": "dw-bigdata",
         "order": 3,
-        "label": "DW / ENTERPRISE",
-        "headline": "기업 시스템과 저장소 연결",
-        "purpose": "OLTP에서 발생한 운영 데이터가 ODS, ETL, DW, OLAP, BI/BA로 이어지는 흐름을 잡는다.",
-        "keywords": ["ERP", "CRM", "SCM", "KMS", "RTE", "ODS", "ETL", "DW", "OLAP", "BI", "BA", "추변적", "주통시비"],
-        "fieldNotes": ["01", "14"]
+        "label": "DW / BIG DATA",
+        "headline": "운영 데이터 저장소와 빅데이터 전환 이유를 같은 흐름으로 연결",
+        "purpose": "OLTP·ERP·CRM·SCM·KMS에서 나온 운영 데이터가 ODS(Operational Data Store), ETL(Extract, Transform, Load), DW(Data Warehouse), DM(Data Mart), OLAP, BI, BA로 왜 이동하는지 본다. 동시에 3V·5V와 전후양상으로 빅데이터가 기존 처리 방식을 왜 바꾸는지도 묶는다.",
+        "keywords": ["OLTP", "ODS", "ETL", "DW", "DM", "3V/5V", "전후양상", "주통시비"],
+        "fieldNotes": ["01", "02", "14", "18"]
       },
       {
-        "id": "big-data",
+        "id": "planning-types",
         "order": 4,
-        "label": "BIG DATA",
-        "headline": "빅데이터 변화 방향 암기",
-        "purpose": "3V/5V와 빅데이터가 만든 분석 패러다임 변화를 짧은 앞글자 암기로 회상한다.",
-        "keywords": ["3V", "5V", "전후양상", "개정신", "가명정보", "비식별화"],
-        "fieldNotes": ["01", "02"]
+        "label": "PLANNING TYPES",
+        "headline": "What·How 축으로 과제 유형 4분면을 먼저 고정",
+        "purpose": "Optimization, Solution, Insight, Discovery는 분석 대상 What과 분석 방법 How의 명확성이 어디서 흔들리는지 판별하려고 만든 4유형이다. 최근 질의내역의 반복 혼동 지점이라 2과목 기획 문제를 풀기 전에 앞단으로 당겨 배치한다.",
+        "keywords": ["What/How", "Optimization", "Solution", "Insight", "Discovery", "4분면"],
+        "fieldNotes": ["03", "17"]
       },
       {
-        "id": "planning",
+        "id": "methodology",
         "order": 5,
-        "label": "PLANNING",
-        "headline": "분석 방법론 순서 고정",
-        "purpose": "KDD, CRISP-DM, 빅데이터 분석 방법론은 순서가 바뀌는 보기 함정에 대비한다.",
-        "keywords": ["KDD", "CRISP-DM", "업데데이트모델평가전", "회전완수"],
-        "fieldNotes": ["03", "04"]
+        "label": "METHODOLOGY",
+        "headline": "KDD·CRISP-DM 순서와 방법론 4구성요소를 한 묶음으로 암기",
+        "purpose": "KDD와 CRISP-DM은 단순한 단계 암기가 아니라 분석 프로젝트를 관리하는 방법론이다. 절차·방법·도구와 기법·템플릿과 산출물은 최근 질의내역에서 '순서-할 일-쓸 것-남길 것'으로 정리된 핵심 복기 축이다.",
+        "keywords": ["KDD", "CRISP-DM", "절차", "방법", "도구와 기법", "템플릿과 산출물"],
+        "fieldNotes": ["03", "04", "17", "18"]
       },
       {
         "id": "governance",
         "order": 6,
         "label": "GOVERNANCE",
-        "headline": "과제 발굴과 조직 구조 연결",
-        "purpose": "하향식·상향식 접근, 분석 성숙도, 거버넌스, 분석 조직 구조를 2과목 핵심 덩어리로 묶는다.",
-        "keywords": ["하향식 접근", "상향식 접근", "도준정확", "집기분", "시조프로마인드데"],
-        "fieldNotes": ["03", "04"]
+        "headline": "과제중심 접근과 마스터플랜 접근을 조직·성숙도와 연결",
+        "purpose": "과제중심 접근은 지금 풀 문제를 빠르게 해결하기 위한 방식이고, 마스터플랜 접근은 전사 데이터 활용 체계를 설계하려는 방식이다. 하향식·상향식 접근, 도준정확, 집중·기능·분산 조직 구조를 함께 묶어 비교형 보기에 대비한다.",
+        "keywords": ["과제중심", "마스터플랜", "하향식 접근", "도준정확", "집기분"],
+        "fieldNotes": ["03", "04", "17"]
       },
       {
-        "id": "preprocessing",
+        "id": "preprocessing-dm",
         "order": 7,
-        "label": "PREPROCESSING",
-        "headline": "EDA와 데이터 마트 준비",
-        "purpose": "3과목 계산에 들어가기 전 결측값, 이상값, 요약변수, 파생변수의 처리 기준을 정리한다.",
-        "keywords": ["EDA", "요약변수", "파생변수", "결측값", "이상값", "저잔재현", "ESD", "IQR", "Z-Score"],
-        "fieldNotes": ["05", "06"]
+        "label": "PREP / DM",
+        "headline": "DW와 Data Mart 범위 차이 위에 전처리 기준을 올린다",
+        "purpose": "DW는 전사 통합 분석 창고이고 DM은 특정 부서·업무용 분석 매장이라는 범위 차이를 먼저 구분한다. 그 위에 EDA, 결측값, 이상값, 요약변수, 파생변수, 데이터마트 준비 순서를 올려 저장소와 전처리를 섞어 틀리는 패턴을 줄인다.",
+        "keywords": ["DW vs DM", "EDA", "결측값", "이상값", "요약변수", "파생변수"],
+        "fieldNotes": ["05", "06", "14", "17"]
       },
       {
         "id": "calculation",
         "order": 8,
         "label": "CALCULATION",
-        "headline": "계산형 문제 손풀이 루프",
-        "purpose": "기댓값, 분산, 신뢰구간, p-value, 오분류표, 연관분석은 공식 적용 순서를 먼저 떠올린다.",
-        "keywords": ["E(X)", "Var(X)", "표준오차", "p-value", "TP", "FP", "FN", "TN", "Support", "Confidence", "Lift"],
-        "fieldNotes": ["06", "08", "11"]
+        "headline": "공식보다 분자·분모와 해석 축을 먼저 떠올리는 손풀이 루프",
+        "purpose": "기댓값, 분산, 신뢰구간, p-value, 오분류표, 지지도·신뢰도·향상도는 공식을 외우는 것보다 분자·분모와 기준 축을 먼저 고정해야 함정 보기를 피할 수 있다. 최근 질의내역의 계산·판별 혼동을 그대로 반영한 단계다.",
+        "keywords": ["E(X)", "Var(X)", "표준오차", "p-value", "TP/FP/FN/TN", "Support/Confidence/Lift"],
+        "fieldNotes": ["06", "08", "11", "17"]
       },
       {
         "id": "model-review",
         "order": 9,
         "label": "MODEL / REVIEW",
-        "headline": "모델 비교 후 오답 회독",
-        "purpose": "분류·군집·연관·시계열 모델의 보기 단서를 비교하고, 틀린 문항은 앞 단계 암기어로 되돌린다.",
-        "keywords": ["CART", "C4.5", "CHAID", "K-means", "DBSCAN", "Bagging", "Boosting", "Random Forest", "오답 회독"],
-        "fieldNotes": ["07", "09", "10", "11", "12", "13"]
+        "headline": "모델 단서 비교 후 앞단계 정의·기획 카드로 되돌아가는 회독 루프",
+        "purpose": "회귀, 분류, 군집, 연관, 시계열, 차원축소 모델의 핵심 단서를 비교하고, 틀린 문항은 앞 단계의 DIKW, 방법론, 저장소, 기획 유형으로 되돌아가 복구한다. 모델 자체보다 선행 개념 연결이 약한 지점을 찾기 위한 종착점이다.",
+        "keywords": ["CART/C4.5/CHAID", "K-means", "DBSCAN", "Bagging/Boosting", "SVM", "PCA", "오답 회독"],
+        "fieldNotes": ["07", "09", "10", "11", "12", "13", "17", "18"]
       }
     ]
   },
@@ -164,6 +164,12 @@
       "name": "질의 기반 빅데이터 변화형",
       "compositionRule": "질의내역에서 반복된 3V, 5V, 7V, 전후양상 흐름을 데이터 발생 배경과 시험 보기 함정으로 재조합한다.",
       "recommendedUse": "빅데이터 특징과 기존 분석 방식에서 빅데이터 방식으로 이동한 이유를 함께 복습할 때"
+    },
+    {
+      "id": "query_history_planning_methodology",
+      "name": "질의 기반 기획·방법론 함정형",
+      "compositionRule": "질의내역에서 반복된 What/How 4분면, 과제중심 vs 마스터플랜, KDD·CRISP-DM, 절차·방법·도구·산출물 구분을 앞단에 배치한다.",
+      "recommendedUse": "2과목 기획 문제와 DW·DM·방법론 보기 함정을 짧은 회독으로 복구할 때"
     }
   ],
   "history": [
@@ -214,6 +220,20 @@
         "Replaced the generic six-card exam flow with a nine-card Adapter ADsP sequence.",
         "Moved mnemonic cues such as 공표연내, 공통저변, 개논물, 추변적, 주통시비, 전후양상, 도준정확, 집기분, and 저잔재현 into the main visible map.",
         "Connected calculation and model-comparison stages back to wrong-answer review so users can return to acronyms, formulas, and step order."
+      ]
+    },
+    {
+      "version": "2026-06-14-query-history-planning-methodology",
+      "createdAt": "2026-06-14T18:58:14+09:00",
+      "variantId": "query_history_planning_methodology",
+      "sourceNotes": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "16", "17", "18"],
+      "queryHistoryFiles": ["질의내역_260613.txt", "질의내역_260613 1925.txt", "질의내역_260613 1941.txt", "질의내역_260613 2020.txt"],
+      "queryStagesUsed": ["foundation", "intermediate", "advanced", "weakness", "review"],
+      "summary": "Rotated the Process Map toward planning and methodology traps after importing two additional query-history files about task quadrants, methodology components, and DW-versus-DM scope.",
+      "keyChanges": [
+        "Pulled the What/How task-type quadrant and methodology four-set ahead of governance and calculation.",
+        "Merged DW, DM, 3V/5V, and 전후양상 into one storage-and-transition stage so scope and paradigm changes are reviewed together.",
+        "Reframed the last stage as a recovery loop that sends wrong answers back to DIKW, planning, and methodology definitions instead of only model labels."
       ]
     }
   ]

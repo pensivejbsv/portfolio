@@ -458,6 +458,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 <nav>
   <div class="nav-logo">Beomseok Jeong</div>
   <div class="nav-links">
+    <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;adsp&#39;);return false">ADsP</a>
     <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;portfolio&#39;);return false">Home</a>
     <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;career&#39;);return false">Career</a>
     <a href="https://pensivejbsv.github.io/portfolio/#" onclick="switchTab(&#39;fieldnotes&#39;);return false">Field Notes</a>
@@ -473,6 +474,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
 <!-- TABS -->
 <div class="page-tabs">
+  <button class="ptab" data-tab="adsp" onclick="switchTab(&#39;adsp&#39;)">ADsP</button>
   <button class="ptab active" data-tab="portfolio" onclick="switchTab(&#39;portfolio&#39;)">Home</button>
   <button class="ptab" data-tab="fieldnotes" onclick="switchTab(&#39;fieldnotes&#39;)">Field Notes</button>
   <button class="ptab" data-tab="career" onclick="switchTab(&#39;career&#39;)">경력</button>
@@ -538,7 +540,197 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 
 </div><!-- /portfolio tab -->
 
-FIELD NOTES TAB ═══════════ -->
+<!-- ═══════════ ADSP TAB ═══════════ -->
+<div class="page-section" id="tab-adsp">
+  <div class="sec">
+    <div class="sec-head"><h2>ADsP Process Map</h2><small>Daily automation snapshot</small></div>
+
+    <div class="automation-live live-ok" id="adsp-process-map-live" data-state="ok">
+      <div class="automation-live-main">
+        <span class="automation-live-dot"></span>
+        <div>
+          <div class="automation-live-label">ADSP Process Map Live</div>
+          <strong>이상없음</strong>
+        </div>
+      </div>
+      <small>2026-06-14 18:58 KST 기준, 일일 Process Map·질의내역·DB 스냅샷 갱신 완료.</small>
+    </div>
+
+    <div class="adsp-hero">
+      <small>Variant · query_history_planning_methodology</small>
+      <h2>2과목 기획 함정과 방법론 구성을 앞당긴 ADsP 학습 동선</h2>
+      <p>이번 일일 스냅샷은 새 질의내역 두 개가 2과목에서 반복된 혼동을 가리켰기 때문에, What·How 4분면과 분석방법론 4구성요소를 기존보다 앞단으로 당겼다. 약어는 원어와 존재 이유를 함께 붙이고, 저장소 구분은 DW·DM·OLTP·OLAP처럼 범위와 역할 차이로 설명한다.</p>
+    </div>
+
+    <div class="adsp-map">
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">01 · DATA → DIKW</div>
+        <h3>DIKW와 데이터 정의를 먼저 고정</h3>
+        <p>DIKW(Data, Information, Knowledge, Wisdom)는 가공 전 사실이 왜 의사결정 가능한 지혜로 바뀌는지 설명하려고 존재한다. 정반비와 공표연내(SECI)를 붙여 1과목 정의형 함정을 먼저 막는다.</p>
+        <ul>
+          <li>정반비 = 정형 / 반정형 / 비정형</li>
+          <li>공표연내 = 공통화 / 표출화 / 연결화 / 내면화</li>
+          <li>정보와 지식의 차이를 문장으로 판별</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">02 · DB / SQL</div>
+        <h3>DBMS와 SQL 명령 체계를 역할별로 분리</h3>
+        <p>DBMS(Database Management System), RDBMS, NoSQL, 스키마, 메타데이터, DDL·DML·DCL·TCL은 저장, 구조 정의, 조작, 권한 제어를 분리하기 위해 등장했다. 공통저변과 개논물을 함께 붙여 설계 절차까지 복기한다.</p>
+        <ul>
+          <li>공통저변 = 공용 / 통합 / 저장 / 변화</li>
+          <li>개논물 = 개념 / 논리 / 물리 설계</li>
+          <li>RDBMS와 NoSQL을 범위·구조로 구분</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">03 · DW / BIG DATA</div>
+        <h3>저장소 흐름과 빅데이터 전환 이유를 한 장에 묶기</h3>
+        <p>OLTP·ERP·CRM·SCM·KMS에서 나온 운영 데이터는 ODS(Operational Data Store), ETL(Extract, Transform, Load), DW(Data Warehouse), DM(Data Mart), OLAP, BI, BA로 이어진다. 동시에 3V·5V와 전후양상으로 왜 기존 처리 방식이 바뀌었는지 같이 본다.</p>
+        <ul>
+          <li>DW = 전사 통합 분석 창고</li>
+          <li>DM = 특정 부서·업무용 분석 매장</li>
+          <li>전후양상 = 전수조사 / 후처리 / 양 / 상관관계</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">04 · PLANNING TYPES</div>
+        <h3>What·How 축으로 과제 유형 4분면 고정</h3>
+        <p>Optimization, Solution, Insight, Discovery는 분석 대상 What과 분석 방법 How 중 무엇이 불명확한지 구분하려고 만든 4유형이다. 최근 질의내역에서 가장 많이 흔들린 지점이라 계산 단계보다 먼저 배치했다.</p>
+        <ul>
+          <li>다 알면 최적화</li>
+          <li>문제만 알면 솔루션</li>
+          <li>방법만 알면 인사이트</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">05 · METHODOLOGY</div>
+        <h3>KDD·CRISP-DM과 방법론 4구성요소를 한 묶음으로 암기</h3>
+        <p>KDD와 CRISP-DM은 모델 이름이 아니라 프로젝트를 관리하는 방법론이다. 절차·방법·도구와 기법·템플릿과 산출물은 최근 질의내역에서 순서-할 일-쓸 것-남길 것으로 다시 정리된 핵심 프레임이다.</p>
+        <ul>
+          <li>KDD = 선택 / 전처리 / 변환 / 마이닝 / 평가</li>
+          <li>CRISP-DM = 업무이해 / 데이터이해 / 준비 / 모델링 / 평가 / 전개</li>
+          <li>4구성요소 = 순서 / 할 일 / 쓸 것 / 남길 것</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">06 · GOVERNANCE</div>
+        <h3>과제중심 접근과 마스터플랜 접근을 조직 구조와 연결</h3>
+        <p>과제중심 접근은 지금 풀 문제를 빠르게 해결하기 위한 방식이고, 마스터플랜 접근은 전사 데이터 활용 체계를 설계하기 위한 방식이다. 하향식·상향식 접근, 도준정확, 집중·기능·분산 구조를 비교형 보기 기준으로 묶는다.</p>
+        <ul>
+          <li>도준정확 = 도입 / 준비 / 정착 / 확산</li>
+          <li>집기분 = 집중 / 기능 / 분산</li>
+          <li>목적·1차 목표·과제유형·접근방식 비교</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">07 · PREP / DM</div>
+        <h3>DW·DM 범위 차이 위에 전처리 기준 올리기</h3>
+        <p>저장소 범위를 먼저 구분한 뒤 EDA, 결측값, 이상값, 요약변수, 파생변수, 데이터마트 준비 순서를 올린다. 저장소 정의와 전처리 절차를 한꺼번에 뒤섞어 틀리는 패턴을 줄이기 위한 단계다.</p>
+        <ul>
+          <li>EDA = 보기 전 데이터 상태 파악</li>
+          <li>이상값 = ESD / IQR / Z-Score 비교</li>
+          <li>DM은 특정 분석 주제용 축소 저장소</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">08 · CALCULATION</div>
+        <h3>공식보다 분자·분모와 해석 축부터 떠올리기</h3>
+        <p>기댓값, 분산, 신뢰구간, p-value, 오분류표, 지지도·신뢰도·향상도는 공식 자체보다 어떤 기준 축을 쓰는지가 더 중요하다. 계산형과 보기형 함정을 동시에 줄이는 손풀이 루프다.</p>
+        <ul>
+          <li>오분류표 = 실제값 기준으로 재현율·특이도 판별</li>
+          <li>향상도 1 초과 = 양의 연관</li>
+          <li>표준오차는 표준편차와 별도 개념</li>
+        </ul>
+      </div>
+      <div class="adsp-stage">
+        <div class="adsp-stage-num">09 · MODEL / REVIEW</div>
+        <h3>모델 비교 후 다시 정의·기획 카드로 되돌아가기</h3>
+        <p>회귀, 분류, 군집, 연관, 시계열, 차원축소 모델의 단서를 비교하고, 틀린 문항은 DIKW, 저장소, 기획 유형, 방법론 카드로 되돌아가 복구한다. 모델 이름만 외우는 공부보다 연결 약한 지점을 찾는 회독에 가깝다.</p>
+        <ul>
+          <li>CART / C4.5 / CHAID 차이</li>
+          <li>K-means / DBSCAN 비교</li>
+          <li>오답은 앞단계 정의 카드로 역추적</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="adsp-flow">
+      <div class="adsp-panel">
+        <h3>오늘 반영된 질의 이력</h3>
+        <ol>
+          <li><strong>질의내역_260613 1941.txt</strong>에서 What·How 축과 4분면 이름을 기획 단계 앞으로 당겼다.</li>
+          <li><strong>질의내역_260613 2020.txt</strong>에서 방법론 4구성요소를 순서-할 일-쓸 것-남길 것으로 재정리했다.</li>
+          <li>DW와 DM은 전사 통합 범위와 부서·업무 범위 차이로 다시 정의했다.</li>
+          <li>약어는 원어와 존재 이유를 함께 적어, 약자만 외워 틀리는 패턴을 보완했다.</li>
+        </ol>
+      </div>
+      <div class="adsp-panel">
+        <h3>Daily Review</h3>
+        <ol>
+          <li>정반비 · 공표연내 · 공통저변 · 개논물 · 추변적 · 주통시비를 소리 내어 복기</li>
+          <li>4분면은 다 알면 최적화 / 문제만 알면 솔루션 / 방법만 알면 인사이트 / 둘 다 모르면 디스커버리</li>
+          <li>방법론 4구성요소는 순서 / 할 일 / 쓸 것 / 남길 것</li>
+          <li>DW는 전사 통합 창고, DM은 부서용 분석 매장</li>
+          <li>계산 문제는 분자·분모와 기준 축을 먼저 표시</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="adsp-table-wrap">
+      <table class="adsp-table">
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Full Name / 구분</th>
+            <th>왜 존재하는가</th>
+            <th>시험 함정 포인트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DIKW</td>
+            <td>Data / Information / Knowledge / Wisdom</td>
+            <td>가공 전 사실이 맥락, 패턴, 판단으로 올라가는 층위를 설명한다.</td>
+            <td>정보와 지식, 지식과 지혜를 바꿔치기한 보기</td>
+          </tr>
+          <tr>
+            <td>ETL</td>
+            <td>Extract / Transform / Load</td>
+            <td>여러 운영 데이터를 분석 저장소에 싣기 전 추출·변환·적재 단계를 설명한다.</td>
+            <td>추변적 순서나 ODS와 역할을 섞는 보기</td>
+          </tr>
+          <tr>
+            <td>KDD</td>
+            <td>Knowledge Discovery in Databases</td>
+            <td>데이터에서 지식을 발견하는 절차를 관리한다.</td>
+            <td>전처리와 변환 순서를 바꾸는 보기</td>
+          </tr>
+          <tr>
+            <td>CRISP-DM</td>
+            <td>Cross Industry Standard Process for Data Mining</td>
+            <td>업무 문제를 분석 프로젝트로 전개하기 위한 표준 프로젝트 흐름이다.</td>
+            <td>업무이해보다 준비·모델링이 먼저 온다고 쓰는 보기</td>
+          </tr>
+          <tr>
+            <td>DW vs DM</td>
+            <td>Data Warehouse / Data Mart</td>
+            <td>전사 통합 분석 저장소와 특정 부서·업무 저장소를 구분한다.</td>
+            <td>DW와 DM의 범위와 사용자를 거꾸로 적는 보기</td>
+          </tr>
+          <tr>
+            <td>4유형</td>
+            <td>Optimization / Solution / Insight / Discovery</td>
+            <td>문제 정의 불확실성과 방법 선택 불확실성이 어디 있는지 구분한다.</td>
+            <td>What·How 축을 뒤집거나 인사이트와 디스커버리를 바꾸는 보기</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FIELD NOTES TAB ═══════════ -->
 <div class="page-section" id="tab-fieldnotes">
 
 
@@ -668,16 +860,6 @@ FIELD NOTES TAB ═══════════ -->
     </aside>
 
     <main class="fn-main-panel">
-      <div id="adsp-automation-live" class="automation-live live-ok" data-state="ok">
-        <div class="automation-live-main">
-          <span class="automation-live-dot"></span>
-          <div>
-            <div class="automation-live-label">ADsP Automation</div>
-            <strong>Live</strong>
-          </div>
-        </div>
-        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-14 19:18 KST · ADsP 예상주제 18 반영 완료</span></small>
-      </div>
       <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">21개</small></div>
       <div class="fn-search-panel">
         <div class="fn-search-row">
@@ -1260,6 +1442,90 @@ function showDbStatus(msg, type='info') {
   bar.style.opacity = '1';
   if (type === 'ok') setTimeout(() => bar.style.opacity = '0', 2500);
 }
+// Daily automation source for the visible ADSP tab.
+const ADSP_STUDY_NOTES = {
+  updatedAt: "2026-06-14T18:58:14+09:00",
+  currentVersion: "2026-06-14-query-history-planning-methodology",
+  variantId: "query_history_planning_methodology",
+  live: {
+    state: "ok",
+    statusText: "이상없음",
+    detailText: "2026-06-14 18:58 KST 기준, 일일 Process Map·질의내역·DB 스냅샷 갱신 완료."
+  },
+  queryHistory: {
+    files: [
+      "질의내역_260613.txt",
+      "질의내역_260613 1925.txt",
+      "질의내역_260613 1941.txt",
+      "질의내역_260613 2020.txt"
+    ],
+    stagesUsed: ["foundation", "intermediate", "advanced", "weakness", "review"],
+    addedInsights: [
+      "What·How 축 기반 과제 유형 4분면을 기획 단계 앞으로 이동",
+      "분석방법론 4구성요소를 순서-할 일-쓸 것-남길 것으로 정리",
+      "DW와 DM의 범위 차이를 저장소 단계에서 다시 강조"
+    ]
+  },
+  processMap: {
+    title: "ADsP 기획 함정과 방법론 구성을 앞당긴 일일 Process Map",
+    stages: [
+      {
+        id: "data-dikw",
+        label: "DATA → DIKW",
+        headline: "DIKW와 데이터 정의를 먼저 고정",
+        reason: "Data, Information, Knowledge, Wisdom 층위를 먼저 분리해야 뒤의 방법론과 모델 비교가 덜 섞인다."
+      },
+      {
+        id: "db-sql",
+        label: "DB / SQL",
+        headline: "DBMS와 SQL 명령 체계를 역할별로 분리",
+        reason: "DBMS, 스키마, 메타데이터, SQL과 DDL·DML·DCL·TCL은 저장·구조·조작·권한 제어를 나눠 이해하려고 존재한다."
+      },
+      {
+        id: "dw-bigdata",
+        label: "DW / BIG DATA",
+        headline: "저장소 흐름과 빅데이터 전환 이유를 같은 흐름으로 연결",
+        reason: "OLTP에서 DW·DM으로 가는 저장소 흐름과 3V·5V·전후양상은 운영 데이터가 왜 분석 데이터로 바뀌는지 설명한다."
+      },
+      {
+        id: "planning-types",
+        label: "PLANNING TYPES",
+        headline: "What·How 축으로 과제 유형 4분면 고정",
+        reason: "Optimization, Solution, Insight, Discovery는 문제 정의 불확실성과 방법 선택 불확실성을 구분하려고 만든 프레임이다."
+      },
+      {
+        id: "methodology",
+        label: "METHODOLOGY",
+        headline: "KDD·CRISP-DM과 방법론 4구성요소를 한 묶음으로 암기",
+        reason: "방법론은 프로젝트를 반복 가능하게 만들기 위한 순서·활동·도구·산출물 세트다."
+      },
+      {
+        id: "governance",
+        label: "GOVERNANCE",
+        headline: "과제중심 접근과 마스터플랜 접근을 조직 구조와 연결",
+        reason: "지금 풀 문제와 장기 체계 구축을 구분해야 분석 조직 구조와 성숙도 진단이 덜 헷갈린다."
+      },
+      {
+        id: "prep-dm",
+        label: "PREP / DM",
+        headline: "DW·DM 범위 차이 위에 전처리 기준 올리기",
+        reason: "저장소 정의와 전처리 절차를 섞어 틀리는 패턴을 줄이기 위해 범위 차이를 먼저 고정한다."
+      },
+      {
+        id: "calculation",
+        label: "CALCULATION",
+        headline: "공식보다 분자·분모와 해석 축부터 떠올리기",
+        reason: "기댓값, 신뢰구간, 오분류표, 연관분석은 계산보다 기준 축을 틀리는 경우가 더 많다."
+      },
+      {
+        id: "model-review",
+        label: "MODEL / REVIEW",
+        headline: "모델 비교 후 다시 정의·기획 카드로 되돌아가기",
+        reason: "틀린 문항을 앞단계 정의와 기획 카드로 되돌려야 약어·방법론·모델 단서가 연결된다."
+      }
+    ]
+  }
+};
 
 function updateDataSourceStatus(msg) {
   const el = document.getElementById('fn-data-source');

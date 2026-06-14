@@ -2,14 +2,16 @@
   "schemaVersion": 1,
   "databaseName": "adsp_query_history_db",
   "description": "Imported ADSP query-history text files and staged learning summaries used by the daily Process Map updater.",
-  "lastUpdatedAt": "2026-06-13T19:36:22+09:00",
+  "lastUpdatedAt": "2026-06-14T18:58:14+09:00",
   "sourcePolicy": {
     "filePattern": "질의내역_*.txt",
     "searchLocations": [
       ".",
       "data",
       "data/query_history",
-      "C:\\Users\\fanta\\Desktop\\포트폴리오"
+      "C:\\Users\\fanta\\Desktop\\포트폴리오",
+      "C:\\Users\\fanta\\Desktop\\포트폴리오\\github-live",
+      "C:\\Users\\fanta\\Desktop\\포트폴리오\\github-live\\data\\query_history"
     ],
     "acceptedFormat": "Plain text. Each file can contain raw questions, study prompts, Q&A logs, wrong-answer notes, or topic requests.",
     "dedupeStrategy": "Track imported files by fileName and contentHash. If a file changes, import the changed version as a new snapshot instead of overwriting history."
@@ -65,6 +67,30 @@
         "5V와 7V는 왜 추가로 만들어졌는가.",
         "빅데이터가 만들어낸 변화인 전후양상을 시험을 위해 어떻게 기억할까."
       ]
+    },
+    {
+      "fileName": "질의내역_260613 1941.txt",
+      "path": "C:\\Users\\fanta\\Desktop\\포트폴리오\\질의내역_260613 1941.txt",
+      "contentHash": "AF1F55B52E06EE2FCB7A112789A96FEC5F60A97FE7BD8F7E8E235E8876F64B91",
+      "importedAt": "2026-06-14T18:58:14+09:00",
+      "rawTopic": "분석 과제 유형 4분면과 과제중심·마스터플랜 접근을 What·How 축으로 이해하는 질의",
+      "extractedQuestions": [
+        "분석 대상과 분석 방법의 Known/Unknown 조합이 왜 Optimization, Solution, Insight, Discovery 네 가지로 나뉘는가.",
+        "과제중심적 접근과 장기적 마스터플랜 접근의 차이는 무엇인가.",
+        "목적, 1차 목표, 과제유형, 접근방식 네 가지 비교 기준을 어떻게 암기할까."
+      ]
+    },
+    {
+      "fileName": "질의내역_260613 2020.txt",
+      "path": "C:\\Users\\fanta\\Desktop\\포트폴리오\\질의내역_260613 2020.txt",
+      "contentHash": "01914067DE58EB448AE1730231274E946A12236CA6394EE3222C25E67091592E",
+      "importedAt": "2026-06-14T18:58:14+09:00",
+      "rawTopic": "분석방법론 4구성요소와 DW·DM 구분, 보기형 개념 함정을 2과목 중심으로 정리하는 질의",
+      "extractedQuestions": [
+        "분석방법론이 왜 절차, 방법, 도구와 기법, 템플릿과 산출물의 네 가지 구성요소로 구분되는가.",
+        "데이터 웨어하우스와 데이터 마트의 핵심 차이는 무엇인가.",
+        "SECI, DIKW, OLTP/OLAP, RDBMS/NoSQL 같은 보기형 개념을 어떻게 빠르게 판별할까."
+      ]
     }
   ],
   "stagedSummaries": {
@@ -78,6 +104,16 @@
         "sourceFile": "질의내역_260613 1925.txt",
         "summary": "3V는 빅데이터의 발생 특징인 규모, 다양성, 속도를 설명하고 5V는 활용 단계에서 신뢰성과 가치를 추가로 묻는다.",
         "keywords": ["3V", "5V", "Volume", "Variety", "Velocity", "Veracity", "Value"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1941.txt",
+        "summary": "분석 과제 유형은 분석 대상 What과 분석 방법 How의 명확성으로 나뉘며, 네 분면의 이름은 과제 불확실성이 어디에 있는지 구분하려고 존재한다.",
+        "keywords": ["What", "How", "Optimization", "Solution", "Insight", "Discovery"]
+      },
+      {
+        "sourceFile": "질의내역_260613 2020.txt",
+        "summary": "분석방법론은 절차, 방법, 도구와 기법, 템플릿과 산출물의 네 묶음으로 구성되며, 이는 분석 프로젝트를 반복 가능하게 표준화하려고 존재한다.",
+        "keywords": ["분석방법론", "절차", "방법", "도구와 기법", "템플릿", "산출물", "DW", "DM"]
       }
     ],
     "intermediate": [
@@ -90,9 +126,30 @@
         "sourceFile": "질의내역_260613 1925.txt",
         "summary": "전후양상은 표본조사에서 전수조사, 사전처리에서 사후처리, 질에서 양, 인과관계에서 상관관계로 분석 중심이 이동한 것을 압축한다.",
         "keywords": ["전후양상", "전수조사", "사후처리", "양", "상관관계"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1941.txt",
+        "summary": "Known/Unknown 조합은 What도 알고 How도 알면 Optimization, What만 알면 Solution, How만 알면 Insight, 둘 다 모르면 Discovery로 바로 연결한다.",
+        "keywords": ["Known", "Unknown", "최적화", "해결책", "통찰", "발견"]
+      },
+      {
+        "sourceFile": "질의내역_260613 2020.txt",
+        "summary": "분석방법론의 네 구성요소는 순서-할 일-쓸 것-남길 것으로 암기하고, DW와 DM은 전사 통합 범위와 부서·업무 범위 차이로 구분한다.",
+        "keywords": ["순서-할 일-쓸 것-남길 것", "DW", "DM", "전사", "부서", "업무"]
       }
     ],
-    "advanced": [],
+    "advanced": [
+      {
+        "sourceFile": "질의내역_260613 1941.txt",
+        "summary": "과제 유형 4분면은 어떤 모델을 쓸지보다 먼저 프로젝트의 불확실성이 문제 정의 쪽인지, 방법 선택 쪽인지 판단하게 해주는 기획 프레임이다.",
+        "keywords": ["프로젝트 기획", "불확실성", "문제 정의", "방법 선택", "과제 유형"]
+      },
+      {
+        "sourceFile": "질의내역_260613 2020.txt",
+        "summary": "분석방법론, 저장소 구조, 지식 전환 모형을 함께 보면 2과목은 절차 암기보다 각 개념이 프로젝트 어느 층위에서 쓰이는지 교차 판별하는 문제가 많다.",
+        "keywords": ["방법론", "SECI", "DIKW", "DW vs DM", "OLTP vs OLAP", "교차 판별"]
+      }
+    ],
     "weakness": [
       {
         "sourceFile": "질의내역_260613.txt",
@@ -103,6 +160,16 @@
         "sourceFile": "질의내역_260613 1925.txt",
         "summary": "3V, 5V, 7V는 교재마다 확장 요소가 흔들릴 수 있으므로 ADsP에서는 3V를 기본축으로, 5V를 활용 가치 확장으로 잡아야 한다.",
         "keywords": ["7V", "확장 V", "교재 차이", "시험 안정성"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1941.txt",
+        "summary": "과제 유형 4분면은 What과 How 축을 자주 뒤바꿔 헷갈리므로, 문제를 아는지와 방법을 아는지를 먼저 체크해야 오답을 줄일 수 있다.",
+        "keywords": ["What/How", "축 혼동", "Known/Unknown", "과제 유형"]
+      },
+      {
+        "sourceFile": "질의내역_260613 2020.txt",
+        "summary": "분석방법론을 통계기법 자체로 오해하거나, DW와 DM의 범위를 반대로 외우거나, DIKW의 정보와 지식을 뒤바꾸는 점이 반복 취약 구간이다.",
+        "keywords": ["방법론 오해", "DW/DM 반전", "DIKW", "정보 vs 지식"]
       }
     ],
     "review": [
@@ -115,6 +182,16 @@
         "sourceFile": "질의내역_260613 1925.txt",
         "summary": "3V는 규다속, 5V는 규다속정가, 빅데이터 변화는 전후양상으로 회상한다.",
         "keywords": ["규다속", "규다속정가", "전후양상"]
+      },
+      {
+        "sourceFile": "질의내역_260613 1941.txt",
+        "summary": "다 알면 최적화, 문제만 알면 솔루션, 방법만 알면 인사이트, 둘 다 모르면 디스커버리로 매일 4분면을 소리 내어 점검한다.",
+        "keywords": ["최적화", "솔루션", "인사이트", "디스커버리", "4분면"]
+      },
+      {
+        "sourceFile": "질의내역_260613 2020.txt",
+        "summary": "분석방법론은 순서-할 일-쓸 것-남길 것, DW는 전사 통합 창고, DM은 부서용 분석 매장으로 짧게 복습한다.",
+        "keywords": ["순서-할 일-쓸 것-남길 것", "DW", "DM", "전사 통합", "부서용"]
       }
     ]
   },
@@ -140,6 +217,17 @@
       "contentHashes": ["E08EA9902BABF98B2090D4A05A4BA845D51ADF4E9132302EDC4C934CFDA3F04F"],
       "stagesUpdated": ["foundation", "intermediate", "weakness", "review"],
       "summary": "Imported the second query-history file and staged its big-data V expansion and 전후양상 memorization points."
+    },
+    {
+      "version": "2026-06-14-query-history-1941-2020-import",
+      "createdAt": "2026-06-14T18:58:14+09:00",
+      "sourceFiles": ["질의내역_260613 1941.txt", "질의내역_260613 2020.txt"],
+      "contentHashes": [
+        "AF1F55B52E06EE2FCB7A112789A96FEC5F60A97FE7BD8F7E8E235E8876F64B91",
+        "01914067DE58EB448AE1730231274E946A12236CA6394EE3222C25E67091592E"
+      ],
+      "stagesUpdated": ["foundation", "intermediate", "advanced", "weakness", "review"],
+      "summary": "Imported two additional query-history files, then staged planning-type quadrants, methodology components, and DW-vs-DM distinction into the daily ADSP learning stack."
     }
   ]
 }
