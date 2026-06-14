@@ -630,6 +630,17 @@ FIELD NOTES TAB ═══════════ -->
     </div>
   </div>
 
+  <div class="automation-live live-ok" id="adsp-automation-live" data-state="ok">
+    <div class="automation-live-main">
+      <span class="automation-live-dot" aria-hidden="true"></span>
+      <div>
+        <div class="automation-live-label">ADsP Automation</div>
+        <strong id="adsp-automation-status">Live</strong>
+      </div>
+    </div>
+    <small id="adsp-automation-detail">2026-06-14 18:58 KST · ADsP 예상주제 17 반영 완료</small>
+  </div>
+
   <div class="fn-board-head">
     <div>
       <div class="fn-board-kicker">§ Field Notes</div>
@@ -657,7 +668,17 @@ FIELD NOTES TAB ═══════════ -->
     </aside>
 
     <main class="fn-main-panel">
-      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">19개</small></div>
+      <div id="adsp-automation-live" class="automation-live live-ok" data-state="ok">
+        <div class="automation-live-main">
+          <span class="automation-live-dot"></span>
+          <div>
+            <div class="automation-live-label">ADsP Automation</div>
+            <strong>Live</strong>
+          </div>
+        </div>
+        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-14 18:57 KST 자동 업데이트 완료</span></small>
+      </div>
+      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">20개</small></div>
       <div class="fn-search-panel">
         <div class="fn-search-row">
           <span class="fn-search-icon">⌕</span>
@@ -667,7 +688,7 @@ FIELD NOTES TAB ═══════════ -->
         <div class="fn-search-meta" id="fn-search-meta">제목, 요약, 본문, 태그, 출처에서 검색합니다.</div>
       </div>
       <div class="fn-filters" id="fn-filter-row"><button class="fn-filter-btn active" onclick="setFnFilter(this,&#39;ALL&#39;)">전체</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;AI/데이터&#39;)">AI/데이터</button><button class="fn-filter-btn" onclick="setFnFilter(this,&#39;공공정책&#39;)">공공정책</button></div>
-      <div class="fn-reading-head"><span class="fn-reading-label">Reading</span><span id="fn-visible-count" class="fn-reading-label">19 posts</span></div>
+      <div class="fn-reading-head"><span class="fn-reading-label">Reading</span><span id="fn-visible-count" class="fn-reading-label">20 posts</span></div>
 
   <div class="fn-list" id="fn-list">
     <div class="fn-empty" id="fn-empty" style="display: none;">
@@ -675,6 +696,24 @@ FIELD NOTES TAB ═══════════ -->
       논문 PDF를 업로드해서 첫 번째 Field Note를 만들어보세요.
     </div>
 
+  <div class="fn-card" data-id="1781661420001">
+      <div class="fn-card-head">
+        <div>
+          <div class="fn-card-meta">
+            <span class="fn-card-date">2026-06-14</span>
+            <span class="fn-card-cat" style="background:#FEF2DC;color:#7A4500">AI/데이터</span>
+          </div>
+          <div class="fn-card-title">ADsP 예상주제 17: 개인정보 비식별화, 가명정보, 익명정보</div>
+        </div>
+        <button class="fn-card-del" onclick="deleteNote(1781661420001,event)">삭제</button>
+      </div>
+      <div class="fn-card-summary">개인정보, 가명정보, 익명정보와 비식별화 방법은 ADsP 1과목에서 정의형과 사례형이 함께 나오는 단골 주제다. 식별 가능성의 정도와 처리 목적을 함께 묶어두면 데이터 3법 관련 보기 함정을 빠르게 걸러낼 수 있다.</div>
+      <div class="fn-card-ref">로컬 교재 txt(개인정보·가명정보·익명정보·비식별화 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.</div>
+      <div class="fn-card-tags"><span class="fn-card-tag">ADsP</span><span class="fn-card-tag">개인정보</span><span class="fn-card-tag">가명정보</span><span class="fn-card-tag">익명정보</span><span class="fn-card-tag">비식별화</span></div>
+      <div class="fn-card-body">
+        <h4>📋 주요 내용</h4><p>[기초] 개인정보는 이름처럼 직접 식별 가능한 정보뿐 아니라 다른 정보와 쉽게 결합해 개인을 알아볼 수 있는 정보까지 포함한다. 가명정보는 추가 정보 없이는 특정 개인을 알아볼 수 없도록 처리한 정보이고, 익명정보는 더 이상 개인을 식별할 수 없도록 처리된 정보다. 시험에서는 세 개념의 차이를 “식별 가능성이 남아 있는가”와 “추가 정보가 필요한가”로 구분해야 한다.</p><p>[예상 문제] 보기형 문제에서는 가명정보를 익명정보처럼 자유롭게 활용 가능하다고 바꾸거나, 개인정보 비식별화 방법의 예시를 서로 섞어 놓는 경우가 많다. 예를 들어 이름을 홍길동에서 홍OO으로 바꾸는 것은 마스킹, 35세를 30대처럼 바꾸는 것은 범주화, 여러 사람의 키를 평균으로 제시하는 것은 총계처리다. 가명정보는 여전히 재식별 위험이 남아 있으므로 익명정보와 같은 수준으로 다루면 오답 가능성이 높다.</p><p>[심화] 데이터 3법 맥락에서는 개인정보보호법, 정보통신망법, 신용정보법이 함께 묶여 출제되고, 가명정보는 통계 작성·연구·공익적 기록 보존 같은 목적에서 정보주체 동의 없이 활용 가능하다는 설명이 자주 등장한다. 다만 시험 포인트는 법조문 전체 암기보다 개인정보-가명정보-익명정보의 단계와 비식별화 방법 다섯 가지(가명처리, 총계처리, 삭제, 범주화, 마스킹)를 정확히 연결하는 것이다.</p><p>[공부 순서] 1단계 개인정보·가명정보·익명정보 정의를 식별 가능성 기준으로 비교하고, 2단계 비식별화 다섯 방법을 예시와 함께 짝지어 외운다. 3단계 데이터 3법 이름과 가명정보 활용 목적을 한 줄로 정리하고, 4단계 보기 문장에서 “추가 정보 없이 식별 가능 여부”를 먼저 체크하는 연습으로 마무리한다.</p>
+        <h4>💡 내 생각 / 시사점</h4><p>이 주제는 법률 용어처럼 보이지만 실제 시험에서는 개념 경계만 정확히 잡아도 절반 이상 해결된다. 특히 가명정보를 익명정보로 과장하거나 비식별화 예시를 바꿔치기하는 보기가 많아서, 식별 가능성의 잔존 여부를 먼저 묻는 습관이 점수를 지켜준다.</p>
+      </div></div>
   <div class="fn-card" data-id="1781521980001">
       <div class="fn-card-head">
         <div>
@@ -1209,6 +1248,24 @@ function updateDataSourceStatus(msg) {
 }
 
 const FIELD_NOTE_SEED_DATA = [
+{
+    id: 1781661420001,
+    date: '2026-06-14',
+    time: '18:57 KST',
+    title: 'ADsP 예상주제 17: 개인정보 비식별화, 가명정보, 익명정보',
+    cat: 'AI/데이터',
+    summary: '개인정보, 가명정보, 익명정보와 비식별화 방법은 ADsP 1과목에서 정의형과 사례형이 함께 나오는 단골 주제다. 식별 가능성의 정도와 처리 목적을 함께 묶어두면 데이터 3법 관련 보기 함정을 빠르게 걸러낼 수 있다.',
+    body: `기초: 개인정보는 이름처럼 직접 식별 가능한 정보뿐 아니라 다른 정보와 쉽게 결합해 개인을 알아볼 수 있는 정보까지 포함한다. 가명정보는 추가 정보 없이는 특정 개인을 알아볼 수 없도록 처리한 정보이고, 익명정보는 더 이상 개인을 식별할 수 없도록 처리된 정보다. 시험에서는 세 개념의 차이를 "식별 가능성이 남아 있는가"와 "추가 정보가 필요한가"로 구분해야 한다.
+
+예상 문제: 보기형 문제에서는 가명정보를 익명정보처럼 자유롭게 활용 가능하다고 바꾸거나, 개인정보 비식별화 방법의 예시를 서로 섞어 놓는 경우가 많다. 예를 들어 이름을 홍길동에서 홍OO으로 바꾸는 것은 마스킹, 35세를 30대처럼 바꾸는 것은 범주화, 여러 사람의 키를 평균으로 제시하는 것은 총계처리다. 가명정보는 여전히 재식별 위험이 남아 있으므로 익명정보와 같은 수준으로 다루면 오답 가능성이 높다.
+
+심화: 데이터 3법 맥락에서는 개인정보보호법, 정보통신망법, 신용정보법이 함께 묶여 출제되고, 가명정보는 통계 작성·연구·공익적 기록 보존 같은 목적에서 정보주체 동의 없이 활용 가능하다는 설명이 자주 등장한다. 다만 시험 포인트는 법조문 전체 암기보다 개인정보-가명정보-익명정보의 단계와 비식별화 방법 다섯 가지(가명처리, 총계처리, 삭제, 범주화, 마스킹)를 정확히 연결하는 것이다.
+
+공부 순서: 1단계 개인정보·가명정보·익명정보 정의를 식별 가능성 기준으로 비교하고, 2단계 비식별화 다섯 방법을 예시와 함께 짝지어 외운다. 3단계 데이터 3법 이름과 가명정보 활용 목적을 한 줄로 정리하고, 4단계 보기 문장에서 "추가 정보 없이 식별 가능 여부"를 먼저 체크하는 연습으로 마무리한다.`,
+    insight: '이 주제는 법률 용어처럼 보이지만 실제 시험에서는 개념 경계만 정확히 잡아도 절반 이상 해결된다. 특히 가명정보를 익명정보로 과장하거나 비식별화 예시를 바꿔치기하는 보기가 많아서, 식별 가능성의 잔존 여부를 먼저 묻는 습관이 점수를 지켜준다.',
+    ref: '로컬 교재 txt(개인정보·가명정보·익명정보·비식별화 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
+    tags: ['ADsP', '개인정보', '가명정보', '익명정보', '비식별화']
+},
 {
     id: 1781527200001,
     date: "2026-06-13",
