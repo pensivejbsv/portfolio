@@ -1471,8 +1471,17 @@ const APPS_SCRIPT_URL = ''; // ← Apps Script 배포 URL 붙여넣기
 function dbReady() { return !!APPS_SCRIPT_URL; }
 
 function ensureFieldNoteForcePushButton() {
+  const toolbar = document.querySelector('.fn-toolbar');
   const toolbarActions = document.querySelector('.fn-toolbar > div:last-child');
-  if (!toolbarActions || document.getElementById('fn-force-push-btn')) return;
+  if (!toolbar || !toolbarActions) return;
+  const toolbarTitle = toolbar.querySelector('.fn-toolbar-inner h3');
+  const toolbarCopy = toolbar.querySelector('.fn-toolbar-inner p');
+  if (toolbarTitle) toolbarTitle.textContent = 'Field Notes DB Sync';
+  if (toolbarCopy) toolbarCopy.textContent = '현재 Field Notes 목록을 DB 기준 데이터로 강제 반영합니다.';
+  toolbarActions.querySelectorAll('button').forEach(button => {
+    if (button.id !== 'fn-force-push-btn') button.remove();
+  });
+  if (document.getElementById('fn-force-push-btn')) return;
   const button = document.createElement('button');
   button.id = 'fn-force-push-btn';
   button.className = 'fn-upload-btn';
