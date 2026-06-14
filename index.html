@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -635,10 +635,10 @@ FIELD NOTES TAB ═══════════ -->
       <span class="automation-live-dot" aria-hidden="true"></span>
       <div>
         <div class="automation-live-label">ADsP Automation</div>
-        <strong id="adsp-automation-status">Live</strong>
+        <strong>Live</strong>
       </div>
     </div>
-    <small id="adsp-automation-detail">2026-06-14 18:58 KST · ADsP 예상주제 17 반영 완료</small>
+    <small>2026-06-14 19:17 KST · ADsP 예상주제 18 반영 완료</small>
   </div>
 
   <div class="fn-board-head">
@@ -676,9 +676,9 @@ FIELD NOTES TAB ═══════════ -->
             <strong>Live</strong>
           </div>
         </div>
-        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-14 18:57 KST 자동 업데이트 완료</span></small>
+        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-14 19:17 KST 자동 업데이트 완료</span></small>
       </div>
-      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">20개</small></div>
+      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">21개</small></div>
       <div class="fn-search-panel">
         <div class="fn-search-row">
           <span class="fn-search-icon">⌕</span>
@@ -1249,6 +1249,24 @@ function updateDataSourceStatus(msg) {
 
 const FIELD_NOTE_SEED_DATA = [
 {
+    id: 1781662620001,
+    date: '2026-06-14',
+    time: '19:17 KST',
+    title: 'ADsP 예상주제 18: 텍스트마이닝, 감성분석, 사회연결망분석',
+    cat: 'AI/데이터',
+    summary: '텍스트마이닝, 감성분석, 사회연결망분석은 ADsP에서 비정형데이터 활용 사례를 묶어 비교하는 대표 주제다. 세 기법 모두 데이터에서 의미를 찾지만, 무엇을 추출하는지 초점이 다르다는 점을 구분해야 보기 함정에 강해진다.',
+    body: `기초: 텍스트마이닝은 문서나 리뷰처럼 비정형 텍스트에서 의미 있는 패턴을 찾는 방법이다. 대표 작업은 키워드 추출, 문서 분류, 문서 요약이다. 감성분석은 텍스트 속 의견이나 감정을 긍정·부정·중립처럼 분류하는 분석이고, 사회연결망분석은 사람이나 조직 같은 개체 사이의 관계 구조를 네트워크로 분석하는 방법이다. 셋 다 빅데이터 분석기법으로 묶이지만, 텍스트마이닝은 의미 추출, 감성분석은 감정 판별, 사회연결망분석은 관계 해석이라는 차이를 먼저 잡아야 한다.
+
+예상 문제: 시험에서는 감성분석을 단순 키워드 빈도 계산으로 바꾸거나, 사회연결망분석을 텍스트 빈출어 분석과 섞어 출제할 수 있다. 예를 들어 상품 리뷰를 긍정과 부정으로 나누면 감성분석이고, SNS에서 영향력이 큰 사용자를 찾으면 사회연결망분석이다. 기사나 문서에서 핵심어를 뽑거나 숨은 주제를 찾는 것은 텍스트마이닝에 가깝다. 문제를 읽을 때 데이터가 글인지 관계선인지, 감정 판별이 필요한지부터 확인하면 정답을 빠르게 좁힐 수 있다.
+
+심화: ADsP에서는 세부 알고리즘보다 활용 목적과 사례 구분이 더 자주 나온다. 텍스트마이닝은 자연어처리와 연결되어 키워드 추출, 문서 요약, 분류에 쓰이고, 감성분석은 고객 리뷰나 여론 데이터에서 태도 변화를 읽는 데 활용된다. 사회연결망분석은 노드와 링크 개념을 바탕으로 중심성이나 연결 구조를 해석하며 정보 확산의 중심 대상을 찾는 문제와 잘 연결된다. 따라서 보기형 문장에서 "문장 의미", "감정 방향", "관계 구조" 중 어느 축이 핵심인지 식별하는 훈련이 중요하다.
+
+공부 순서: 1단계 텍스트마이닝·감성분석·사회연결망분석을 한 줄 정의로 외운다. 2단계 리뷰 분류, 키워드 추출, 인플루언서 탐색 사례를 각각 어느 기법인지 매칭한다. 3단계 비정형데이터 활용 사례와 빅데이터 분석기법을 연결해 정리한다. 4단계 보기 문장에서 데이터 형태와 분석 목적을 먼저 표시하는 연습으로 마무리한다.`,
+    insight: '이 주제는 모두 비정형데이터 분석이라는 공통점 때문에 시험장에서 쉽게 섞인다. 무엇을 뽑아내는가를 기준으로 나누면 된다. 의미를 뽑으면 텍스트마이닝, 감정을 판별하면 감성분석, 연결 구조를 해석하면 사회연결망분석이다.',
+    ref: '로컬 교재 txt(빅데이터 주요 분석기법: 감성분석·사회연결망분석·텍스트마이닝 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
+    tags: ['ADsP', '텍스트마이닝', '감성분석', '사회연결망분석', '비정형데이터']
+},
+{
     id: 1781661420001,
     date: '2026-06-14',
     time: '18:57 KST',
@@ -1592,16 +1610,50 @@ const FIELD_NOTE_SEED_DATA = [
   }
 ];
 
+function normalizeAdspTitle(title) {
+  return String(title || '').replace(/^ADsP\s+예상주제\s*\d+\s*:\s*/u, 'ADsP: ').trim();
+}
+
+function prepareNote(note) {
+  return {
+    ...note,
+    title: normalizeAdspTitle(note.title),
+    tags: Array.isArray(note.tags) ? [...note.tags] : []
+  };
+}
+
+function noteTimestampValue(note) {
+  const date = String(note.date || '').trim();
+  const time = String(note.time || '').trim();
+  const match = time.match(/(\d{2}):(\d{2})/);
+  if (date && match) {
+    const iso = `${date}T${match[1]}:${match[2]}:00+09:00`;
+    const value = Date.parse(iso);
+    if (Number.isFinite(value)) return value;
+  }
+  const stamp = Number(note.id);
+  return Number.isFinite(stamp) ? stamp : 0;
+}
+
+function sortNotesByUploadTime(items) {
+  return [...items].sort((a, b) => {
+    const diff = noteTimestampValue(b) - noteTimestampValue(a);
+    if (diff !== 0) return diff;
+    return String(b.title || '').localeCompare(String(a.title || ''), 'ko');
+  });
+}
+
 function getStaticNotes() {
-  return FIELD_NOTE_SEED_DATA.map(note => ({...note, tags: [...note.tags]}));
+  return FIELD_NOTE_SEED_DATA.map(prepareNote);
 }
 
 function mergeStaticNotes(savedNotes, staticNotes) {
-  const byId = new Map((savedNotes || []).map(note => [Number(note.id), note]));
+  const preparedSavedNotes = (savedNotes || []).map(prepareNote);
+  const byId = new Map(preparedSavedNotes.map(note => [Number(note.id), note]));
   staticNotes.forEach(note => {
-    if (!byId.has(Number(note.id))) savedNotes.unshift(note);
+    if (!byId.has(Number(note.id))) preparedSavedNotes.push(note);
   });
-  return savedNotes;
+  return preparedSavedNotes;
 }
 
 // 노트 전체 불러오기
@@ -1609,7 +1661,7 @@ async function loadNotesFromDB() {
   const staticNotes = getStaticNotes();
   if (!dbReady()) {
     // GitHub Pages는 정적 내장 데이터를 우선 사용한다.
-    notes = staticNotes;
+    notes = sortNotesByUploadTime(staticNotes);
     localStorage.setItem('fn_notes', JSON.stringify(notes));
     renderNotes();
     updateFilterButtons();
@@ -1622,7 +1674,7 @@ async function loadNotesFromDB() {
     const res = await fetch(APPS_SCRIPT_URL);
     const data = await res.json();
     if (data.ok) {
-      notes = data.notes.reverse(); // 최신순
+      notes = sortNotesByUploadTime((data.notes || []).map(prepareNote));
       renderNotes();
       updateFilterButtons();
       updateDataSourceStatus(`데이터 소스: Google Sheets ${notes.length}개 로드됨`);
@@ -1630,7 +1682,7 @@ async function loadNotesFromDB() {
     } else throw new Error(data.error);
   } catch(e) {
     showDbStatus('⚠️ DB 연결 실패 — 로컬 모드', 'error');
-    notes = staticNotes;
+    notes = sortNotesByUploadTime(staticNotes);
     localStorage.setItem('fn_notes', JSON.stringify(notes));
     renderNotes();
     updateFilterButtons();
@@ -1698,7 +1750,7 @@ function currentKstTime() {
 }
 
 async function publishNote() {
-  const title = document.getElementById('draft-title').value.trim();
+  const title = normalizeAdspTitle(document.getElementById('draft-title').value.trim());
   if (!title) { alert('제목을 입력해주세요'); return; }
 
   const note = {
@@ -1714,7 +1766,7 @@ async function publishNote() {
     tags: getTags()
   };
 
-  notes.unshift(note);
+  notes = sortNotesByUploadTime([prepareNote(note), ...notes]);
   renderNotes();
   updateFilterButtons();
   resetDraft();
@@ -1769,12 +1821,13 @@ function noteSearchText(note) {
 
 function getFilteredNotes() {
   const q = fnSearch.trim().toLowerCase();
-  return notes.filter(note => {
+  const filtered = notes.filter(note => {
     const catOk = fnFilter === 'ALL' || note.cat === fnFilter;
     const monthOk = fnMonth === 'ALL' || noteMonth(note) === fnMonth;
     const searchOk = !q || noteSearchText(note).includes(q);
     return catOk && monthOk && searchOk;
   });
+  return sortNotesByUploadTime(filtered);
 }
 
 function countBy(items) {
@@ -1928,8 +1981,5 @@ function updateFilterButtons() {
 
 // 페이지 로드 시 DB에서 노트 불러오기
 loadNotesFromDB();
-
 </script>
-
-
 </body></html>
