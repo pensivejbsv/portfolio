@@ -1215,6 +1215,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
 const ADMIN_PW = 'harry2026'; // ← 여기서 비밀번호 변경
 
 let isAdmin = false;
+let isForcePushing = false;
 
 function openAdminOverlay() {
   document.getElementById('adminOverlay').style.display = 'flex';
@@ -1233,6 +1234,7 @@ function checkAdminPw() {
     isAdmin = true;
     document.body.classList.add('admin-mode');
     document.getElementById('adminLoginBtn').style.display = 'none';
+    syncFieldNoteAdminControls();
     closeAdminOverlay();
   } else {
     document.getElementById('adminPwError').style.display = 'block';
@@ -1247,6 +1249,7 @@ function logoutAdmin() {
   if (isEditing) toggleEdit();
   document.body.classList.remove('admin-mode');
   document.getElementById('adminLoginBtn').style.display = 'inline-flex';
+  syncFieldNoteAdminControls();
 }
 
 /* ══════════════════════════════
@@ -1466,6 +1469,39 @@ function getTags() {
 const APPS_SCRIPT_URL = ''; // ← Apps Script 배포 URL 붙여넣기
 
 function dbReady() { return !!APPS_SCRIPT_URL; }
+
+function ensureFieldNoteForcePushButton() {
+  const toolbarActions = document.querySelector('.fn-toolbar > div:last-child');
+  if (!toolbarActions || document.getElementById('fn-force-push-btn')) return;
+  const button = document.createElement('button');
+  button.id = 'fn-force-push-btn';
+  button.className = 'fn-upload-btn';
+  button.style.background = '#1A3FCE';
+  button.style.color = '#fff';
+  button.textContent = 'DB Force Push';
+  button.onclick = forcePushFieldNotes;
+  toolbarActions.appendChild(button);
+}
+
+function syncFieldNoteAdminControls() {
+  ensureFieldNoteForcePushButton();
+  const button = document.getElementById('fn-force-push-btn');
+  if (!button) return;
+  const ready = dbReady();
+  button.disabled = !ready || isForcePushing;
+  button.style.opacity = button.disabled ? '.55' : '1';
+  button.style.cursor = button.disabled ? 'not-allowed' : 'pointer';
+  if (isForcePushing) {
+    button.textContent = 'Pushing...';
+    button.title = 'DB로 강제 반영 중입니다.';
+  } else if (ready) {
+    button.textContent = 'DB Force Push';
+    button.title = '현재 Field Notes 목록을 DB에 강제로 반영합니다.';
+  } else {
+    button.textContent = 'DB URL Needed';
+    button.title = 'APPS_SCRIPT_URL을 설정해야 강제 푸시를 사용할 수 있습니다.';
+  }
+}
 
 // DB 상태 표시
 function showDbStatus(msg, type='info') {
@@ -1983,8 +2019,23 @@ function normalizeAdspTitle(title) {
 }
 
 function prepareNote(note) {
+  const recordedAt = note && (note.recorded_at || note.recordedAt || note.created_at || note.createdAt);
+  const recordedDate = recordedAt ? new Date(recordedAt) : null;
+  const fallbackDate = recordedDate && Number.isFinite(recordedDate.getTime())
+    ? recordedDate.toLocaleDateString('en-CA', { timeZone: 'Asia/Seoul' })
+    : '';
+  const fallbackTime = recordedDate && Number.isFinite(recordedDate.getTime())
+    ? recordedDate.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Seoul'
+      }) + ' KST'
+    : '';
   return {
     ...note,
+    date: note.date || fallbackDate,
+    time: note.time || fallbackTime,
     title: normalizeAdspTitle(note.title),
     tags: Array.isArray(note.tags) ? [...note.tags] : []
   };
@@ -2092,6 +2143,60 @@ async function deleteNoteFromDB(id) {
 /* ══════════════════════════════
    PUBLISH NOTE
 ══════════════════════════════ */
+async function forcePushFieldNotes() {
+  if (!dbReady()) {
+    alert('APPS_SCRIPT_URL을 먼저 설정해주세요.');
+    return;
+  }
+  if (isForcePushing) return;
+  if (!confirm('현재 Field Notes 목록을 DB 기준 데이터로 강제 반영하시겠습니까?')) return;
+
+  isForcePushing = true;
+  syncFieldNoteAdminControls();
+  showDbStatus('DB 강제 푸시 중...', 'saving');
+
+  try {
+    const payloadNotes = sortNotesByUploadTime(notes).map(note => ({
+      id: note.id,
+      date: note.date || '',
+      time: note.time || '',
+      title: note.title || '',
+      cat: note.cat || '',
+      summary: note.summary || '',
+      body: note.body || '',
+      insight: note.insight || '',
+      ref: note.ref || '',
+      tags: Array.isArray(note.tags) ? note.tags : []
+    }));
+
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'force_push',
+        notes: payloadNotes,
+        requested_at: new Date().toISOString()
+      })
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'force_push failed');
+
+    if (Array.isArray(data.notes)) {
+      notes = sortNotesByUploadTime(data.notes.map(prepareNote));
+      renderNotes();
+      updateFilterButtons();
+    } else {
+      await loadNotesFromDB();
+    }
+    showDbStatus('강제 푸시 완료', 'ok');
+  } catch (error) {
+    console.error(error);
+    showDbStatus('강제 푸시 실패: Apps Script action(force_push) 확인 필요', 'error');
+  } finally {
+    isForcePushing = false;
+    syncFieldNoteAdminControls();
+  }
+}
+
 let notes = [];
 let fnFilter = 'ALL';
 let fnMonth = 'ALL';
@@ -2348,6 +2453,7 @@ function updateFilterButtons() {
 }
 
 // 페이지 로드 시 DB에서 노트 불러오기
+syncFieldNoteAdminControls();
 loadNotesFromDB();
 </script>
 </body></html>
