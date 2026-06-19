@@ -1476,8 +1476,8 @@ function ensureFieldNoteForcePushButton() {
   if (!toolbar || !toolbarActions) return;
   const toolbarTitle = toolbar.querySelector('.fn-toolbar-inner h3');
   const toolbarCopy = toolbar.querySelector('.fn-toolbar-inner p');
-  if (toolbarTitle) toolbarTitle.textContent = 'Field Notes DB Sync';
-  if (toolbarCopy) toolbarCopy.textContent = '현재 Field Notes 목록을 DB 기준 데이터로 강제 반영합니다.';
+  if (toolbarTitle) toolbarTitle.textContent = 'Field Notes Manual DB Push';
+  if (toolbarCopy) toolbarCopy.textContent = 'hourly 자동 반영과 별개로, 필요할 때 현재 Field Notes 목록을 수동으로 DB에 푸시합니다.';
   toolbarActions.querySelectorAll('button').forEach(button => {
     if (button.id !== 'fn-force-push-btn') button.remove();
   });
@@ -1487,7 +1487,7 @@ function ensureFieldNoteForcePushButton() {
   button.className = 'fn-upload-btn';
   button.style.background = '#1A3FCE';
   button.style.color = '#fff';
-  button.textContent = 'DB Force Push';
+  button.textContent = 'Manual DB Push';
   button.onclick = forcePushFieldNotes;
   toolbarActions.appendChild(button);
 }
@@ -1504,11 +1504,11 @@ function syncFieldNoteAdminControls() {
     button.textContent = 'Pushing...';
     button.title = 'DB로 강제 반영 중입니다.';
   } else if (ready) {
-    button.textContent = 'DB Force Push';
-    button.title = '현재 Field Notes 목록을 DB에 강제로 반영합니다.';
+    button.textContent = 'Manual DB Push';
+    button.title = '현재 Field Notes 목록을 사용자가 수동으로 DB에 푸시합니다.';
   } else {
     button.textContent = 'DB URL Needed';
-    button.title = 'APPS_SCRIPT_URL을 설정해야 강제 푸시를 사용할 수 있습니다.';
+    button.title = 'APPS_SCRIPT_URL을 설정해야 수동 DB 푸시를 사용할 수 있습니다.';
   }
 }
 
@@ -2193,11 +2193,11 @@ async function forcePushFieldNotes() {
     return;
   }
   if (isForcePushing) return;
-  if (!confirm('현재 Field Notes 목록을 DB 기준 데이터로 강제 반영하시겠습니까?')) return;
+  if (!confirm('현재 Field Notes 목록을 DB에 수동으로 푸시하시겠습니까?')) return;
 
   isForcePushing = true;
   syncFieldNoteAdminControls();
-  showDbStatus('DB 강제 푸시 중...', 'saving');
+  showDbStatus('수동 DB 푸시 중...', 'saving');
 
   try {
     const payloadNotes = sortNotesByUploadTime(notes).map(note => ({
@@ -2231,10 +2231,10 @@ async function forcePushFieldNotes() {
     } else {
       await loadNotesFromDB();
     }
-    showDbStatus('강제 푸시 완료', 'ok');
+    showDbStatus('수동 DB 푸시 완료', 'ok');
   } catch (error) {
     console.error(error);
-    showDbStatus('강제 푸시 실패: Apps Script action(force_push) 확인 필요', 'error');
+    showDbStatus('수동 DB 푸시 실패: Apps Script action(force_push) 확인 필요', 'error');
   } finally {
     isForcePushing = false;
     syncFieldNoteAdminControls();
