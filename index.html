@@ -868,7 +868,7 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
             <strong>Live</strong>
           </div>
         </div>
-        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-26 00:00 KST · ADsP 예상주제 24 동기화 완료</span></small>
+        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-26 07:17 KST · ADsP 예상주제 32 동기화 완료</span></small>
       </div>
       <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">34개</small></div>
       <div class="fn-search-panel">
@@ -1782,23 +1782,6 @@ const FIELD_NOTE_SEED_DATA = [
     insight: '이 주제는 정의를 따로 암기하기보다 분석 실무의 순서로 묶는 편이 훨씬 안정적이다. 데이터 마트에서 분석용 데이터를 꺼내고, 요약변수와 파생변수를 만든 뒤, EDA로 구조를 읽는 흐름이 잡히면 저장소·전처리·탐색을 섞어 놓은 보기 함정이 눈에 띄기 시작한다.',
     ref: '로컬 교재 txt(데이터 마트·요약변수·파생변수·EDA 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
     tags: ['ADsP', '데이터마트', '요약변수', '파생변수', 'EDA']
-},{
-    id: 1782432000001,
-    date: '2026-06-26',
-    time: '00:00 KST',
-    title: 'ADsP 예상주제 24: Optimization, Solution, Insight, Discovery 과제 유형',
-    cat: 'AI/데이터',
-    summary: '분석 과제 유형 4분면은 ADsP 2과목에서 비즈니스 문제를 어떤 방식으로 정의할지 묻는 대표 개념이다. 정답이 이미 정해진 최적화 문제인지, 해법을 설계해야 하는지, 숨은 패턴을 찾아야 하는지 구분하면 방법론과 접근법을 함께 정리할 수 있다.',
-    body: `기초: ADsP의 분석 과제 유형은 무엇을 알고 있고 무엇을 모르는지에 따라 Optimization, Solution, Insight, Discovery로 나뉜다. Optimization은 문제와 해법이 비교적 분명해 효율을 높이는 유형이고, Solution은 문제는 알지만 해법을 설계하거나 선택해야 하는 유형이다. Insight는 데이터 안의 패턴을 해석해 의미를 찾는 유형이고, Discovery는 문제 정의와 해법이 모두 불확실해 새로운 가설이나 기회를 탐색하는 유형이다. 핵심은 "문제를 이미 아는가"와 "해결 방법을 이미 아는가"라는 두 축으로 읽는 것이다.
-
-예상 문제: 시험에서는 네 유형을 단순한 프로젝트 규모나 난이도 순서처럼 바꾸어 내거나, Discovery를 무조건 데이터마이닝 기법 이름처럼 설명하는 함정이 자주 나온다. 예를 들어 물류 경로를 최소 비용으로 조정하는 문제는 Optimization에 가깝고, 이탈 고객을 막기 위한 실행방안을 설계하는 문제는 Solution에 가깝다. 고객 세분별 구매 패턴을 해석해 마케팅 포인트를 찾는 것은 Insight, 아직 어떤 사업 기회가 있는지조차 분명하지 않은 신규 데이터 탐색은 Discovery에 가깝다. 보기에서 "효율 최적화", "대안 설계", "패턴 해석", "새 문제 발굴" 같은 표현을 먼저 잡으면 구분이 빨라진다.
-
-심화: 이 4분면은 방법론 선택과도 연결된다. Optimization과 Solution은 상대적으로 목표가 또렷해 하향식 접근과 KPI 중심 과제 정의가 잘 맞고, Insight와 Discovery는 문제 자체를 정교화해야 하므로 상향식 접근이나 프로토타이핑 사고와 더 잘 연결된다. ADsP에서는 네 유형을 완전히 독립된 상자로 외우기보다, 비즈니스 이해 단계에서 과제를 정의하고 이후 KDD·CRISP-DM·분석 방법론으로 연결하는 출발점으로 이해하는 편이 안전하다. 결국 과제 유형을 잘못 잡으면 필요한 데이터, 적절한 분석 기법, 기대 산출물까지 모두 어긋날 수 있다는 점이 실무적 함의다.
-
-공부 순서: 1단계 가로축을 문제 정의 명확성, 세로축을 해결방안 명확성으로 두고 4분면을 직접 그린다. 2단계 Optimization-최적화, Solution-해결안 설계, Insight-패턴 해석, Discovery-새 기회 탐색을 한 줄로 매칭한다. 3단계 물류비 절감, 이탈방지 대안 설계, 고객군 해석, 신사업 발굴 같은 사례를 각 사분면에 배치한다. 4단계 보기 문장에서 문제를 이미 알고 있는지와 해법을 이미 알고 있는지를 먼저 체크하며 함정 문장을 걸러낸다.`,
-    insight: '분석 기획 파트는 용어만 외우면 KDD, CRISP-DM, 방법론, 과제 유형이 따로 흩어진다. 과제 유형 4분면을 먼저 잡아두면 "지금 이 문제는 최적화인가 탐색인가"가 선명해지고, 그 다음에 어떤 데이터와 접근법이 필요한지도 자연스럽게 이어진다.',
-    ref: '로컬 교재 txt(분석 과제 유형 4분면: Optimization·Solution·Insight·Discovery 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
-    tags: ['ADsP', 'Optimization', 'Solution', 'Insight', 'Discovery']
 },{
     id: 1781939460001,
     date: '2026-06-20',
