@@ -868,9 +868,9 @@ footer{margin-top:64px;padding-top:26px;border-top:1px solid var(--border);displ
             <strong>Live</strong>
           </div>
         </div>
-        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-30 07:13 KST · ADsP 예상주제 36 동기화 완료</span></small>
+        <small><span id="adsp-automation-status">이상없음</span><br><span id="adsp-automation-detail">2026-06-30 08:15 KST · ADsP 예상주제 35 동기화 완료</span></small>
       </div>
-      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">36개</small></div>
+      <div class="sec-head" style="margin-top:0"><h2>Posts</h2><small id="fn-note-count">38개</small></div>
       <div class="fn-search-panel">
         <div class="fn-search-row">
           <span class="fn-search-icon">⌕</span>
@@ -1683,6 +1683,23 @@ function updateDataSourceStatus(msg) {
 
 const FIELD_NOTE_SEED_DATA = [
 {
+    id: 20260630081500,
+    date: '2026-06-30',
+    time: '08:15 KST',
+    title: 'ADsP 예상주제 35: 로지스틱 회귀의 Odds, Logit, Sigmoid',
+    cat: 'AI/데이터',
+    summary: '로지스틱 회귀는 ADsP 분류분석에서 오즈, 로짓, 시그모이드 함수를 한 묶음으로 뒤섞어 내는 대표 주제다. 성공확률 대 실패확률의 비인 Odds에서 시작해 로그 변환으로 선형화하고, 다시 0~1 확률로 되돌리는 흐름을 잡아두면 보기형 함정을 빠르게 정리할 수 있다.',
+    body: `기초: 로지스틱 회귀분석은 종속변수가 범주형인 문제, 특히 성공과 실패 같은 이진 분류 문제에 활용하는 대표 모형이다. 핵심 출발점은 오즈(Odds)다. 오즈는 성공할 확률을 실패할 확률로 나눈 비율로 이해하면 된다. 이 오즈에 자연로그를 취한 값이 로짓(Logit)이며, 로짓 변환을 통해 확률 문제를 선형 관계처럼 다룰 수 있다. 마지막으로 시그모이드 함수는 로짓 값을 다시 0과 1 사이 확률로 바꿔 주는 연결고리다.
+
+예상 문제: ADsP에서는 오즈를 단순 성공확률 자체라고 바꾸거나, 로짓을 확률값을 바로 더하는 공식처럼 설명하는 보기가 자주 나온다. 또 시그모이드 함수를 선형함수라고 바꾸거나, 로지스틱 회귀를 연속형 종속변수 예측용 회귀와 같은 방식으로 설명하면 오답 가능성이 높다. 문제를 읽을 때 먼저 종속변수가 범주형인지 확인하고, 오즈→로그 변환→확률 복원이라는 순서를 떠올리면 보기 함정을 빠르게 걸러낼 수 있다.
+
+심화: 로지스틱 회귀는 회귀계수를 최소제곱법이 아니라 최대우도법으로 추정한다는 점도 자주 출제된다. 모형 전체 검정은 우도비검정과 카이제곱검정 흐름으로 연결해 기억하는 편이 안전하다. 회귀계수의 부호는 특정 변수가 성공확률을 높이는 방향인지 낮추는 방향인지를 해석하는 단서가 된다. 시험에서는 복잡한 수치 계산보다 “오즈는 확률의 비”, “로짓은 로그 변환”, “시그모이드는 확률 복원”, “추정은 최대우도법”이라는 구조를 구분하는 문제가 더 자주 나온다.
+
+공부 순서: 1단계 로지스틱 회귀는 범주형 종속변수 분류 문제라는 점을 먼저 고정한다. 2단계 오즈=성공확률/실패확률, 로짓=오즈의 로그 변환, 시그모이드=0~1 확률 복원이라는 세 문장을 한 줄 매칭으로 암기한다. 3단계 최대우도법과 우도비검정을 로지스틱 회귀의 검정 키워드로 연결한다. 4단계 보기 문장에서 범주형 종속변수, 오즈, 로그, 확률, 최대우도 같은 단서를 표시하며 어떤 설명이 맞는지 판별하는 연습을 한다.`,
+    insight: '로지스틱 회귀는 공식을 길게 외우기보다 확률을 바로 다루기 어려워 오즈와 로그를 거쳐 다시 확률로 돌아온다는 흐름을 이해해야 오래 간다. 시험장에서는 “비율로 바꾸고, 로그로 펴고, 다시 확률로 되돌린다”는 문장 하나가 Odds·Logit·Sigmoid를 가장 빠르게 복원해 준다.',
+    ref: '로컬 교재 txt(로지스틱 회귀분석·오즈·로짓 변환·시그모이드 함수·최대우도법 정리)와 기존 ADsP Field Notes를 사용함. YouTube 자막/전사는 이번 실행에서 직접 확인하지 못함.',
+    tags: ['ADsP', '로지스틱회귀', 'Odds', 'Logit', 'Sigmoid']
+},{
     id: 20260630071300,
     date: '2026-06-30',
     time: '07:13 KST',
